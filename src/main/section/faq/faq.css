@@ -1,0 +1,70 @@
+.ITconsult-faq{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 32px;
+}
+
+.ITconsult-faq-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30%;
+}
+
+.ITconsult-faq-question-arrangement{
+    position: relative;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.ITconsult-faq-question-arrangement::before{
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 25px; /* Adjust this value to control the length of the border */
+    height: 1px; /* Border thickness */
+    background-color: white; /* Border color */
+    transform: translate(-35%, -500%);
+}
+
+/* Partial left border */
+.ITconsult-faq-question-arrangement::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px; /* Border thickness */
+    height: 15px; /* Adjust this value to control the length of the left border */
+    background-color: white; /* Border color */
+    transform: translate(-600%, -55%); /* Adjusts the positioning slightly to center the border */
+}
+
+.ITconsult-faq-question h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    gap: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.ITconsult-faq-question .icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.ITconsult-faq-question .icon.rotate {
+    transform: rotate(45deg);
+}
+
+.ITconsult-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.ITconsult-faq-answer.expanded {
+    max-height: 500px; /* Adjust this value to accommodate the largest expected answer */
+}

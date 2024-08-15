@@ -1,0 +1,27 @@
+.ITconsult-tech-slider {
+    width: 100%;
+    margin-inline: auto;
+    position: relative;
+    height: 100px;
+    margin-top: 5rem;
+    overflow: hidden;
+    display: flex;
+}
+
+.ITconsult-tech-item {
+    border-radius: 6px;
+    font-size: 48px;
+    min-width: 100px;
+    height: 54px; /* Match the height to the container */
+    animation: scrollLeft 10s linear infinite;
+    display: flex;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

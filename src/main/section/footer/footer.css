@@ -1,0 +1,91 @@
+.our-location{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.our-location-arrangement{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+}
+
+.ITconsult-footer-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 24px;
+}
+
+.Footer-Quick-Link-btn{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+}
+
+.Footer-Quick-Link-btn button{
+    all: unset;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+    transition: color 0.2s ease-in, font-weight 0.2s ease-in;
+}
+
+.Footer-Quick-Link-btn button:hover{
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.pop-msg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure it's above other content */
+}
+
+.msg-content {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+    backdrop-filter: blur(20px); /* Apply blur effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for better depth */
+}
+
+.msg-content h2{
+    text-align: center;
+}
+
+.msg-close {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.msg-close:hover {
+    transform: scale(1.15);
+    color: #f0f0f0;
+}
+
+.msg-body {
+    margin-top: 20px;
+}

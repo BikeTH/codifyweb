@@ -1,0 +1,33 @@
+.ITconsult-reason-content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 68px;
+}
+
+.ITconsult-reason-header h1{
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.ITconsult-reason-header h2{
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.ITconsult-reason-support{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.ITconsult-reason-support-arrangement{
+    text-align: left;
+}
+
+.ITconsult-reason-support-arrangement h2{
+    margin: 0;
+}
