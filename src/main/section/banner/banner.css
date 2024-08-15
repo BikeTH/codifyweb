@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    max-height: 100vh;
+    position: relative;
 }
 
 .ITconsult-banner-header{
@@ -15,12 +15,6 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-}
-
-.ITconsult-banner-setting{
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
 }
 
 .ITconsult-banner-content{
@@ -75,16 +69,26 @@
 }
 
 .ITconsult-nav-bar {
-    position: sticky;
     top: 0;
     z-index: 10;
     border: 1px solid white;
     border-radius: 48px;
     width: 100%;
-    background-color: transparent; /* Make sure background is set if needed */
+    background-color: transparent;
     margin: 0;
-    padding: 10px; /* Add some padding if needed */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for better visibility */
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ITconsult-nav-bar.fixed {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9); /* Slightly opaque white */
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 0; /* Remove border-radius for fixed state */
+    border: none;
 }
 
 .ITconsult-nav-bar ul {
@@ -94,7 +98,7 @@
     align-items: center;
     padding: 0;
     margin: 0;
-    list-style: none; /* Make sure no default list styling */
+    list-style: none;
 }
 
 .ITconsult-nav-bar li {
@@ -119,3 +123,4 @@
 .ITconsult-nav-bar li span {
     font-size: 12px;
 }
+

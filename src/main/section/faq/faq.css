@@ -48,11 +48,11 @@
     font-size: 24px;
     cursor: pointer;
     gap: 24px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-out;
 }
 
 .ITconsult-faq-question .icon {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-out;
 }
 
 .ITconsult-faq-question .icon.rotate {
@@ -62,7 +62,7 @@
 .ITconsult-faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.3s ease-out;
 }
 
 .ITconsult-faq-answer.expanded {

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './banner.css';
 import bannerImage from '../../../assets/ITConsult/banner.jpeg';
 import ScrollToSection from '../../function/scrollToSection';
+import CurrentTime from '../../function/currentTime';
 import { TbPackage, TbZoomMoney, TbHome, TbMessage, TbMailHeart } from "react-icons/tb";
 
 export default function Banner() {
     const [activeSection, setActiveSection] = useState('home');
+    const [isNavbarFixed, setIsNavbarFixed] = useState(false);
 
     useEffect(() => {
         const sections = document.querySelectorAll('section');
@@ -24,14 +26,28 @@ export default function Banner() {
         };
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const navbar = document.querySelector('.ITconsult-nav-bar');
+            const navbarOffsetTop = navbar.offsetTop;
+            if (window.scrollY > navbarOffsetTop) {
+                setIsNavbarFixed(true);
+            } else {
+                setIsNavbarFixed(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <div className="ITconsult-banner" id="home">
             <div className="ITconsult-banner-header">
-                <h1>Time</h1>
-                <div className="ITconsult-banner-setting">
-                    <h1>Language</h1>
-                    <h1>Dark/Light Mode</h1>
-                </div>
+                <CurrentTime />
             </div>
             <div className="ITconsult-banner-content">
                 <div className="ITconsult-intro-content">
@@ -42,7 +58,7 @@ export default function Banner() {
                 </div>
                 <img src={bannerImage} alt="Banner" />
             </div>
-            <div className="ITconsult-nav-bar">
+            <div className={`ITconsult-nav-bar ${isNavbarFixed ? 'fixed' : ''}`}>
                 <ul>
                     <li 
                         className={activeSection === 'offer' ? 'active' : ''} 

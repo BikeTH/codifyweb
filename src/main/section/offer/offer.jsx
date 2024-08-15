@@ -67,7 +67,10 @@ export default function Offer() {
                 >
                     {isPackage ? null : (
                     isHovering ? (
-                        <LuPackageOpen size={44} />
+                        <div>
+                            <LuPackageOpen size={44} />
+                            <p className="click-me-text">Click me</p>
+                        </div>
                         ) : (
                         <div>
                             <GoPackageDependents size={44} />
