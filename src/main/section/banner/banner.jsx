@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import './banner.css';
-import bannerImage from '../../../assets/ITConsult/banner.jpeg';
+import React, { useState, useEffect } from "react";
+import './banner.css'
 import ScrollToSection from '../../function/scrollToSection';
-import CurrentTime from '../../function/currentTime';
 import { TbPackage, TbZoomMoney, TbHome, TbMessage, TbMailHeart } from "react-icons/tb";
 
 export default function Banner() {
@@ -44,19 +42,31 @@ export default function Banner() {
         };
     }, []);
 
-    return (
-        <div className="ITconsult-banner" id="home">
-            <div className="ITconsult-banner-header">
-                <CurrentTime />
-            </div>
-            <div className="ITconsult-banner-content">
-                <div className="ITconsult-intro-content">
-                    <h1>Website / Application Development Malaysia</h1>
-                    <h2>We Build Stunning, Efficient Websites & Apps that captivate users.</h2>
-                    <p>A stunning looking website is the First Step</p>
-                    <button className="buttonIT" onClick={() => ScrollToSection('ITConsult')}>Explore Now</button>
+    return(
+        <div className="Banner" id="home">
+            <div className="Banner-Header">
+                <div className="Banner-Header-arrangement">
+                    <h1>TC</h1>
+                    <p>
+                        // Based in
+                        <br></br>
+                        Malaysia
+                    </p>
                 </div>
-                <img src={bannerImage} alt="Banner" />
+                <h1>Solutions</h1>
+                <h1>Website</h1>
+                <div className="Banner-Header-arrangement">
+                    <p>
+                        // Android
+                        <br></br>
+                        // IoS
+                    </p>
+                    <h1>& Application</h1>
+                </div>
+            </div>
+            <div className="Banner-description">
+                <h2>We Build Stunning, Efficient Websites & Apps that captivate users.</h2>
+                <h2>A stunning looking website is the First Step</h2>
             </div>
             <div className={`ITconsult-nav-bar ${isNavbarFixed ? 'fixed' : ''}`}>
                 <ul>
@@ -93,5 +103,5 @@ export default function Banner() {
                 </ul>
             </div>
         </div>
-    );
+    )
 }
