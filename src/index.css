@@ -6,25 +6,29 @@
     color: white;
 }
 
-:root h1{
-    font-size: clamp(12px, 2vw + 1rem, 28px);
+h1{
+    font-size: 4vmin;
     font-weight: 600;
 }
 
-.root h2{
-    font-size: clamp(16px, 1.8vw + 1rem, 44px);
+h2{
+    font-size: 6vmin;
     font-weight: 800;
 }
 
-.root h3{
-    font-size: clamp(8px, 1.8vw + 1rem, 20px);
+h3{
+    font-size: 3vmin;
     font-weight: 600;
 }
 
-.root p{
-    font-size: clamp(8px, 1.5vw + 0.5rem, 16px);
+p{
+    font-size: 2.25vmin;
 }
 
-.root span{
+li{
+    font-size: 4vmin;
+}
+
+span{
     font-family: 'DO Futuristic', sans-serif;
 }

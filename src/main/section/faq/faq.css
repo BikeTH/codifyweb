@@ -45,7 +45,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 24px;
     cursor: pointer;
     gap: 24px;
     transition: all 0.3s ease-out;

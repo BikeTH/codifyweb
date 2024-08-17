@@ -8,22 +8,23 @@ export default function Banner() {
     const [isNavbarFixed, setIsNavbarFixed] = useState(false);
 
     useEffect(() => {
-        const sections = document.querySelectorAll('section');
+        const sections = document.querySelectorAll('div[id]'); // Selects all divs with an id attribute
+    
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     setActiveSection(entry.target.id);
                 }
             });
-        }, { threshold: 0.5 });
-
+        }, { threshold: 0.7 });
+    
         sections.forEach(section => observer.observe(section));
-
+    
         return () => {
             sections.forEach(section => observer.unobserve(section));
         };
     }, []);
-
+    
     useEffect(() => {
         const handleScroll = () => {
             const navbar = document.querySelector('.ITconsult-nav-bar');
@@ -66,7 +67,6 @@ export default function Banner() {
             </div>
             <div className="Banner-description">
                 <h2>We Build Stunning, Efficient Websites & Apps that captivate users.</h2>
-                <h2>A stunning looking website is the First Step</h2>
             </div>
             <div className={`ITconsult-nav-bar ${isNavbarFixed ? 'fixed' : ''}`}>
                 <ul>
