@@ -9,3 +9,12 @@
     letter-spacing: 0.15em;
     gap: 28px;
 }
+
+@media screen and (max-width: 768px) {
+    .ITconsult-main{
+        padding-left: 4%;
+        padding-right: 4%;
+        padding: 12px;
+        gap: 20px;
+    }
+}

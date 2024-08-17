@@ -42,7 +42,7 @@ export default function Offer() {
                     {offer.map(data => (
                         <div className="ITconsult-offer-content" key={data.id}>
                             <h2 style={{ fontWeight: "800" }}>{data.icon}</h2>
-                            <h1 style={{ fontWeight: "400", margin: "0", transform: "translateY(-100%)" }}>{data.title}</h1>
+                            <h1 style={{ fontWeight: "400", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h1>
                         </div>
                     ))}
                 </div>
@@ -55,7 +55,7 @@ export default function Offer() {
                             className="workflow-btn-cancel"
                             onClick={handlePackageClick}
                         >
-                            <MdClose size={44} />
+                            <MdClose />
                         </div>
                     )}
                 </div>

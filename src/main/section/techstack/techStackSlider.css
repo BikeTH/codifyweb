@@ -1,6 +1,8 @@
 .slider {
+    margin: 20px;
+    padding: 20px;
     width: 50%;
-    height: 100px;
+    height: 50px;
     overflow: hidden;
     position: relative;
 }
@@ -24,5 +26,11 @@
 @keyframes AutoRun {
     to {
         left: -200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider {
+        width: 100%;
     }
 }

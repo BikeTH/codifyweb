@@ -32,3 +32,37 @@ li{
 span{
     font-family: 'DO Futuristic', sans-serif;
 }
+
+@media screen and (max-width: 768px) {
+    :root {
+        font-family: 'DO Futuristic', sans-serif;
+        background-color: black;
+        color: white;
+        line-height: 1.4;
+    }
+
+    h1{
+        font-size: 8vmin;
+        font-weight: 600;
+    }
+    
+    h2{
+        font-size: 12vmin;
+        font-weight: 800;
+    }
+    
+    h3{
+        font-size: 3vmin;
+        font-weight: 600;
+    }
+    
+    p{
+        font-family: Georgia, serif;
+        font-size: 4.5vmin;
+        letter-spacing: 3.5px;
+    }
+    
+    li{
+        font-size: 4vmin;
+    }
+}

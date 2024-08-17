@@ -40,12 +40,12 @@ export default function Contact(){
                                     <button type="submit" className="sent-query"><SiMinutemailer /><span className="form-submit-button">Submit</span></button>
                                 </form>
                             </div>
-                            <img src={email} alt="email image"/>
+                            <img className="contact-img"src={email} alt="email image"/>
                         </div>
                     </div>
                 ) : (
                     <div className="contact-details">
-                        <img src={quotation} alt="quotation image"/>
+                        <img className="contact-img" src={quotation} alt="quotation image"/>
                         <div className="ITconsult-contact-detail">
                         <h1>Request For Quotation?</h1>
                             <p>You can directly Contact Us for consultation with no Charges and We are Happy to Help!</p>

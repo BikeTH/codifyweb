@@ -11,7 +11,7 @@ export default function Quotation(){
                 <p style={{textAlign:"center", margin:"0px", fontStyle:"italic"}}>Price may vary without notice</p>
             </div>
             <div className="ITconsult-price-quotation-form">
-                <h1 style={{textAlign:"center", fontSize:"68px"}}>Progressing....</h1>
+                <h1 style={{textAlign:"center", fontSize:"48px"}}>Progressing....</h1>
             </div>
         </div>
         </>

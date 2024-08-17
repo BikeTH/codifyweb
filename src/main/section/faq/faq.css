@@ -67,3 +67,22 @@
 .ITconsult-faq-answer.expanded {
     max-height: 500px; /* Adjust this value to accommodate the largest expected answer */
 }
+
+@media screen and (max-width: 768px) {
+    .ITconsult-faq{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .ITconsult-faq-header{
+        max-width: 100%;
+    }
+
+    .ITconsult-faq-question-arrangement{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}

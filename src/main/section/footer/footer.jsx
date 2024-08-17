@@ -67,7 +67,7 @@ export default function Footer(){
                     </div>
                 </div>
                 <div style={{borderBottom:"0.2px solid white", padding:"8px", margin:"0 auto"}}/>
-                <p>&copy; 2024. All rights reserved.</p>
+                <p>TC WebApp Solution &copy; 2024. All rights reserved.</p>
             </div>
             {showMsg && (
                 <div className="pop-msg-overlay">
@@ -77,7 +77,7 @@ export default function Footer(){
                         <div className="msg-body">
                             <p>Last updated: August 2024</p>
                             <h3>Introduction</h3>
-                            <p>&#40;"we", "us", or "our"&#41; operates the wilfredcty.com/ITconsult website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
+                            <p>TC WebApp Solution &#40;"we", "us", or "our"&#41; operates the wilfredcty.com/ITconsult website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
                             <h3>Definitions</h3>
                             <ul>
                                 <li>Personal Data: Information about an individual who can be identified from that data or from that data combined with other information in our possession.</li>

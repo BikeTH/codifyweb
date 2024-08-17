@@ -22,6 +22,12 @@
     margin: 0;
 }
 
+.Banner-Header h2{
+    font-size: 10vmin !important;
+    font-weight: 600;
+    margin: 0;
+}
+
 .Banner-Header p{
     font-size: 1.7vmin;
     margin: 0;
@@ -45,58 +51,22 @@
     margin: 0;
 }
 
-.ITconsult-nav-bar {
-    top: 0;
-    z-index: 10;
-    border: 1px solid white;
-    border-radius: 48px;
-    width: 100%;
-    background-color: transparent;
-    margin: 0;
-    padding: 10px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
+@media screen and (max-width: 768px) {
+    .Banner-Header h1{
+        font-size: 12vmin !important;
+        font-weight: 600;
+        margin: 0;
+    }
 
-.ITconsult-nav-bar.fixed {
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.9); /* Slightly opaque white */
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    border-radius: 0; /* Remove border-radius for fixed state */
-    border: none;
-}
+    .Banner-Header p{
+        font-size: 3vmin;
+    }
 
-.ITconsult-nav-bar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
+    .Banner-Header h2{
+        font-size: 8vmin !important;
+    }
 
-.ITconsult-nav-bar li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-    cursor: pointer;
-    transition: transform 0.3s ease-out;
-    width: 12%;
+    .Banner-Header-arrangement{
+        gap: 4px;
+    }
 }
-
-.ITconsult-nav-bar li:hover,
-.ITconsult-nav-bar li.active {
-    border-radius: 48px;
-    background-color: white;
-    color: black;
-    transform: scale(1.15);
-}
-
-.ITconsult-nav-bar li span {
-    font-size: 1.75vmin;
-}
-

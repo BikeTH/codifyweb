@@ -15,9 +15,23 @@
 
 .ITconsult-footer-content{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "about about quick-links legal";
     justify-content: center;
     gap: 24px;
+}
+
+.ITconsult-footer-content-arrangement:nth-of-type(1) {
+    grid-area: about;
+}
+
+.ITconsult-footer-content-arrangement:nth-of-type(2) {
+    grid-area: quick-links;
+}
+
+.ITconsult-footer-content-arrangement:nth-of-type(3) {
+    grid-area: legal;
 }
 
 .Footer-Quick-Link-btn{
@@ -88,4 +102,20 @@
 
 .msg-body {
     margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .ITconsult-footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Full width for the first column */
+        grid-template-rows: auto auto; /* Two rows, auto height */
+        grid-template-areas: 
+            "about about"
+            "quick-links legal";
+        gap: 24px;
+    }
+    
+    .Footer-Quick-Link-btn button{
+        font-size: 12px;
+    }
 }

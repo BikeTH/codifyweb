@@ -45,7 +45,7 @@ export default function WhyUs(){
     return(
         <>
         <div className="ITconsult-why-us">
-            <h1>Why Choose Us?</h1>
+            <h1 style={{textAlign:"center"}}>Why Choose Us?</h1>
             <div className="ITconsult-why-us-arrangement">
             {
                 chooseUs.map(data => (

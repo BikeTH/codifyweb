@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './projectStep.css';
+import ScrollToSection from "../../../function/scrollToSection";
 import { FaRegLightbulb, FaPencilAlt, FaCode, FaBug, FaRocket } from "react-icons/fa";
 import { FaDigitalOcean } from "react-icons/fa6";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
@@ -49,6 +50,7 @@ const steps = [
                         <h3 style={{textAlign:"center"}}><SiExpo/></h3>
                     </div>
                 </div>
+                <p>We always leveling up !</p>
             </>
         )
     },
@@ -101,23 +103,26 @@ export default function ProjectSteps() {
 
     const handleStepClick = (index) => {
         setCurrentStep(index);
+        ScrollToSection('project');
     };
 
     const handleNext = () => {
         if (currentStep < steps.length - 1) {
             setCurrentStep(currentStep + 1);
+            ScrollToSection('project'); // Scroll after updating the step
         }
     };
 
     const handlePrev = () => {
         if (currentStep > 0) {
             setCurrentStep(currentStep - 1);
+            ScrollToSection('project'); // Scroll after updating the step
         }
     };
 
     return (
         <>
-            <div className="project-navigation">
+            <div className="project-navigation" id="project">
                 <ul>
                     {steps.map((step, index) => (
                         <li 
@@ -139,22 +144,22 @@ export default function ProjectSteps() {
                     </button>
                 </div>
                 <div>
-                {showDetails && (
-                    <div className="details">
-                        {steps[currentStep].details}
-                    </div>
-                )}
+                    {showDetails && (
+                        <div className="details">
+                            {steps[currentStep].details}
+                        </div>
+                    )}
                 </div>
                 <div className="step-navigation">
                     {currentStep > 0 && (
                         <button onClick={handlePrev} className="step-nav-btnmsg prev-btn">
-                            <MdArrowBackIos/>
+                            <MdArrowBackIos style={{fontSize:"24px"}}/>
                             <span className="step-nav-show-btmmsg">Prev</span>
                         </button>
                     )}
                     {currentStep < steps.length - 1 && (
-                        <button onClick={handleNext}  className="step-nav-btnmsg next-btn">
-                            <MdArrowForwardIos/>
+                        <button onClick={handleNext} className="step-nav-btnmsg next-btn">
+                            <MdArrowForwardIos style={{fontSize:"24px"}}/>
                             <span className="step-nav-show-btmmsg">Next</span>
                         </button>
                     )}

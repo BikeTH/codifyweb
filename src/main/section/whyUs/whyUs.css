@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     margin: 18px;
+    gap: 24px;
 }
 
 .ITconsult-why-us-arrangement{
@@ -12,7 +13,24 @@
     gap: 32px;
 }
 
+.ITconsult-why-us-content h1{
+    font-size: 8vmin !important;
+}
+
 .ITconsult-why-us-content h2{
     margin: 0;
     margin-top: 8px;
+}
+
+@media screen and (max-width: 768px) {
+    .ITconsult-why-us-arrangement{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+    }
+
+
+    .ITconsult-why-us h1{
+        font-size: 6.5vmin;
+        margin: 8px;
+    }
 }
