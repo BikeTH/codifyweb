@@ -26,6 +26,10 @@
     text-align: left;
 }
 
+.ITconsult-reason-support-arrangement h1{
+    height: 27.5%;
+}
+
 .ITconsult-reason-support-arrangement h2{
     margin: 0;
 }
@@ -35,6 +39,10 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+    }
+
+    .ITconsult-reason-support-arrangement h1{
+        height: auto;
     }
 
     .ITconsult-reason-support{

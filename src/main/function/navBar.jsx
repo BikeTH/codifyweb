@@ -8,6 +8,7 @@ export default function NavBar() {
     const [isNavbarFixed, setIsNavbarFixed] = useState(false);
 
     useEffect(() => {
+        const isMobile = window.innerWidth <= 768;
         const sections = document.querySelectorAll('div[id]');
 
         const observer = new IntersectionObserver(entries => {
@@ -16,7 +17,7 @@ export default function NavBar() {
                     setActiveSection(entry.target.id);
                 }
             });
-        }, { threshold: 0.7 });
+        }, { threshold: isMobile ? 0.5 : 0.9 });
 
         sections.forEach(section => observer.observe(section));
 
@@ -36,47 +37,63 @@ export default function NavBar() {
             }
         };
 
+        const handleTouchStart = (e) => {
+            const navbarItems = document.querySelectorAll('.ITconsult-nav-bar li');
+            navbarItems.forEach(item => {
+                if (item !== e.target) {
+                    item.classList.remove('hover'); // Remove hover state on touchstart
+                }
+            });
+        };
+
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('touchstart', handleTouchStart); // Add touchstart listener
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('touchstart', handleTouchStart); // Clean up listener
         };
     }, []);
+
+    const handleClick = (sectionId) => {
+        ScrollToSection(sectionId);
+        setActiveSection(sectionId); // Directly set the active section on click
+    };
 
     return (
         <div className={`ITconsult-nav-bar ${isNavbarFixed ? 'fixed' : ''}`}>
             <ul>
                 <li
                     className={activeSection === 'offer' ? 'active' : ''}
-                    onClick={() => ScrollToSection('offer')}
+                    onClick={() => handleClick('offer')}
                 >
                     <TbPackage /><span>Our Product</span>
                 </li>
                 <li
                     className={activeSection === 'quotation' ? 'active' : ''}
-                    onClick={() => ScrollToSection('quotation')}
+                    onClick={() => handleClick('quotation')}
                 >
                     <TbZoomMoney /><span>Cost</span>
                 </li>
                 <li
                     className={activeSection === 'home' ? 'active' : ''}
-                    onClick={() => ScrollToSection('home')}
+                    onClick={() => handleClick('home')}
                 >
                     <TbHome /><span>Home</span>
                 </li>
                 <li
                     className={activeSection === 'faq' ? 'active' : ''}
-                    onClick={() => ScrollToSection('faq')}
+                    onClick={() => handleClick('faq')}
                 >
                     <TbMessage /><span>FaQ</span>
                 </li>
                 <li
                     className={activeSection === 'contact' ? 'active' : ''}
-                    onClick={() => ScrollToSection('contact')}
+                    onClick={() => handleClick('contact')}
                 >
                     <TbMailHeart /><span>Contact Us</span>
                 </li>
             </ul>
         </div>
-    )
+    );
 }

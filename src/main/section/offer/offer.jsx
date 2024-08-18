@@ -10,12 +10,12 @@ import ScrollToSection from "../../function/scrollToSection";
 const offer = [
     {
         id: 1,
-        icon: <CgSmartphone />,
+        icon: <CgSmartphone style={{color:"var(--warm-neon-blue)"}}/>,
         title: "Mobile Application",
     },
     {
         id: 2,
-        icon: <CgWebsite />,
+        icon: <CgWebsite style={{color:"var(--warm-neon-blue)"}}/>,
         title: "Website",
     }
 ];
@@ -37,7 +37,7 @@ export default function Offer() {
     return (
         <div className={`ITconsult-offer ${isPackage ? 'shifted' : ''}`} id="offer">
             <div className="offers-arrangement">
-                <h1>What we Offer</h1>
+                <h1>What we <span style={{color:"var(--warm-neon-orange)"}}>Offer</span></h1>
                 <div className="ITconsult-offers-arrangement">
                     {offer.map(data => (
                         <div className="ITconsult-offer-content" key={data.id}>
@@ -49,7 +49,7 @@ export default function Offer() {
             </div>
             <div className={`project-arrangement ${isPackage ? 'shifted-project' : ''}`}>
                 <div className="project-header">
-                    <h1>~ How we Delivered Project ~</h1>
+                    <h1>~ How we <span style={{color:"var(--warm-neon-yellow)"}}>Delivered</span> Project ~</h1>
                     {isPackage && (
                         <div
                             className="workflow-btn-cancel"
@@ -68,12 +68,12 @@ export default function Offer() {
                     {isPackage ? null : (
                     isHovering ? (
                         <div>
-                            <LuPackageOpen size={44} />
+                            <LuPackageOpen size={44} style={{color:"var(--warm-neon-yellow)"}}/>
                             <p className="click-me-text">Click me</p>
                         </div>
                         ) : (
                         <div>
-                            <GoPackageDependents size={44} />
+                            <GoPackageDependents size={44} style={{color:"var(--warm-neon-yellow)"}}/>
                             <p className="click-me-text">Click me</p>
                         </div>
                         )

@@ -14,7 +14,8 @@
 }
 
 .ITconsult-why-us-content h1{
-    font-size: 8vmin !important;
+    font-size: 4vmin !important;
+    height: 25%;
 }
 
 .ITconsult-why-us-content h2{
@@ -28,6 +29,10 @@
         gap: 12px;
     }
 
+    .ITconsult-why-us-content h1{
+        font-size: 8vmin !important;
+        height: auto;
+    }    
 
     .ITconsult-why-us h1{
         font-size: 6.5vmin;

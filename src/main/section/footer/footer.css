@@ -50,7 +50,7 @@
 }
 
 .Footer-Quick-Link-btn button:hover{
-    color: whitesmoke;
+    color: var(--warm-neon-blue);
     font-weight: 600;
 }
 

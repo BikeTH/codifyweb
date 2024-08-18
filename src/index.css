@@ -1,9 +1,20 @@
-@import url('https://fonts.cdnfonts.com/css/do-futuristic');
-
 :root {
-    font-family: 'DO Futuristic', sans-serif;
     background-color: black;
     color: white;
+    --neon-red: #FF073A;
+    --neon-blue: #00FFFF;
+    --neon-green: #39FF14;
+    --neon-pink: #FF6EC7;
+    --neon-orange: #FF5F00;
+    --neon-yellow: #E3FF00;
+    --neon-purple: #BF00FF;
+    --warm-neon-red: #FF4C6D;
+    --warm-neon-blue: #00B2FF;
+    --warm-neon-green: #66FF66;
+    --warm-neon-pink: #FF8CC1;
+    --warm-neon-orange: #FF8C42;
+    --warm-neon-yellow: #F7E26B;
+    --warm-neon-purple: #D8A6FF;
 }
 
 h1{
@@ -29,13 +40,8 @@ li{
     font-size: 4vmin;
 }
 
-span{
-    font-family: 'DO Futuristic', sans-serif;
-}
-
 @media screen and (max-width: 768px) {
     :root {
-        font-family: 'DO Futuristic', sans-serif;
         background-color: black;
         color: white;
         line-height: 1.4;

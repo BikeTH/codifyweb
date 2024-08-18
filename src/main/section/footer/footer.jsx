@@ -12,6 +12,7 @@ export default function Footer(){
             id: 1,
             title: "About",
             content:"We build functional websites and applications tailored to your business needs, whether for optimizing operations or increasing visitor engagement. Our solutions enhance efficiency and deliver practical, user-friendly tools.",
+            color: "var(--warm-neon-red)",
         },
         {
             id: 2,
@@ -26,7 +27,8 @@ export default function Footer(){
                     <button onClick={() => ScrollToSection('team')}>Our Team</button>
                     <button onClick={() => ScrollToSection('contact')}>Contact Us</button>
                 </div>
-            </>
+            </>,
+            color: "var(--warm-neon-orange)",
         },
         {
             id: 3,
@@ -36,7 +38,8 @@ export default function Footer(){
                 <div className="Footer-Quick-Link-btn">
                     <button onClick={() => setShowMsg(true)}>Privacy Policy</button>
                 </div>
-            </>
+            </>,
+            color: "var(--warm-neon-blue)",
         },
     ]
 
@@ -60,7 +63,7 @@ export default function Footer(){
                     <div className="ITconsult-footer-content">
                         {footer.map(data => (
                             <div className="ITconsult-footer-content-arrangement" key={data.id}>
-                                <h1>{data.title}</h1>
+                                <h1 style={{color:data.color}}>{data.title}</h1>
                                 <div>{data.content}</div>
                             </div>
                         ))}

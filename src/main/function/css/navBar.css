@@ -1,7 +1,7 @@
 .ITconsult-nav-bar {
     top: 0;
     z-index: 10;
-    border: 1px solid white;
+    border: 1px solid #444;;
     border-radius: 48px;
     width: 100%;
     background-color: transparent;
@@ -39,9 +39,10 @@
     cursor: pointer;
     transition: transform 0.3s ease-out;
     width: 12%;
+    background-color: transparent;
 }
 
-.ITconsult-nav-bar li:hover,
+.ITconsult-nav-bar li:hover:not(.active),
 .ITconsult-nav-bar li.active {
     border-radius: 48px;
     background-color: white;
@@ -49,6 +50,30 @@
     transform: scale(1.15);
 }
 
+.ITconsult-nav-bar li.active {
+    background-color: white;
+    color: black;
+}
+
 .ITconsult-nav-bar li span {
+    text-align: center;
     font-size: 1.75vmin;
+}
+
+@media screen and (max-width:768px) and (hover: none) {
+    .ITconsult-nav-bar li:hover:not(.active){
+        background-color: black;
+        color: white;
+        transform: none;
+    }
+
+
+    .ITconsult-nav-bar li:hover {
+        background-color: none;
+        transform: none; /* Prevent hover effect from persisting */
+    }
+
+    .ITconsult-nav-bar li:active {
+        transform: none; /* Apply hover effect on tap */
+    }
 }
