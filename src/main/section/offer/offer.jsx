@@ -37,7 +37,7 @@ export default function Offer() {
     return (
         <div className={`ITconsult-offer ${isPackage ? 'shifted' : ''}`} id="offer">
             <div className="offers-arrangement">
-                <h1>What we <span style={{color:"var(--warm-neon-orange)"}}>Offer</span></h1>
+                <h1>Our <span style={{color:"var(--warm-neon-orange)"}}>Services</span></h1>
                 <div className="ITconsult-offers-arrangement">
                     {offer.map(data => (
                         <div className="ITconsult-offer-content" key={data.id}>

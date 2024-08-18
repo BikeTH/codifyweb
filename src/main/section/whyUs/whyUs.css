@@ -23,12 +23,17 @@
 }
 
 .ITconsult-why-us-content h1{
-    font-size: 4vmin !important;
+    font-size: 3vmin !important;
 }
 
 .ITconsult-why-us-content h2{
     margin: 0;
     margin-top: 8px;
+    font-size: 3vmin;
+}
+
+.ITconsult-why-us p{
+    font-size: 2vmin;
 }
 
 @media screen and (max-width: 768px) {
@@ -42,7 +47,7 @@
     }    
 
     .ITconsult-why-us h1{
-        font-size: 6.5vmin;
+        font-size: 8vmin;
         margin: 8px;
     }
     
@@ -53,6 +58,14 @@
         align-items: center;
         height: auto;
         gap: 20px;
+    }
+
+    .ITconsult-why-us p{
+        font-size: 4vmin;
+    }
+
+    .ITconsult-why-us-content h2{
+        font-size: 5vmin;
     }
 }
 

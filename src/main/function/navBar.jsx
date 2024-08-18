@@ -67,13 +67,13 @@ export default function NavBar() {
                     className={activeSection === 'offer' ? 'active' : ''}
                     onClick={() => handleClick('offer')}
                 >
-                    <TbPackage /><span>Our Product</span>
+                    <TbPackage /><span>Our Services</span>
                 </li>
                 <li
                     className={activeSection === 'quotation' ? 'active' : ''}
                     onClick={() => handleClick('quotation')}
                 >
-                    <TbZoomMoney /><span>Cost</span>
+                    <TbZoomMoney /><span>Pricing</span>
                 </li>
                 <li
                     className={activeSection === 'home' ? 'active' : ''}
@@ -85,7 +85,7 @@ export default function NavBar() {
                     className={activeSection === 'faq' ? 'active' : ''}
                     onClick={() => handleClick('faq')}
                 >
-                    <TbMessage /><span>FaQ</span>
+                    <TbMessage /><span>FAQ</span>
                 </li>
                 <li
                     className={activeSection === 'contact' ? 'active' : ''}

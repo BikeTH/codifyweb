@@ -12,6 +12,10 @@
     max-width: 30%;
 }
 
+.ITconsult-faq-header h2{
+    font-size: 3vmin;
+}
+
 .ITconsult-faq-question-arrangement{
     position: relative;
     cursor: pointer;
@@ -26,7 +30,7 @@
     width: 25px; /* Adjust this value to control the length of the border */
     height: 1px; /* Border thickness */
     background-color: white; /* Border color */
-    transform: translate(-35%, -500%);
+    transform: translate(-35%, -50%);
 }
 
 /* Partial left border */
@@ -38,7 +42,7 @@
     width: 1px; /* Border thickness */
     height: 15px; /* Adjust this value to control the length of the left border */
     background-color: white; /* Border color */
-    transform: translate(-600%, -55%); /* Adjusts the positioning slightly to center the border */
+    transform: translate(-600%, -25%); /* Adjusts the positioning slightly to center the border */
 }
 
 .ITconsult-faq-question h1 {
@@ -68,6 +72,14 @@
     max-height: 500px; /* Adjust this value to accommodate the largest expected answer */
 }
 
+.ITconsult-faq-question-arrangement h1{
+    font-size: 3.5vmin !important;
+}
+
+.ITconsult-faq-question-arrangement p{
+    font-size: 2vmin;
+}
+
 @media screen and (max-width: 768px) {
     .ITconsult-faq-header h2{
         font-size: 5vmin !important;
@@ -92,6 +104,14 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+    }
+
+    .ITconsult-faq-question-arrangement h1{
+        font-size: 6vmin !important;
+    }
+
+    .ITconsult-faq-question-arrangement p{
+        font-size: 3.5vmin;
     }
 }
 
