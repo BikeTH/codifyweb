@@ -22,7 +22,7 @@ export default function Banner() {
                         <br></br>
                         // IoS
                     </p>
-                    <h2>& Application</h2>
+                    <h2><span style={{color:"var(--warm-neon-orange)"}}>&</span> Application</h2>
                 </div>
             </div>
             <div className="Banner-description">

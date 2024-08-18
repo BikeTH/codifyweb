@@ -1,6 +1,7 @@
 :root {
     background-color: black;
     color: white;
+    --border: #555;
     --neon-red: #FF073A;
     --neon-blue: #00FFFF;
     --neon-green: #39FF14;

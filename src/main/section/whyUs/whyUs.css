@@ -16,10 +16,20 @@
 .ITconsult-why-us-content{
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 24px;
+    background-color: #1a1a1a;
+    transition: transform 0.3s ease-in, background-color 0.3s ease-in;
+}
+
+.ITconsult-why-us-content:hover{
+    transform: scale(1.10);
+    background-color: black;
 }
 
 .ITconsult-why-us-content-header{
-    height: 55%;
+    height: 45%;
 }
 
 .ITconsult-why-us-content h1{
@@ -40,6 +50,10 @@
     .ITconsult-why-us-arrangement{
         grid-template-columns: repeat(1, 1fr);
         gap: 12px;
+    }
+
+    .ITconsult-why-us-content{
+        padding: 12px;
     }
 
     .ITconsult-why-us-content h1{
@@ -73,6 +87,10 @@
     .ITconsult-why-us-arrangement{
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+    }
+
+    .ITconsult-why-us-content{
+        padding: 8px;
     }
 
     .ITconsult-why-us-content h2{

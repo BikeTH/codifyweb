@@ -30,7 +30,17 @@
 }
 
 .ITconsult-reason-support-arrangement{
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 24px;
     text-align: left;
+    background-color: #1a1a1a;
+    transition: transform 0.3s ease-in, background-color 0.3s ease-in;
+}
+
+.ITconsult-reason-support-arrangement:hover{
+    transform: scale(1.07);
+    background-color: black;
 }
 
 .ITconsult-reason-support-arrangement h1{
@@ -47,6 +57,10 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+    }
+
+    .ITconsult-reason-support-arrangement{
+        padding: 12px;
     }
 
     .ITconsult-reason-support-arrangement h1{
@@ -79,6 +93,10 @@
     .ITconsult-reason-content {
         flex-direction: column;
         gap: 8px;
+    }
+
+    .ITconsult-reason-support-arrangement{
+        padding: 16px;
     }
 
     .ITconsult-reason-support-arrangement h1{
