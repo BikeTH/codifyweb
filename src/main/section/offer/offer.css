@@ -137,5 +137,27 @@
     .workflow-btn-cancel {
         font-size: 8vmin !important;
     }
-    
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px){
+    .ITconsult-offers-arrangement {
+        flex-direction: column;
+    }
+
+    .ITconsult-offer.shifted {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .project-arrangement h1 {
+        font-size: 2.55vmin;
+    }
+
+    .workflow-btn-cancel {
+        font-size: 3.5vmin !important;
+    }
+
+    .ITconsult-offer-content h1{
+        font-size: 2.25vmin !important;
+    }
 }

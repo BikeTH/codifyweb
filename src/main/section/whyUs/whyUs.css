@@ -13,9 +13,17 @@
     gap: 32px;
 }
 
+.ITconsult-why-us-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.ITconsult-why-us-content-header{
+    height: 55%;
+}
+
 .ITconsult-why-us-content h1{
     font-size: 4vmin !important;
-    height: 25%;
 }
 
 .ITconsult-why-us-content h2{
@@ -31,11 +39,39 @@
 
     .ITconsult-why-us-content h1{
         font-size: 8vmin !important;
-        height: auto;
     }    
 
     .ITconsult-why-us h1{
         font-size: 6.5vmin;
+        margin: 8px;
+    }
+    
+    .ITconsult-why-us-content-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: auto;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    .ITconsult-why-us-arrangement{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .ITconsult-why-us-content h2{
+        font-size: 4vmin !important;
+    }    
+
+    .ITconsult-why-us-content h1{
+        font-size: 3.5vmin !important;
+    }    
+
+    .ITconsult-why-us h1{
+        font-size: 4.75vmin;
         margin: 8px;
     }
 }

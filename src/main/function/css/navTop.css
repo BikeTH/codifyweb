@@ -1,0 +1,30 @@
+/* navTop.css */
+@keyframes rocketMovement {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+.navTop-button {
+    position: fixed;
+    bottom: 4%; /* Distance from the bottom of the screen */
+    right: 2.5%;  /* Distance from the right edge of the screen */
+    background-color: black; /* Background color for better visibility */
+    color: white;
+    border: none;
+    padding: 0; /* Space inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 10; /* Ensure it stays on top of other elements */
+    transition: background-color 0.5s ease;
+    animation: rocketMovement 3s ease-in-out infinite;
+}
+
+.navTop-button:hover {
+    color: var(--warm-neon-red);
+    animation: none; /* Disable animation on hover */
+}
+
+.navTop-button svg {
+    width: 40px;
+    height: 40px; 
+}

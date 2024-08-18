@@ -56,8 +56,10 @@ export default function WhyUs(){
             {
                 chooseUs.map(data => (
                     <div className="ITconsult-why-us-content" key={data.id}>
-                        <h2 style={{color:data.color}}>{data.icon}</h2>
-                        <h1 style={{color:data.color, marginTop:"0"}}>{data.title}</h1>
+                        <div className="ITconsult-why-us-content-header">
+                            <h2 style={{color:data.color}}>{data.icon}</h2>
+                            <h1 style={{color:data.color, marginTop:"0"}}>{data.title}</h1>
+                        </div>
                         <p>{data.description}</p>
                     </div>
                 ))}

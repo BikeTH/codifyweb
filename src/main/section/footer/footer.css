@@ -116,6 +116,30 @@
     }
     
     .Footer-Quick-Link-btn button{
-        font-size: 12px;
+        font-size: 16px;
+    }
+
+    .Footer-About p{
+        font-size: 4.5vmin !important;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px){
+    .ITconsult-footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Full width for the first column */
+        grid-template-rows: auto auto; /* Two rows, auto height */
+        grid-template-areas: 
+            "about about"
+            "quick-links legal";
+        gap: 24px;
+    }
+    
+    .Footer-Quick-Link-btn button{
+        font-size: 20px;
+    }
+
+    .Footer-About p{
+        font-size: 3.5vmin !important;
     }
 }

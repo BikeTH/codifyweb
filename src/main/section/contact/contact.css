@@ -269,3 +269,23 @@
         gap: 12px;
     }
 }
+
+@media screen and (max-width:1200px) and (min-width:768px) {
+    .contact-img{
+        display: none;
+    }
+
+    .contact-details {
+        gap: 12px;
+    }
+
+    .ITconsult-contact-detail {
+        padding: 8px;
+    }
+
+    .contact-fill-form-arrangement {
+        text-align: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+}

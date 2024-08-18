@@ -11,7 +11,12 @@ export default function Footer(){
         {
             id: 1,
             title: "About",
-            content:"We build functional websites and applications tailored to your business needs, whether for optimizing operations or increasing visitor engagement. Our solutions enhance efficiency and deliver practical, user-friendly tools.",
+            content:
+            <>
+                <div className="Footer-About">
+                    <p>We build functional websites and applications tailored to your business needs, whether for optimizing operations or increasing visitor engagement. Our solutions enhance efficiency and deliver practical, user-friendly tools.</p>
+                </div>
+            </>,
             color: "var(--warm-neon-red)",
         },
         {

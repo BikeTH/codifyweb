@@ -15,9 +15,10 @@ const steps = [
         icon: <FaRegLightbulb />,
         details: (
             <div>
-                <p>Our dicussion can done through <SiZoom/> <SiGooglemeet /> Online or <IoLocationOutline /> Onsite</p>
+                <p>Our dicussion can done through <SiZoom/> <SiGooglemeet /> <span style={{color:"var(--warm-neon-green)"}}>Online</span> or <IoLocationOutline /> <span style={{color:"var(--warm-neon-orange)"}}>Onsite</span></p>
             </div>
-        )
+        ),
+        color: "var(--warm-neon-blue)",
     },
     {
         id: 2,
@@ -27,10 +28,11 @@ const steps = [
         details: (
             <>
                 <div>
-                    <p>We will be using <IoLogoFigma/> Figma in designing and mockup pages for you to review.</p>
+                    <p>We will be using <IoLogoFigma/> <span style={{color:"var(--warm-neon-green)"}}>Figma</span> in designing and mockup pages for you to review.</p>
                 </div>
             </>
-        )
+        ),
+        color: "var(--warm-neon-purple)",
     },
     {
         id: 3,
@@ -39,7 +41,7 @@ const steps = [
         icon: <FaCode />,
         details: (
             <>
-                <p style={{textAlign:"center"}}>Tech stack will use</p>
+                <p style={{textAlign:"center"}}><span style={{color:"var(--warm-neon-orange)"}}>Tech stack</span> will use</p>
                 <div className="development-arrangement">
                     <div className="development-content-arrangement">
                         <h1>Website</h1>
@@ -50,9 +52,10 @@ const steps = [
                         <h3 style={{textAlign:"center"}}><SiExpo/></h3>
                     </div>
                 </div>
-                <p>We always leveling up !</p>
+                <p>We always <span style={{color:"var(--warm-neon-green)"}}>leveling up</span> !</p>
             </>
-        )
+        ),
+        color: "var(--warm-neon-green)",
     },
     {
         id: 4,
@@ -76,7 +79,8 @@ const steps = [
                     <p>Backup and Recovery Testing</p>
                 </div>
             </>
-        )
+        ),
+        color: "var(--warm-neon-orange)",
     },
     {
         id: 5,
@@ -86,10 +90,11 @@ const steps = [
         details: (
             <>
                 <div>
-                    <p>Deploying into <FaDigitalOcean/> Server and your Order will be successfully delivered, public will be able to access your web or app</p>
+                    <p><span style={{color:"var(--warm-neon-blue)"}}>Deploying</span> into <FaDigitalOcean/> <span style={{color:"var(--warm-neon-red)"}}>Server</span> and your Order will be <span style={{color:"var(--warm-neon-green)"}}>Successfully Delivered</span>, public will be able to access your web or app</p>
                 </div>
             </>
-        )
+        ),
+        color: "var(--warm-neon-yellow)",
     }
 ];
 
@@ -136,7 +141,7 @@ export default function ProjectSteps() {
                 </ul>
             </div>
             <div className="project-steps">
-                <h2>{steps[currentStep].title}</h2>
+                <h2 style={{color: steps[currentStep].color}}>{steps[currentStep].title}</h2>
                 <p>{steps[currentStep].content}</p>
                 <div className="show-details">
                     <button onClick={toggleDetails}>

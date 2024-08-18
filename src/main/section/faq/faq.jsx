@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './faq.css';
 import { AiOutlinePlus } from "react-icons/ai";
+import { FaReact } from "react-icons/fa";
 
 const faqs = [
     {
@@ -45,7 +46,8 @@ const faqs = [
         questions: "How we develop our Project ?",
         answer: (
             <>
-                <p>Most of our Project will be done in Programming, source code will be given to you</p>
+                <p style={{marginBottom:0}}>Most of our Project will be done in Programming, Not WordPress, Source Code will be given to you</p>
+                <p style={{marginTop:0}}>Everything you see is created mainly by React <FaReact style={{color: "var(--warm-neon-blue)"}}/></p>
             </>
         )
     }

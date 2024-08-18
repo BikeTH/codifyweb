@@ -60,6 +60,13 @@
     font-size: 1.75vmin;
 }
 
+@media screen and (max-width:768px) {
+    .ITconsult-nav-bar li.active {
+        background-color: black;
+        color: var(--warm-neon-blue);
+    }
+}
+
 @media screen and (max-width:768px) and (hover: none) {
     .ITconsult-nav-bar li:hover:not(.active){
         background-color: black;
@@ -67,13 +74,8 @@
         transform: none;
     }
 
-
     .ITconsult-nav-bar li:hover {
         background-color: none;
         transform: none; /* Prevent hover effect from persisting */
-    }
-
-    .ITconsult-nav-bar li:active {
-        transform: none; /* Apply hover effect on tap */
     }
 }

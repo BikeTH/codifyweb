@@ -236,3 +236,13 @@
         color: #000020; /* Expo - Dark Navy */
     }
 }
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    .project-navigation li {
+        font-size: 2.25vmin;
+    }
+
+    .project-steps h2 {
+        font-size: 4.25vmin;
+    }
+}

@@ -10,6 +10,7 @@ import Faq from "./section/faq/faq";
 import Team from "./section/team/team";
 import Contact from "./section/contact/contact";
 import Footer from "./section/footer/footer";
+import NavTop from "./function/navTop";
 
 export default function ITconsult(){
     return(
@@ -25,6 +26,7 @@ export default function ITconsult(){
             <Team />
             <Contact />
             <Footer />
+            <NavTop />
         </div>
         </>
     )

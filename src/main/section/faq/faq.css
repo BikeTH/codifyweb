@@ -94,3 +94,30 @@
         gap: 12px;
     }
 }
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    .ITconsult-faq-header h2{
+        font-size: 5vmin !important;
+    }
+
+    .ITconsult-faq-question h1{
+        font-size: 4.5vmin !important;
+    }
+
+    .ITconsult-faq{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .ITconsult-faq-header{
+        max-width: 100%;
+    }
+
+    .ITconsult-faq-question-arrangement{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
