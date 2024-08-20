@@ -155,30 +155,44 @@ export default function Quotation() {
         const updatedAnswers = { ...answers };
         const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
         const currentQuestion = questions[currentQuestionIndex];
-
+    
         if (showFullOption) {
             updatedAnswers[currentQuestion?.question] = currentQuestion?.options[0];
-        } else if (!(currentQuestion?.yesNo && answer === "No")) {
-            updatedAnswers[currentQuestion?.question || `Step ${currentStep}`] = answer;
+        } else {
+            if (currentQuestion?.yesNo && answer === "No") {
+                // Just move to next question if No is selected
+                setCurrentStep(currentStep + 1);
+                return;
+            } else {
+                // Store the selected option
+                updatedAnswers[currentQuestion?.question || `Step ${currentStep}`] = answer;
+            }
         }
-
+    
         if (currentStep === 1) {
             setIsWebsite(answer === "Website");
         }
-
+    
         setAnswers(updatedAnswers);
         setCurrentStep(currentStep + 1);
     };
+    
 
     const renderYesNo = () => {
+        const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
+        const currentQuestion = questions[currentQuestionIndex];
+    
         return (
-            <div className="yes-no-container">
-                <button className="yes-no-btn" onClick={() => handleSelect("Yes", true)}>
-                    Yes
-                </button>
-                <button className="yes-no-btn" onClick={() => handleSelect("No")}>
-                    No
-                </button>
+            <div>
+                <div>{currentQuestion?.options[0]}</div>
+                <div className="yes-no-container">
+                    <button className="yes-no-btn" onClick={() => handleSelect("Yes", true)}>
+                        Yes
+                    </button>
+                    <button className="yes-no-btn" onClick={() => handleSelect("No")}>
+                        No
+                    </button>
+                </div>
             </div>
         );
     };
@@ -197,7 +211,43 @@ export default function Quotation() {
 
     const questions = getQuestions();
 
+    const renderAdditionalFunctions = () => {
+        const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
+        const currentQuestion = questions[currentQuestionIndex];
+    
+        return (
+            <div>
+                <div className="options-container">
+                    {currentQuestion?.options.map((option, index) => (
+                        <div key={index} className="option">
+                            <div>{option}</div>
+                            <button 
+                                className="select-btn" 
+                                onClick={() => handleSelect(option)}>
+                                Select
+                            </button>
+                        </div>
+                    ))}
+                </div>
+                <div className="no-required-container">
+                    <button 
+                        className="no-required-btn" 
+                        onClick={() => setCurrentStep(currentStep + 1)}>
+                        No Required
+                    </button>
+                </div>
+            </div>
+        );
+    };
+
     const renderOptions = (options) => {
+        const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
+        const currentQuestion = questions[currentQuestionIndex];
+    
+        if (currentQuestion?.question === "Additional Function") {
+            return renderAdditionalFunctions();
+        }
+    
         return options.map((option, index) => (
             <div key={index} className="option">
                 <div>{option}</div>
@@ -207,6 +257,7 @@ export default function Quotation() {
             </div>
         ));
     };
+
 
     const renderSummary = () => {
         return (
@@ -245,21 +296,25 @@ export default function Quotation() {
                         {renderOptions(initialQuestions[0].options)}
                     </div>
                 </div>
-            ) : (currentStep - (isWebsite ? 2 : 1) >= 0 && !isFinalStep) && (
+            ) : currentStep - (isWebsite ? 2 : 1) >= 0 && !isFinalStep && (
                 <div className="ITconsult-price-quotation-question">
                     <h3>{questions[currentStep - (isWebsite ? 2 : 1)]?.question}</h3>
                     <div className="options-container">
-                        {questions[currentStep - (isWebsite ? 2 : 1)]?.yesNo ? renderYesNo() : renderOptions(questions[currentStep - (isWebsite ? 2 : 1)]?.options)}
+                        {questions[currentStep - (isWebsite ? 2 : 1)]?.yesNo 
+                            ? renderYesNo() 
+                            : renderOptions(questions[currentStep - (isWebsite ? 2 : 1)]?.options)}
                     </div>
                 </div>
             )}
             {isFinalStep && isWebsite && (
-                <div>
+                <div className="quotation-summary-arrangement">
+                    <button onClick={() => handleReset()}>Back</button>
                     {renderSummary()}
                 </div>
             )}
             {isFinalStep && !isWebsite && (
-                <div>
+                <div className="quotation-summary-arrangement">
+                    <button onClick={() => {ScrollToSection('quotation'); handleReset();}}>Back</button>
                     {appDescription.description}
                 </div>
             )}

@@ -84,3 +84,8 @@
     background-color: white;
     color: black;
 }
+
+.quotation-summary-arrangement{
+    display: flex;
+    flex-direction: row;
+}
