@@ -54,10 +54,22 @@
     margin: 8px 0;
 }
 
+.quotation-summary-list{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
 .options-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 30px;
+}
+
+.options-container > div {
+    flex: 1; /* Each item will take equal space */
+    min-width: 100px; /* Optional, set a minimum width */
+    height: auto;    /* Set the height if needed */
 }
 
 .option {
