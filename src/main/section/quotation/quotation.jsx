@@ -169,6 +169,12 @@ const websiteQuestions = [
         }
     ];
 
+    const handlePrevious = () => {
+        if (currentStep > 0) {
+            setCurrentStep(currentStep - 1);
+        }
+    };
+
     const handleSelect = (answer, showFullOption = false, isMultiSelect = false) => {
         const updatedAnswers = { ...answers };
         const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
@@ -179,11 +185,11 @@ const websiteQuestions = [
         } else {
             if (currentQuestion?.yesNo) {
                 if (answer === "No") {
-                    updatedAnswers[currentQuestion?.question] = "No"; // Record No selection
+                    updatedAnswers[currentQuestion?.question] = "No";
                     setCurrentStep(currentStep + 1); // Move to next step if No is selected
                     return;
                 } else if (answer === "Yes") {
-                    updatedAnswers[currentQuestion?.question] = "Yes"; // Record Yes selection
+                    updatedAnswers[currentQuestion?.question] = "Yes";
                 }
             } else {
                 if (isMultiSelect) {
@@ -211,14 +217,11 @@ const websiteQuestions = [
             setCurrentStep(currentStep + 1);
         }
     };
-    
-    
 
     const handlePlatformSelection = (platform) => {
         handleSelect(platform);
         setCurrentStep(2); // Move to the next step after platform selection
     };
-    
 
     const renderYesNo = () => {
         const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
@@ -265,8 +268,6 @@ const websiteQuestions = [
             </div>
         );
     };
-    
-    
 
     const handleReset = () => {
         setCurrentStep(0);
@@ -279,7 +280,6 @@ const websiteQuestions = [
         if (isWebsite) return websiteQuestions;
         return [appDescription];
     };
-    
 
     const questions = getQuestions();
 
@@ -318,12 +318,11 @@ const websiteQuestions = [
             </div>
         );
     };
-    
 
     const renderOptions = (options) => {
         const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
         const currentQuestion = questions[currentQuestionIndex];
-        
+    
         if (!currentQuestion || currentQuestion.question === "Platform") {
             return options.map((option, index) => (
                 <div key={index} className="option">
@@ -334,19 +333,19 @@ const websiteQuestions = [
                 </div>
             ));
         }
-
+    
         if (currentQuestion.question === "BackEnd (Dynamic)" || currentQuestion.question === "Basic SEO") {
             return renderYesNo();
         }
-        
+    
         // Handle other options for different questions
         if (currentQuestion.question === "Additional Function") {
             return renderAdditionalFunctions();
         }
-        
+    
         return options.map((optionKey, index) => {
             let optionDetails;
-        
+    
             switch (currentQuestion?.question) {
                 case "Website Size":
                     optionDetails = websiteSizes[optionKey];
@@ -373,12 +372,12 @@ const websiteQuestions = [
                     console.error("Unrecognized question:", currentQuestion?.question);
                     return null;
             }
-        
+    
             if (!optionDetails) {
                 console.error("Option details not found for:", optionKey);
                 return null;
             }
-        
+    
             return (
                 <div key={index} className="option">
                     <div><strong>{optionDetails.title || optionKey}</strong></div>
@@ -390,10 +389,7 @@ const websiteQuestions = [
                 </div>
             );
         });
-    };
-    
-    
-    
+    };    
 
     const renderSummary = () => {
         return (
@@ -461,7 +457,6 @@ const websiteQuestions = [
             </div>
         );
     };
-    
 
     const isFinalStep = currentStep === (isWebsite ? websiteQuestions.length + 2 : 2);
 
@@ -488,6 +483,9 @@ const websiteQuestions = [
                     <div className="options-container">
                         {renderOptions(initialQuestions?.[0]?.options)}
                     </div>
+                    <button className="prev-btn" onClick={() => handlePrevious()}>
+                        Previous
+                    </button>
                 </div>
             ) : currentStep - (isWebsite ? 2 : 1) >= 0 && !isFinalStep ? (
                 <div className="ITconsult-price-quotation-question">
@@ -497,6 +495,9 @@ const websiteQuestions = [
                             ? renderYesNo()
                             : renderOptions(questions?.[currentStep - (isWebsite ? 2 : 1)]?.options)}
                     </div>
+                    <button className="prev-btn" onClick={() => handlePrevious()}>
+                        Previous
+                    </button>
                 </div>
             ) : null}
     
