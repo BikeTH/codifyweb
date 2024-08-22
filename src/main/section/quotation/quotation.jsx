@@ -6,6 +6,9 @@ export default function Quotation() {
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState({});
     const [isWebsite, setIsWebsite] = useState(false);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [uncertainty, setUncertainty] = useState([]);
+
 
     // Data for Website Size
 const websiteSizes = {
@@ -97,7 +100,8 @@ const backendOptions = {
     backend: {
         title: "DataBase",
         description: "Required data handling, example, e-commerce, POS system, etc. Talk to us for the price, based on project complexity",
-        yesNo: true // Add this flag
+        yesNo: true, // Add this flag
+        price: "vary"
     }
 };
 
@@ -197,7 +201,58 @@ const websiteQuestions = [
         const updatedAnswers = { ...answers };
         const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
         const currentQuestion = questions[currentQuestionIndex];
+        let optionDetails;
     
+        // Determine the option details based on the current question
+        if (currentQuestion?.question === "Additional Function") {
+            optionDetails = additionalFunctions[answer];
+        } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
+            optionDetails = backendOptions.backend;
+        } else if (currentQuestion?.question === "Basic SEO") {
+            optionDetails = basicSEO.seo;
+        } else if (currentQuestion?.question === "Website Size") {
+            optionDetails = websiteSizes[answer];
+        } else if (currentQuestion?.question === "Website Content") {
+            optionDetails = websiteContents[answer];
+        } else if (currentQuestion?.question === "Domain") {
+            optionDetails = domains[answer];
+        } else if (currentQuestion?.question === "Web Hosting") {
+            optionDetails = webHosting[answer];
+        }
+    
+        // Remove the previous selection from uncertainty if it exists
+        const prevAnswer = updatedAnswers[currentQuestion?.question];
+        if (prevAnswer && uncertainty.length > 0) {
+            const prevTitle = optionDetails?.title || prevAnswer;
+            setUncertainty(prev => prev.filter(item => item.question !== currentQuestion?.question));
+        }
+    
+        // Handle subscriptions and varying prices
+        if (optionDetails?.subscription) {
+            setUncertainty(prev => [
+                ...prev, 
+                { 
+                    question: currentQuestion?.question, 
+                    title: optionDetails?.title || currentQuestion?.question,
+                    description: optionDetails?.description, 
+                    price: optionDetails.cost 
+                }
+            ]);
+        } else if (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary')) {
+            setUncertainty(prev => [
+                ...prev, 
+                { 
+                    question: currentQuestion?.question, 
+                    title: optionDetails?.title || currentQuestion?.question,
+                    description: optionDetails?.description, 
+                    price: 'Varies' 
+                }
+            ]);
+        } else if (optionDetails?.cost) {
+            setTotalPrice(prevPrice => prevPrice + parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")));
+        }
+    
+        // Update the answers object based on the selection
         if (showFullOption) {
             updatedAnswers[currentQuestion?.question] = currentQuestion?.options[0];
         } else {
@@ -205,6 +260,7 @@ const websiteQuestions = [
                 if (answer === "No") {
                     updatedAnswers[currentQuestion?.question] = "No";
                     setCurrentStep(currentStep + 1); // Move to next step if No is selected
+                    setAnswers(updatedAnswers);
                     return;
                 } else if (answer === "Yes") {
                     updatedAnswers[currentQuestion?.question] = "Yes";
@@ -220,11 +276,12 @@ const websiteQuestions = [
                         updatedAnswers[currentQuestion?.question].push(answer);
                     }
                 } else {
-                    updatedAnswers[currentQuestion?.question || `Step ${currentStep}`] = answer;
+                    updatedAnswers[currentQuestion?.question] = answer;
                 }
             }
         }
     
+        // Set the platform type on the first step
         if (currentStep === 1) {
             setIsWebsite(answer === "Website");
         }
@@ -235,6 +292,7 @@ const websiteQuestions = [
             setCurrentStep(currentStep + 1);
         }
     };
+    
 
     const handlePlatformSelection = (platform) => {
         handleSelect(platform);
@@ -291,7 +349,10 @@ const websiteQuestions = [
         setCurrentStep(0);
         setAnswers({});
         setIsWebsite(false);
+        setTotalPrice(0);
+        setUncertainty([]);
     };
+    
 
     const getQuestions = () => {
         if (currentStep === 1) return initialQuestions;
@@ -432,6 +493,7 @@ const websiteQuestions = [
                                         );
                                     })}
                                 </div>
+                                
                             );
                         }
     
@@ -469,6 +531,21 @@ const websiteQuestions = [
                         );
                     })}
                 </div>
+                <div className="total-price">
+                <h4>Total Price: {`RM ${totalPrice.toFixed(2)}`}</h4>
+            </div>
+            {uncertainty.length > 0 && (
+                <div className="uncertainty">
+                    <h4>Uncertainty:</h4>
+                    {uncertainty.map((item, index) => (
+                        <div key={index}>
+                            <p><strong>{item.question}:</strong> {item.title}</p>
+                            <p>{item.description}</p>
+                            <p>Price: {item.price}</p>
+                        </div>
+                    ))}
+                </div>
+            )}
                 <button className="calc-btn" onClick={() => { ScrollToSection('contact'); handleReset(); }}>
                     Contact Us
                 </button>
