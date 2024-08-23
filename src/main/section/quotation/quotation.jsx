@@ -206,6 +206,15 @@ const websiteQuestions = [
         // Determine the option details based on the current question
         if (currentQuestion?.question === "Additional Function") {
             optionDetails = additionalFunctions[answer];
+            if (optionDetails?.complex) {
+                // If the option is a complex function, handle it separately
+                optionDetails = {
+                    ...optionDetails,
+                    title: "Complex Function",
+                    description: "Complex function with special handling",
+                    cost: "Varies" // Assume "Varies" or set appropriate value
+                };
+            }
         } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
             optionDetails = backendOptions.backend;
         } else if (currentQuestion?.question === "Basic SEO") {
@@ -230,6 +239,14 @@ const websiteQuestions = [
             let prevOptionDetails;
             if (currentQuestion?.question === "Additional Function") {
                 prevOptionDetails = additionalFunctions[prevAnswer];
+                if (prevOptionDetails?.complex) {
+                    prevOptionDetails = {
+                        ...prevOptionDetails,
+                        title: "Complex Function",
+                        description: "Complex function with special handling",
+                        cost: "Varies"
+                    };
+                }
             } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
                 prevOptionDetails = backendOptions.backend;
             } else if (currentQuestion?.question === "Basic SEO" && prevAnswer === "Yes") {
@@ -244,16 +261,42 @@ const websiteQuestions = [
                 prevOptionDetails = webHosting[prevAnswer];
             }
     
-            if (prevOptionDetails?.cost) {
+            if (prevOptionDetails?.subscription || (prevOptionDetails?.cost && prevOptionDetails.cost.toLowerCase().includes('vary'))) {
+                setUncertainty(prev => prev.filter(item => item.question !== currentQuestion?.question));
+            } else if (prevOptionDetails?.cost) {
                 const numericCost = parseFloat(prevOptionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
                 setTotalPrice(prevPrice => prevPrice - numericCost);
             }
         }
     
-        // Now add the new selection if it's not "No"
-        if (optionDetails && optionDetails?.cost) {
-            const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
-            setTotalPrice(prevPrice => prevPrice + numericCost);
+        // Add the new selection to uncertainty or total price
+        if (optionDetails) {
+            if (optionDetails?.subscription) {
+                setUncertainty(prev => [
+                    ...prev,
+                    {
+                        question: currentQuestion?.question,
+                        title: optionDetails?.title || currentQuestion?.question,
+                        description: optionDetails?.description,
+                        price: optionDetails.cost
+                    }
+                ]);
+            } else if (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary')) {
+                setUncertainty(prev => [
+                    ...prev,
+                    {
+                        question: currentQuestion?.question,
+                        title: optionDetails?.title || currentQuestion?.question,
+                        description: optionDetails?.description,
+                        price: 'Varies'
+                    }
+                ]);
+                // Add 0 to total price for "Varies" as it does not affect the total price
+                setTotalPrice(prevPrice => prevPrice + 0);
+            } else if (optionDetails?.cost) {
+                const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+                setTotalPrice(prevPrice => prevPrice + numericCost);
+            }
         }
     
         // Update the answers object based on the selection
@@ -295,7 +338,9 @@ const websiteQuestions = [
         if (!isMultiSelect) {
             setCurrentStep(currentStep + 1);
         }
-    };    
+    };
+    
+    
 
     const handlePlatformSelection = (platform) => {
         handleSelect(platform);
