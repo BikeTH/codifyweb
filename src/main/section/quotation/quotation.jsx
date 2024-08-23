@@ -209,7 +209,11 @@ const websiteQuestions = [
         } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
             optionDetails = backendOptions.backend;
         } else if (currentQuestion?.question === "Basic SEO") {
-            optionDetails = basicSEO.seo;
+            if (answer === "Yes") {
+                optionDetails = basicSEO.seo;
+            } else {
+                optionDetails = null; // No action needed for "No" selection
+            }
         } else if (currentQuestion?.question === "Website Size") {
             optionDetails = websiteSizes[answer];
         } else if (currentQuestion?.question === "Website Content") {
@@ -220,36 +224,36 @@ const websiteQuestions = [
             optionDetails = webHosting[answer];
         }
     
-        // Remove the previous selection from uncertainty if it exists
+        // Remove the previous selection from uncertainty and total price if it exists
         const prevAnswer = updatedAnswers[currentQuestion?.question];
-        if (prevAnswer && uncertainty.length > 0) {
-            const prevTitle = optionDetails?.title || prevAnswer;
-            setUncertainty(prev => prev.filter(item => item.question !== currentQuestion?.question));
+        if (prevAnswer) {
+            let prevOptionDetails;
+            if (currentQuestion?.question === "Additional Function") {
+                prevOptionDetails = additionalFunctions[prevAnswer];
+            } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
+                prevOptionDetails = backendOptions.backend;
+            } else if (currentQuestion?.question === "Basic SEO" && prevAnswer === "Yes") {
+                prevOptionDetails = basicSEO.seo;
+            } else if (currentQuestion?.question === "Website Size") {
+                prevOptionDetails = websiteSizes[prevAnswer];
+            } else if (currentQuestion?.question === "Website Content") {
+                prevOptionDetails = websiteContents[prevAnswer];
+            } else if (currentQuestion?.question === "Domain") {
+                prevOptionDetails = domains[prevAnswer];
+            } else if (currentQuestion?.question === "Web Hosting") {
+                prevOptionDetails = webHosting[prevAnswer];
+            }
+    
+            if (prevOptionDetails?.cost) {
+                const numericCost = parseFloat(prevOptionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+                setTotalPrice(prevPrice => prevPrice - numericCost);
+            }
         }
     
-        // Handle subscriptions and varying prices
-        if (optionDetails?.subscription) {
-            setUncertainty(prev => [
-                ...prev, 
-                { 
-                    question: currentQuestion?.question, 
-                    title: optionDetails?.title || currentQuestion?.question,
-                    description: optionDetails?.description, 
-                    price: optionDetails.cost 
-                }
-            ]);
-        } else if (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary')) {
-            setUncertainty(prev => [
-                ...prev, 
-                { 
-                    question: currentQuestion?.question, 
-                    title: optionDetails?.title || currentQuestion?.question,
-                    description: optionDetails?.description, 
-                    price: 'Varies' 
-                }
-            ]);
-        } else if (optionDetails?.cost) {
-            setTotalPrice(prevPrice => prevPrice + parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")));
+        // Now add the new selection if it's not "No"
+        if (optionDetails && optionDetails?.cost) {
+            const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+            setTotalPrice(prevPrice => prevPrice + numericCost);
         }
     
         // Update the answers object based on the selection
@@ -291,8 +295,7 @@ const websiteQuestions = [
         if (!isMultiSelect) {
             setCurrentStep(currentStep + 1);
         }
-    };
-    
+    };    
 
     const handlePlatformSelection = (platform) => {
         handleSelect(platform);
