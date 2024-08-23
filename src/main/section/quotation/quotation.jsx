@@ -215,8 +215,19 @@ const websiteQuestions = [
                 }
             }
         } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
-            optionDetails = backendOptions.backend;
-        } else if (currentQuestion?.question === "Basic SEO") {
+            if (answer === "Yes") {
+                optionDetails = backendOptions.backend;
+                console.log("Option Details for Backend:", optionDetails); // Log for debugging
+                setUncertainty(prev => [
+                    ...prev.filter(item => item.question !== currentQuestion?.question),
+                    {
+                        question: currentQuestion?.question,
+                        title: optionDetails?.title || currentQuestion?.question,
+                        description: optionDetails?.description,
+                        price: optionDetails.cost
+                    }
+                ]);
+            }} else if (currentQuestion?.question === "Basic SEO") {
             if (answer === "Yes") {
                 optionDetails = basicSEO.seo;
             } else {
@@ -232,8 +243,8 @@ const websiteQuestions = [
             optionDetails = webHosting[answer];
         }
     
-        // Handle multi-select (especially for Additional Functions)
-        if (isMultiSelect) {
+        // Handle multi-select for "Additional Function"
+        if (isMultiSelect && currentQuestion?.question === "Additional Function") {
             const currentSelections = updatedAnswers[currentQuestion?.question] || [];
     
             if (currentSelections.includes(answer)) {
@@ -257,7 +268,7 @@ const websiteQuestions = [
                 // Add to uncertainty if it's a subscription or has variable cost
                 if (optionDetails?.subscription || (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary'))) {
                     setUncertainty(prev => [
-                        ...prev,
+                        ...prev.filter(item => item.question !== currentQuestion?.question),
                         {
                             question: currentQuestion?.question,
                             title: optionDetails?.title || currentQuestion?.question,
@@ -285,7 +296,9 @@ const websiteQuestions = [
                         }
                     }
                 } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
-                    prevOptionDetails = backendOptions.backend;
+                    if (prevAnswer === "Yes") {
+                        prevOptionDetails = backendOptions.backend;
+                    }
                 } else if (currentQuestion?.question === "Basic SEO" && prevAnswer === "Yes") {
                     prevOptionDetails = basicSEO.seo;
                 } else if (currentQuestion?.question === "Website Size") {
@@ -307,6 +320,7 @@ const websiteQuestions = [
             }
     
             updatedAnswers[currentQuestion?.question] = answer;
+    
             if (optionDetails?.cost) {
                 const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
                 setTotalPrice(prevPrice => prevPrice + numericCost);
@@ -314,7 +328,7 @@ const websiteQuestions = [
     
             if (optionDetails?.subscription || (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary'))) {
                 setUncertainty(prev => [
-                    ...prev.filter(item => item.question !== currentQuestion?.question), // Remove any previous entry
+                    ...prev.filter(item => item.question !== currentQuestion?.question),
                     {
                         question: currentQuestion?.question,
                         title: optionDetails?.title || currentQuestion?.question,
@@ -335,9 +349,9 @@ const websiteQuestions = [
         if (!isMultiSelect) {
             setCurrentStep(currentStep + 1);
         }
+    
+        console.log("Uncertainty State: ", uncertainty);
     };
-    
-    
     
 
     const handlePlatformSelection = (platform) => {
