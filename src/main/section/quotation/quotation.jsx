@@ -121,14 +121,12 @@ const additionalFunctions = {
     complexFunction: {
         title: "Complex Function",
         description: "Create functions that require complex calculations, code without libraries, multiple quizzes, etc.",
-        subscription:"function",
         cost: "RM 500 per Function",
         price: 500,
     },
     managing: {
         title: "Web Management",
         description: "Assist in managing your server, content editing, technical issues, etc. Adding new pages, features, etc is NOT included.",
-        subscription:"month",
         cost: "RM 200 per Month",
         price: 200,
     },
@@ -206,14 +204,15 @@ const websiteQuestions = [
         // Determine the option details based on the current question
         if (currentQuestion?.question === "Additional Function") {
             optionDetails = additionalFunctions[answer];
-            if (optionDetails?.complex) {
-                // If the option is a complex function, handle it separately
-                optionDetails = {
-                    ...optionDetails,
-                    title: "Complex Function",
-                    description: "Complex function with special handling",
-                    cost: "Varies" // Assume "Varies" or set appropriate value
-                };
+            if (optionDetails?.subscription) {
+                if (optionDetails?.title !== "Complex Function") {
+                    optionDetails = {
+                        ...optionDetails,
+                        title: optionDetails.title || "Complex Function",
+                        description: optionDetails.description || "Complex function with special handling",
+                        cost: optionDetails.cost || "Varies"
+                    };
+                }
             }
         } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
             optionDetails = backendOptions.backend;
@@ -221,7 +220,7 @@ const websiteQuestions = [
             if (answer === "Yes") {
                 optionDetails = basicSEO.seo;
             } else {
-                optionDetails = null; // No action needed for "No" selection
+                optionDetails = null;
             }
         } else if (currentQuestion?.question === "Website Size") {
             optionDetails = websiteSizes[answer];
@@ -233,47 +232,89 @@ const websiteQuestions = [
             optionDetails = webHosting[answer];
         }
     
-        // Remove the previous selection from uncertainty and total price if it exists
-        const prevAnswer = updatedAnswers[currentQuestion?.question];
-        if (prevAnswer) {
-            let prevOptionDetails;
-            if (currentQuestion?.question === "Additional Function") {
-                prevOptionDetails = additionalFunctions[prevAnswer];
-                if (prevOptionDetails?.complex) {
-                    prevOptionDetails = {
-                        ...prevOptionDetails,
-                        title: "Complex Function",
-                        description: "Complex function with special handling",
-                        cost: "Varies"
-                    };
+        // Handle multi-select (especially for Additional Functions)
+        if (isMultiSelect) {
+            const currentSelections = updatedAnswers[currentQuestion?.question] || [];
+    
+            if (currentSelections.includes(answer)) {
+                // Deselect an option
+                updatedAnswers[currentQuestion?.question] = currentSelections.filter(item => item !== answer);
+                if (optionDetails?.cost) {
+                    const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+                    setTotalPrice(prevPrice => prevPrice - numericCost);
                 }
-            } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
-                prevOptionDetails = backendOptions.backend;
-            } else if (currentQuestion?.question === "Basic SEO" && prevAnswer === "Yes") {
-                prevOptionDetails = basicSEO.seo;
-            } else if (currentQuestion?.question === "Website Size") {
-                prevOptionDetails = websiteSizes[prevAnswer];
-            } else if (currentQuestion?.question === "Website Content") {
-                prevOptionDetails = websiteContents[prevAnswer];
-            } else if (currentQuestion?.question === "Domain") {
-                prevOptionDetails = domains[prevAnswer];
-            } else if (currentQuestion?.question === "Web Hosting") {
-                prevOptionDetails = webHosting[prevAnswer];
+    
+                // Remove from uncertainty if it was there
+                setUncertainty(prev => prev.filter(item => item.title !== optionDetails.title));
+            } else {
+                // Select an option
+                updatedAnswers[currentQuestion?.question] = [...currentSelections, answer];
+                if (optionDetails?.cost) {
+                    const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+                    setTotalPrice(prevPrice => prevPrice + numericCost);
+                }
+    
+                // Add to uncertainty if it's a subscription or has variable cost
+                if (optionDetails?.subscription || (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary'))) {
+                    setUncertainty(prev => [
+                        ...prev,
+                        {
+                            question: currentQuestion?.question,
+                            title: optionDetails?.title || currentQuestion?.question,
+                            description: optionDetails?.description,
+                            price: optionDetails.cost
+                        }
+                    ]);
+                }
+            }
+        } else {
+            // Handle single selections
+            const prevAnswer = updatedAnswers[currentQuestion?.question];
+            if (prevAnswer) {
+                let prevOptionDetails;
+                if (currentQuestion?.question === "Additional Function") {
+                    prevOptionDetails = additionalFunctions[prevAnswer];
+                    if (prevOptionDetails?.subscription) {
+                        if (prevOptionDetails?.title !== "Complex Function") {
+                            prevOptionDetails = {
+                                ...prevOptionDetails,
+                                title: prevOptionDetails.title || "Complex Function",
+                                description: prevOptionDetails.description || "Complex function with special handling",
+                                cost: prevOptionDetails.cost || "Varies"
+                            };
+                        }
+                    }
+                } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
+                    prevOptionDetails = backendOptions.backend;
+                } else if (currentQuestion?.question === "Basic SEO" && prevAnswer === "Yes") {
+                    prevOptionDetails = basicSEO.seo;
+                } else if (currentQuestion?.question === "Website Size") {
+                    prevOptionDetails = websiteSizes[prevAnswer];
+                } else if (currentQuestion?.question === "Website Content") {
+                    prevOptionDetails = websiteContents[prevAnswer];
+                } else if (currentQuestion?.question === "Domain") {
+                    prevOptionDetails = domains[prevAnswer];
+                } else if (currentQuestion?.question === "Web Hosting") {
+                    prevOptionDetails = webHosting[prevAnswer];
+                }
+    
+                if (prevOptionDetails?.subscription || (prevOptionDetails?.cost && prevOptionDetails.cost.toLowerCase().includes('vary'))) {
+                    setUncertainty(prev => prev.filter(item => item.question !== currentQuestion?.question));
+                } else if (prevOptionDetails?.cost) {
+                    const numericCost = parseFloat(prevOptionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+                    setTotalPrice(prevPrice => prevPrice - numericCost);
+                }
             }
     
-            if (prevOptionDetails?.subscription || (prevOptionDetails?.cost && prevOptionDetails.cost.toLowerCase().includes('vary'))) {
-                setUncertainty(prev => prev.filter(item => item.question !== currentQuestion?.question));
-            } else if (prevOptionDetails?.cost) {
-                const numericCost = parseFloat(prevOptionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
-                setTotalPrice(prevPrice => prevPrice - numericCost);
+            updatedAnswers[currentQuestion?.question] = answer;
+            if (optionDetails?.cost) {
+                const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+                setTotalPrice(prevPrice => prevPrice + numericCost);
             }
-        }
     
-        // Add the new selection to uncertainty or total price
-        if (optionDetails) {
-            if (optionDetails?.subscription) {
+            if (optionDetails?.subscription || (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary'))) {
                 setUncertainty(prev => [
-                    ...prev,
+                    ...prev.filter(item => item.question !== currentQuestion?.question), // Remove any previous entry
                     {
                         question: currentQuestion?.question,
                         title: optionDetails?.title || currentQuestion?.question,
@@ -281,50 +322,6 @@ const websiteQuestions = [
                         price: optionDetails.cost
                     }
                 ]);
-            } else if (optionDetails?.cost && optionDetails.cost.toLowerCase().includes('vary')) {
-                setUncertainty(prev => [
-                    ...prev,
-                    {
-                        question: currentQuestion?.question,
-                        title: optionDetails?.title || currentQuestion?.question,
-                        description: optionDetails?.description,
-                        price: 'Varies'
-                    }
-                ]);
-                // Add 0 to total price for "Varies" as it does not affect the total price
-                setTotalPrice(prevPrice => prevPrice + 0);
-            } else if (optionDetails?.cost) {
-                const numericCost = parseFloat(optionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
-                setTotalPrice(prevPrice => prevPrice + numericCost);
-            }
-        }
-    
-        // Update the answers object based on the selection
-        if (showFullOption) {
-            updatedAnswers[currentQuestion?.question] = currentQuestion?.options[0];
-        } else {
-            if (currentQuestion?.yesNo) {
-                if (answer === "No") {
-                    updatedAnswers[currentQuestion?.question] = "No";
-                    setCurrentStep(currentStep + 1); // Move to next step if No is selected
-                    setAnswers(updatedAnswers);
-                    return;
-                } else if (answer === "Yes") {
-                    updatedAnswers[currentQuestion?.question] = "Yes";
-                }
-            } else {
-                if (isMultiSelect) {
-                    if (!updatedAnswers[currentQuestion?.question]) {
-                        updatedAnswers[currentQuestion?.question] = [];
-                    }
-                    if (updatedAnswers[currentQuestion?.question].includes(answer)) {
-                        updatedAnswers[currentQuestion?.question] = updatedAnswers[currentQuestion?.question].filter(item => item !== answer);
-                    } else {
-                        updatedAnswers[currentQuestion?.question].push(answer);
-                    }
-                } else {
-                    updatedAnswers[currentQuestion?.question] = answer;
-                }
             }
         }
     
@@ -339,6 +336,7 @@ const websiteQuestions = [
             setCurrentStep(currentStep + 1);
         }
     };
+    
     
     
 
@@ -413,14 +411,14 @@ const websiteQuestions = [
     const renderAdditionalFunctions = () => {
         const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
         const currentQuestion = questions[currentQuestionIndex];
-        
+    
         return (
             <div>
                 <div className="options-container">
                     {currentQuestion?.options.map((optionKey, index) => {
                         const optionDetails = additionalFunctions[optionKey];
                         const isSelected = answers["Additional Function"] && answers["Additional Function"].includes(optionKey);
-                        
+    
                         return (
                             <div key={index} className="option">
                                 <div><strong>{optionDetails.title || optionKey}</strong></div>
@@ -445,6 +443,7 @@ const websiteQuestions = [
             </div>
         );
     };
+    
 
     const renderOptions = (options) => {
         const currentQuestionIndex = currentStep - (isWebsite ? 2 : 1);
