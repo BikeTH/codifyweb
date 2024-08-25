@@ -17,7 +17,7 @@ export default function NavBar() {
                     setActiveSection(entry.target.id);
                 }
             });
-        }, { threshold: isMobile ? 0.5 : 0.9 });
+        }, { threshold: isMobile ? 0.5 : 0.9, rootMargin: '0px' });
 
         sections.forEach(section => observer.observe(section));
 

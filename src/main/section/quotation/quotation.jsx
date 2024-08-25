@@ -479,7 +479,7 @@ const websiteQuestions = [
                 <div className="next-container">
                     <button 
                         className="next-btn" 
-                        onClick={() => {setCurrentStep(currentStep + 1); ScrollToSection('summaryQuotation')}}>
+                        onClick={() => {setCurrentStep(currentStep + 1); ScrollToSection('quotation')}}>
                         Proceed
                     </button>
                 </div>
@@ -507,7 +507,7 @@ const websiteQuestions = [
                                 ) : null}
                             </div>
                     </div>
-                    <button className="select-btn" onClick={() => handlePlatformSelection(option)}>
+                    <button className="select-btn" onClick={() => {handlePlatformSelection(option); ScrollToSection('quotation')}}>
                         Select
                     </button>
                 </div>
@@ -567,7 +567,7 @@ const websiteQuestions = [
                         </div>
                         <p>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                     </div>
-                    <button className="select-btn" onClick={() => handleSelect(optionKey)}>
+                    <button className="select-btn" onClick={() => {handleSelect(optionKey); ScrollToSection('quotation')}}>
                         Select
                     </button>
                 </div>

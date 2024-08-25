@@ -58,7 +58,7 @@ export default function Contact(){
                                     <FaInstagram color="#bc2a8d" />
                                     <span className="contact-text">Instagram</span>
                                 </a>
-                                <a href="tel:+601121823390" target="_blank" rel="noreferrer noopener">
+                                <a href="https://wa.me/+601121823390" target="_blank" rel="noreferrer noopener">
                                     <FaWhatsapp color="#25D366" />
                                     <span className="contact-text">WhatsApp</span>
                                 </a>
