@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ScrollToSection from "../../function/scrollToSection";  // Ensure this function is correctly imported
 import './quotation.css';
+import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 export default function Quotation() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -12,21 +13,21 @@ export default function Quotation() {
 
     // Data for Website Size
 const websiteSizes = {
-    basic: {
+    Basic: {
         pages: "1 - 4 Pages",
         description: "Suitable for small and simple websites",
         draftDesignIncluded: true,
         cost: "RM 1499",
         price: 1499,
     },
-    standard: {
+    Standard: {
         pages: "5 - 10 Pages",
         description: "Standard size websites which include all the Essential Pages",
         draftDesignIncluded: true,
         cost: "RM 2499",
         price: 2499,
     },
-    custom: {
+    Custom: {
         pages: "11+ Pages",
         description: "Suitable for businesses with a Large Range of Comprehensive Services & Portfolios to showcase",
         draftDesignIncluded: true,
@@ -78,6 +79,7 @@ const domains = {
 const webHosting = {
     basicServer: {
         title: "Basic",
+        description: "25GB SSD Disk, 1TB Transfer, Singapore Data Center",
         features: [
             "25GB SSD Disk",
             "1TB Transfer Traffic",
@@ -190,10 +192,47 @@ const websiteQuestions = [
     ];
 
     const handlePrevious = () => {
-        if (currentStep > 0) {
-            setCurrentStep(currentStep - 1);
+        const previousStep = currentStep - 1;
+        
+        // Calculate the index for the current question
+        const previousQuestionIndex = previousStep - (isWebsite ? 2 : 1);
+        const previousQuestion = questions[previousQuestionIndex];
+    
+        // Create a copy of the current answers
+        const updatedAnswers = { ...answers };
+    
+        // If the previous question was "Domain" or "Web Hosting", remove the associated answer
+        if (previousQuestion?.question === "Domain" || previousQuestion?.question === "Web Hosting") {
+            const previousAnswer = updatedAnswers[previousQuestion.question];
+    
+            if (previousAnswer) {
+                let prevOptionDetails;
+    
+                if (previousQuestion.question === "Domain") {
+                    prevOptionDetails = domains[previousAnswer];
+                } else if (previousQuestion.question === "Web Hosting") {
+                    prevOptionDetails = webHosting[previousAnswer];
+                }
+    
+                // Adjust the total price and uncertainty state
+                if (prevOptionDetails?.cost) {
+                    const numericCost = parseFloat(prevOptionDetails.cost.replace(/[^0-9.-]+/g, "")) || 0;
+                    setTotalPrice(prevPrice => prevPrice - numericCost);
+                }
+    
+                if (prevOptionDetails?.subscription || (prevOptionDetails?.cost && prevOptionDetails.cost.toLowerCase().includes('vary'))) {
+                    setUncertainty(prev => prev.filter(item => item.question !== previousQuestion?.question));
+                }
+    
+                // Remove the answer from the answers state
+                delete updatedAnswers[previousQuestion.question];
+            }
         }
-    };
+    
+        // Update the state
+        setAnswers(updatedAnswers);
+        setCurrentStep(previousStep);
+    };    
 
     const handleSelect = (answer, showFullOption = false, isMultiSelect = false) => {
         const updatedAnswers = { ...answers };
@@ -382,24 +421,12 @@ const websiteQuestions = [
     
         return (
             <div>
-                <div>
-                    <strong>{optionDetails.title}</strong>
-                </div>
-                <div>{optionDetails.description}</div>
-                <div>{optionDetails.cost && `Price: ${optionDetails.cost}`}</div>
+                <h1><strong>{optionDetails.title}</strong></h1>
+                <p>{optionDetails.description}</p>
+                <p>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                 <div className="yes-no-container">
-                    <button 
-                        className="yes-no-btn" 
-                        onClick={() => handleSelect("Yes")}
-                    >
-                        Yes
-                    </button>
-                    <button 
-                        className="yes-no-btn" 
-                        onClick={() => handleSelect("No")}
-                    >
-                        No
-                    </button>
+                    <button className="yes-no-btn" onClick={() => handleSelect("Yes")}>Yes</button>
+                    <button className="yes-no-btn" onClick={() => handleSelect("No")}>No</button>
                 </div>
             </div>
         );
@@ -435,13 +462,15 @@ const websiteQuestions = [
     
                         return (
                             <div key={index} className="option">
-                                <div><strong>{optionDetails.title || optionKey}</strong></div>
-                                <div>{optionDetails.description}</div>
-                                <div>{optionDetails.cost && `Price: ${optionDetails.cost}`}</div>
+                                <div className="option-header-info">
+                                    <h3><strong>{optionDetails.title || optionKey}</strong></h3>
+                                    <p>{optionDetails.description}</p>
+                                </div>
+                                <p>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                                 <button 
-                                    className={`select-btn ${isSelected ? 'selected' : ''}`} 
+                                    className={`multi-select-btn ${isSelected ? 'selected' : ''}`} 
                                     onClick={() => handleSelect(optionKey, false, true)}>
-                                    {isSelected ? 'Deselect' : 'Select'}
+                                    {isSelected ? 'Cancel' : 'Select'}
                                 </button>
                             </div>
                         );
@@ -450,8 +479,8 @@ const websiteQuestions = [
                 <div className="next-container">
                     <button 
                         className="next-btn" 
-                        onClick={() => setCurrentStep(currentStep + 1)}>
-                        Next
+                        onClick={() => {setCurrentStep(currentStep + 1); ScrollToSection('summaryQuotation')}}>
+                        Proceed
                     </button>
                 </div>
             </div>
@@ -465,8 +494,19 @@ const websiteQuestions = [
     
         if (!currentQuestion || currentQuestion.question === "Platform") {
             return options.map((option, index) => (
-                <div key={index} className="option">
-                    <div>{option}</div>
+                <div key={index} className="platform-option">
+                    <div className="platform-arrangement">
+                        <p style={{fontWeight:"bold"}}>{option}</p>
+                            <div className="platform-icon">
+                                {option === "Website" ? <FaDesktop className="desktop-icon"/> : null}
+                                {option === "App" ? (
+                                    <>
+                                        <FaAndroid className="android-icon" />
+                                        <FaAppStoreIos className="appstore-icon"/>
+                                    </>
+                                ) : null}
+                            </div>
+                    </div>
                     <button className="select-btn" onClick={() => handlePlatformSelection(option)}>
                         Select
                     </button>
@@ -520,9 +560,13 @@ const websiteQuestions = [
     
             return (
                 <div key={index} className="option">
-                    <div><strong>{optionDetails.title || optionKey}</strong></div>
-                    <div>{optionDetails.description}</div>
-                    <div>{optionDetails.cost && `Price: ${optionDetails.cost}`}</div>
+                    <div className="option-header">
+                        <div className="option-header-info">
+                            <h1><strong>{optionDetails.title || optionKey}</strong></h1>
+                            <p>{optionDetails.description}</p>
+                        </div>
+                        <p>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
+                    </div>
                     <button className="select-btn" onClick={() => handleSelect(optionKey)}>
                         Select
                     </button>
@@ -533,23 +577,23 @@ const websiteQuestions = [
 
     const renderSummary = () => {
         return (
-            <div className="ITconsult-price-quotation-summary">
-                <h3>Summary of your choice</h3>
+            <div className="ITconsult-price-quotation-summary" id="quotationSummary">
                 <div className="quotation-summary-list">
+                    <h1 style={{textAlign:"center"}}>Summary of your choice</h1>
                     {Object.entries(answers).map(([question, answer], index) => {
                         let optionDetails;
     
                         if (Array.isArray(answer)) {
                             return (
                                 <div key={index}>
-                                    <p><strong>{question}:</strong></p>
+                                    <h4><strong>{question}:</strong></h4>
                                     {answer.map((opt, i) => {
                                         optionDetails = additionalFunctions[opt] || {};
                                         return (
                                             <div key={i}>
-                                                <strong>{optionDetails.title || opt}</strong>
-                                                <div>{optionDetails.description}</div>
-                                                <div>{optionDetails.cost && `Price: ${optionDetails.cost}`}</div>
+                                                <h4 style={{marginBottom: 0}}><strong>{optionDetails.title || opt}</strong></h4>
+                                                <p style={{marginTop: 0}}>{optionDetails.description}</p>
+                                                <p style={{margin: 0}}>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                                             </div>
                                         );
                                     })}
@@ -564,17 +608,17 @@ const websiteQuestions = [
                                 optionDetails = question === "BackEnd (Dynamic)" ? backendOptions.backend : basicSEO.seo;
                                 return (
                                     <div key={index}>
-                                        <p><strong>{question}:</strong></p>
-                                        <div><strong>{optionDetails.title}</strong></div>
-                                        <div>{optionDetails.description}</div>
-                                        <div>{optionDetails.cost && `Price: ${optionDetails.cost}`}</div>
+                                        <h4 style={{marginBottom: 0}}><strong>{optionDetails.title}</strong></h4>
+                                        <h4 style={{marginTop: 0}}><strong>{question}:</strong></h4>
+                                        <p style={{marginTop: 0}}>{optionDetails.description}</p>
+                                        <p style={{margin: 0}}>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                                     </div>
                                 );
                             } else {
                                 return (
                                     <div key={index}>
-                                        <p><strong>{question}:</strong></p>
-                                        <div>Not Included</div>
+                                        <h4><strong>{question}:</strong></h4>
+                                        <p style={{margin: 0}}>Not Included</p>
                                     </div>
                                 );
                             }
@@ -584,32 +628,37 @@ const websiteQuestions = [
                         optionDetails = websiteSizes[answer] || websiteContents[answer] || domains[answer] || webHosting[answer] || additionalFunctions[answer];
                         return (
                             <div key={index}>
-                                <p><strong>{question}:</strong></p>
-                                <div><strong>{optionDetails?.title || answer}</strong></div>
-                                <div>{optionDetails?.description}</div>
-                                <div>{optionDetails?.cost && `Price: ${optionDetails.cost}`}</div>
+                                <h4 style={{marginBottom: 0}}><strong>{question}:</strong></h4>
+                                <h4 style={{marginTop: 0}}><strong>{optionDetails?.title || answer}</strong></h4>
+                                <p style={{marginTop: 0}}>{optionDetails?.description}</p>
+                                <p style={{margin: 0}}>{optionDetails?.cost && `Price: ${optionDetails.cost}`}</p>
                             </div>
                         );
                     })}
                 </div>
+            <div className="ITconsult-price-quotation-summary-cost">
                 <div className="total-price">
-                <h4>Total Price: {`RM ${totalPrice.toFixed(2)}`}</h4>
-            </div>
-            {uncertainty.length > 0 && (
-                <div className="uncertainty">
-                    <h4>Uncertainty:</h4>
-                    {uncertainty.map((item, index) => (
-                        <div key={index}>
-                            <p><strong>{item.question}:</strong> {item.title}</p>
-                            <p>{item.description}</p>
-                            <p>Price: {item.price}</p>
-                        </div>
-                    ))}
+                    <h4 style={{marginBottom: 0}}>Total Price: {`RM ${totalPrice.toFixed(2)}`}</h4>
+                    <p style={{margin:0, fontStyle:"italic"}}>Estimation of cost</p>
                 </div>
-            )}
+                {uncertainty.length > 0 && (
+                    <div className="uncertainty">
+                        <h1 style={{textAlign:"center", marginBottom:0}}>Uncertainty:</h1>
+                        <p style={{textAlign:"center", fontStyle:"italic", marginTop:0}}>Price might change with Notice</p>
+                        {uncertainty.map((item, index) => (
+                            <div key={index}>
+                                <h4 style={{marginBottom:0}}><strong>{item.question}:</strong> {item.title}</h4>
+                                <p>{item.description}</p>
+                                <p>Price: {item.price}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
+                <h4>Get your Summary in PDF for FREE</h4>
                 <button className="calc-btn" onClick={() => { ScrollToSection('contact'); handleReset(); }}>
                     Contact Us
                 </button>
+                </div>
             </div>
         );
     };
@@ -621,11 +670,9 @@ const websiteQuestions = [
             <h1 style={{ textAlign: "center" }}>
                 <span style={{ color: "var(--warm-neon-blue)" }}>Build</span> Website / Application Plan
             </h1>
-            <h2 style={{ textAlign: "center", margin: "0px" }}>
-                How Much to <span style={{ color: "var(--warm-neon-blue)" }}>Build</span> a Website / Application?
-            </h2>
-            <p style={{ textAlign: "center", margin: "0px", fontStyle: "italic" }}>
-                Price may vary without notice
+            <p style={{ textAlign: "center", margin: "0px" }}>
+                How Much to <span style={{ color: "var(--warm-neon-blue)" }}>Build</span> a Website / Application?<br />
+                <span style={{ fontStyle: "italic" }}>Price may vary without notice</span>
             </p>
     
             {currentStep === 0 ? (
@@ -639,9 +686,12 @@ const websiteQuestions = [
                     <div className="options-container">
                         {renderOptions(initialQuestions?.[0]?.options)}
                     </div>
-                    <button className="prev-btn" onClick={() => handlePrevious()}>
-                        Previous
-                    </button>
+                    <div className="prev-btn-arrangement">
+                        <button className="prev-btn" onClick={() => handlePrevious()}>
+                            <FaArrowLeft />
+                        </button>
+                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos Step</p>
+                    </div>
                 </div>
             ) : currentStep - (isWebsite ? 2 : 1) >= 0 && !isFinalStep ? (
                 <div className="ITconsult-price-quotation-question">
@@ -651,22 +701,35 @@ const websiteQuestions = [
                             ? renderYesNo()
                             : renderOptions(questions?.[currentStep - (isWebsite ? 2 : 1)]?.options)}
                     </div>
-                    <button className="prev-btn" onClick={() => handlePrevious()}>
-                        Previous
-                    </button>
+                    <div className="prev-btn-arrangement">
+                        <button className="prev-btn" onClick={() => handlePrevious()}>
+                            <FaArrowLeft />
+                        </button>
+                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos Step</p>
+                    </div>
                 </div>
             ) : null}
     
             {isFinalStep && isWebsite && (
                 <div className="quotation-summary-arrangement">
-                    <button onClick={() => { ScrollToSection('quotation'); handleReset(); }}>Back</button>
+                    <div className="quotation-summary-back">
+                        <button 
+                            className="quotation-summary-back-btn"
+                            onClick={() => { ScrollToSection('quotation'); handleReset(); }}>
+                            <FaCalculator />
+                        </button>
+                        <p className="recalculate-text">Re-Calculate</p>
+                    </div>
                     {renderSummary()}
                 </div>
             )}
     
             {isFinalStep && !isWebsite && (
                 <div className="quotation-summary-arrangement">
-                    <button onClick={() => { ScrollToSection('quotation'); handleReset(); }}>Back</button>
+                    <div className="quotation-summary-back">
+                        <button className="quotation-summary-back-btn" onClick={() => { ScrollToSection('quotation'); handleReset(); }}><FaCalculator /></button>
+                        <p className="recalculate-text">Re-Calculate</p>
+                    </div>
                     {appDescription?.description}
                 </div>
             )}

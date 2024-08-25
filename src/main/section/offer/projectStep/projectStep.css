@@ -57,11 +57,11 @@
     position: absolute;
 }
 
-.prev-btn {
+.step-prev-btn {
     left: 0; /* Align the prev button to the left */
 }
 
-.next-btn {
+.step-next-btn {
     right: 0; /* Align the next button to the right */
 }
 

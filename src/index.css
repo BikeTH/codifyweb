@@ -33,6 +33,10 @@ h3{
     font-weight: 600;
 }
 
+h4{
+    font-size: 2.5vmin;
+}
+
 p{
     font-size: 2.25vmin;
 }
@@ -59,8 +63,12 @@ li{
     }
     
     h3{
-        font-size: 3vmin;
+        font-size: 6vmin;
         font-weight: 600;
+    }
+
+    h4{
+        font-size: 5vmin;
     }
     
     p{

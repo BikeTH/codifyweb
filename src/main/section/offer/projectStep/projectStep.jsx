@@ -157,13 +157,13 @@ export default function ProjectSteps() {
                 </div>
                 <div className="step-navigation">
                     {currentStep > 0 && (
-                        <button onClick={handlePrev} className="step-nav-btnmsg prev-btn">
+                        <button onClick={handlePrev} className="step-nav-btnmsg step-prev-btn">
                             <MdArrowBackIos style={{fontSize:"24px"}}/>
                             <span className="step-nav-show-btmmsg">Prev</span>
                         </button>
                     )}
                     {currentStep < steps.length - 1 && (
-                        <button onClick={handleNext} className="step-nav-btnmsg next-btn">
+                        <button onClick={handleNext} className="step-nav-btnmsg step-next-btn">
                             <MdArrowForwardIos style={{fontSize:"24px"}}/>
                             <span className="step-nav-show-btmmsg">Next</span>
                         </button>

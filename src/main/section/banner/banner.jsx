@@ -26,7 +26,7 @@ export default function Banner() {
                 </div>
             </div>
             <div className="Banner-description">
-                <h2>We Build <span style={{color:"var(--warm-neon-pink)"}}>Stunning</span>, <span style={{color:"var(--warm-neon-green)"}}>Efficient</span> Websites & Apps that captivate <span style={{color:"var(--warm-neon-blue)"}}>users</span>.</h2>
+                <h2>Bringing you <span style={{color:"var(--warm-neon-blue)"}}>Modern</span>, <span style={{color:"var(--warm-neon-red)"}}>Snappy</span> Websites <span style={{color:"var(--warm-neon-green)"}}>Quickly</span> and <span style={{color:"var(--warm-neon-green)"}}>Efficiently</span>.</h2>
             </div>
             <NavBar />
         </div>

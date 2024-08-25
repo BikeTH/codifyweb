@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ScrollToSection from "./scrollToSection";
-import { IoMdRocket } from "react-icons/io";
+import { IoChevronUp } from "react-icons/io5";
 import './css/navTop.css'
 
 export default function NavTop () {
@@ -29,7 +29,7 @@ export default function NavTop () {
         <div>
             {isVisible && (
                 <button className="navTop-button" onClick={() => ScrollToSection('home')}>
-                    <IoMdRocket />
+                    <IoChevronUp />
                 </button>
             )}
         </div>

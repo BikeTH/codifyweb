@@ -70,7 +70,7 @@ export default function NavBar() {
                     <TbPackage /><span>Our Services</span>
                 </li>
                 <li
-                    className={activeSection === 'quotation' ? 'active' : ''}
+                    className={['quotation', 'quotationSummary'].includes(activeSection) ? 'active' : ''}
                     onClick={() => handleClick('quotation')}
                 >
                     <TbZoomMoney /><span>Pricing</span>
