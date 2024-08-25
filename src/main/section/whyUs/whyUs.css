@@ -86,7 +86,11 @@
 @media screen and (max-width: 1200px) and (min-width: 768px) {
     .ITconsult-why-us-arrangement{
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 4px;
+    }
+
+    .ITconsult-why-us-arrangement div{
+        margin: 8px;
     }
 
     .ITconsult-why-us-content{

@@ -39,8 +39,8 @@ export default function ReasonContent(){
         <div id="ITConsult" className="ITconsult-content">
                 <div className="ITconsult-reason-content">
                     <div className="ITconsult-reason-header">
-                        <h1 style={{fontWeight:"600"}}>4 <span style={{color:"var(--warm-neon-red)"}}>Reasons</span> to Have Your Own Website</h1>
-                        <p style={{fontWeight:"300"}}>Having your own website can provide numerous benefits for your business. Here are four key reasons why you should consider investing in a website:</p>
+                        <h1 style={{fontWeight:"600"}}>4 <span style={{color:"var(--warm-neon-red)"}}>Reasons</span> to Have Your Own Application</h1>
+                        <p style={{fontWeight:"300"}}>Having your own website can provide numerous benefits for your business. Here are four key reasons why you should consider investing in a Digital Application:</p>
                     </div>
                     <div className="ITconsult-reason-support">
                         {
