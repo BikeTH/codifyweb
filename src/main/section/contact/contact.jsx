@@ -35,7 +35,7 @@ export default function Contact(){
         event.preventDefault();
 
         try {
-            const response = await fetch('http://uat.wilfredcty.com/send', { //http://localhost:4444/send
+            const response = await fetch('https://uat.wilfredcty.com/send', { //http://localhost:4444/send
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
