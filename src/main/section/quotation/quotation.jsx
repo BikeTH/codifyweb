@@ -256,7 +256,6 @@ const websiteQuestions = [
         } else if (currentQuestion?.question === "BackEnd (Dynamic)") {
             if (answer === "Yes") {
                 optionDetails = backendOptions.backend;
-                console.log("Option Details for Backend:", optionDetails); // Log for debugging
                 setUncertainty(prev => [
                     ...prev.filter(item => item.question !== currentQuestion?.question),
                     {
@@ -388,8 +387,6 @@ const websiteQuestions = [
         if (!isMultiSelect) {
             setCurrentStep(currentStep + 1);
         }
-    
-        console.log("Uncertainty State: ", uncertainty);
     };
     
 

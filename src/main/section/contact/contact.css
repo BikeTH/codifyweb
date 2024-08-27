@@ -5,31 +5,35 @@
     justify-content: space-evenly;
     padding-top: 12px;
     position: relative;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
     overflow: hidden;
 }
 
-/* General sliding animation */
-.contact-details, 
-.contact-form-section {
-    flex: 1;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+.ITconsult-contact.slide-in {
+    animation: slideInFromRight 0.8s forwards;
 }
 
-/* Initial states for sliding and opacity */
-.contact-form-section {
-    transform: translateX(100%);
-    opacity: 0;
+.ITconsult-contact.slide-out {
+    animation: slideOutToRight 0.8s forwards;
 }
 
-/* When sliding out, move contact details out of view */
-.ITconsult-contact.slide-out .contact-details {
-    transform: translateX(-100%);
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
 }
 
-/* When sliding out, bring the form into view */
-.ITconsult-contact.slide-out .contact-form-section {
-    transform: translateX(0);
-    opacity: 1;
+@keyframes slideOutToRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
 }
 
 /* Ensure default state for contact details */
