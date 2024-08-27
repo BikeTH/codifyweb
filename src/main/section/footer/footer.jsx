@@ -85,7 +85,7 @@ export default function Footer(){
                         <div className="msg-body">
                             <p>Last updated: August 2024</p>
                             <h3>Introduction</h3>
-                            <p>TC WebApp Solution &#40;"we", "us", or "our"&#41; operates the wilfredcty.com/ITconsult website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
+                            <p>TC WebApp Solution &#40;"we", "us", or "our"&#41; operates the uat.wilfredcty.com website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
                             <h3>Definitions</h3>
                             <ul>
                                 <li>Personal Data: Information about an individual who can be identified from that data or from that data combined with other information in our possession.</li>
@@ -133,7 +133,7 @@ export default function Footer(){
                                 <li>Data Portability: The right to request a copy of your Personal Data in a structured, commonly used format</li>
                                 <li>Objection: The right to object to certain processing activities</li>
                             </ul>
-                            <p>To exercise these rights, please contact us at wilfredchong43@gmail.com.</p>
+                            <p>To exercise these rights, please contact us at webapp.tc@gmail.com.</p>
                             <h3>Service Providers</h3>
                             <p>We might use third-party services to assist in providing our Service. These providers have access to your Personal Data only to perform their tasks and are obligated not to use it for other purposes.</p>
                             <h3>Third-Party Links</h3>
@@ -143,7 +143,7 @@ export default function Footer(){
                             <h3>Changes to This Privacy Policy</h3>
                             <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date. We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.</p>
                             <h3>Contact Us</h3>
-                            <p>For questions or concerns about this Privacy Policy, please contact us at wilfredchong43@gmail.com.</p>
+                            <p>For questions or concerns about this Privacy Policy, please contact us at webapp.tc@gmail.com.</p>
                         </div>
                     </div>
                 </div>

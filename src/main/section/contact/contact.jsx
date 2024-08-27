@@ -6,18 +6,35 @@ import { FaLinkedin, FaArrowRight, FaArrowLeft, FaWhatsapp, FaInstagram } from "
 import { TbMail } from "react-icons/tb";
 import { SiMinutemailer } from "react-icons/si";
 import EmailStatus from "../../function/emailStatus";
+import qrPage from "../../../assets/ITConsult/QR/qrPage.png";
+import qrWhatapps from "../../../assets/ITConsult/QR/qrWhatapps.png";
 
 export default function Contact() {
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         subject: '',
         message: ''
     });
     const [status, setStatus] = useState(null); // New state for status
     const [statusMessage, setStatusMessage] = useState(''); // New state for status message
     const [fadeOut, setFadeOut] = useState(false); // New state to handle fade-out
+    const [enlargedQR, setEnlargedQR] = useState(null); // State for enlarged QR
+    const [qrDescription, setQrDescription] = useState(''); // State for QR description
+
+    const handleQrClick = (qrSrc, description) => {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            setEnlargedQR(qrSrc);
+            setQrDescription(description);
+        }
+    };
+
+    const handleCloseQr = () => {
+        setEnlargedQR(null);
+        setQrDescription('');
+    };
 
     const handleContactClick = () => {
         setShowForm(true);
@@ -50,21 +67,22 @@ export default function Contact() {
             if (response.ok) {
                 setStatus('success');
                 setStatusMessage('Email sent successfully!');
-                setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form after success
             } else {
                 setStatus('error');
                 setStatusMessage('Failed to send email');
             }
+            setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form after success
         } catch (error) {
             setStatus('error');
             setStatusMessage('Error occurred while sending email');
+            setFormData({ name: '', email: '', subject: '', message: '' });
         } finally {
             setFadeOut(true);
             setTimeout(() => {
                 setStatus(null);
                 setStatusMessage('');
                 setFadeOut(false);
-            },5000); // Reset status and message after 3 seconds
+            },5000); // Reset status and message after 5 seconds
         }
     };
 
@@ -99,6 +117,15 @@ export default function Contact() {
                                         name="email"
                                         placeholder="Email"
                                         value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <input
+                                        type="phone"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Phone"
+                                        value={formData.phone}
                                         onChange={handleChange}
                                         required
                                     />
@@ -152,10 +179,18 @@ export default function Contact() {
                                     <span className="contact-text">Email</span>
                                 </a>
                             </ul>
-                            <h3 style={{ textAlign: "center" }}>Scan QR to find Us</h3>
+                            <h3 style={{ textAlign: "center", fontSize:"3vmin" }}>Scan QR to find Us</h3>
                             <div className="contact-qr-arrangement">
-                                {/* QR code content */}
+                                <div className="qr-content" style={{textAlign:"center"}} onClick={() => handleQrClick(qrPage, 'Our Page')}>
+                                    <img className="qr-page" src={qrPage} alt="qrpage" />
+                                    <p style={{margin:"0"}}>Our Page</p>
+                                </div>
+                                <div className="qr-content" style={{textAlign:"center"}}>
+                                    <img className="qr-whatapps" src={qrWhatapps} alt="qrwhatapps" onClick={() => handleQrClick(qrWhatapps, 'WhatsApp')} />
+                                    <p style={{margin:"0"}}>WhatApps</p>
+                                </div>
                             </div>
+                            <p className="qr-msg">Tap me</p>
                         </div>
                         <div className="contact-form">
                             <h1 onClick={handleContactClick}><FaArrowRight /></h1>
@@ -163,8 +198,17 @@ export default function Contact() {
                         </div>
                     </div>
                 )}
+                {enlargedQR && (
+                <div className="qr-enlarged-overlay">
+                    <div className="qr-enlarged-content">
+                        <img src={enlargedQR} alt="Enlarged QR" />
+                        <p>{qrDescription}</p>
+                        <button className="close-btn" onClick={handleCloseQr}>X</button>
+                    </div>
+                </div>
+                )}
             </div>
-            <EmailStatus status={status} message={statusMessage} fadeOut={fadeOut} /> {/* Pass fadeOut state */}
+            <EmailStatus status={status} message={statusMessage} fadeOut={fadeOut} />
         </>
     );
 }

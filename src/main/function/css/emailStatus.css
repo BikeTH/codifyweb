@@ -11,20 +11,11 @@
 }
 
 .email-status.success {
-    background-color: #28a745;
+    background-color: var(--warm-neon-green);
 }
 
 .email-status.error {
-    background-color: #dc3545;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    background-color: var(--warm-neon-red);
 }
 
 @keyframes fadeOut {
