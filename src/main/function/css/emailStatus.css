@@ -37,5 +37,5 @@
 }
 
 .email-status.fade-out {
-    animation: fadeOut 3s forwards; /* Animation for hiding */
+    animation: fadeOut 5s forwards; /* Animation for hiding */
 }

@@ -64,7 +64,7 @@ export default function Contact() {
                 setStatus(null);
                 setStatusMessage('');
                 setFadeOut(false);
-            }, 2000); // Reset status and message after 3 seconds
+            },5000); // Reset status and message after 3 seconds
         }
     };
 
