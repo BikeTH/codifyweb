@@ -71,11 +71,11 @@ export default function Contact() {
                 setStatus('error');
                 setStatusMessage('Failed to send email');
             }
-            setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form after success
+            setFormData({ name: '', email: '', subject: '', message: '', phone: '' }); // Clear form after success
         } catch (error) {
             setStatus('error');
             setStatusMessage('Error occurred while sending email');
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ name: '', email: '', subject: '', message: '', phone: '' });
         } finally {
             setFadeOut(true);
             setTimeout(() => {
