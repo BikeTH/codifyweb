@@ -50,10 +50,10 @@ app.post('/send', (req, res) => {
     // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.error('Error sending email:', error);
+            console.error(`[${new Date().toLocaleString()}] Error sending email:`, error);
             return res.status(500).send('Error sending email');
         }
-        console.log('Email sent:', info.response);
+        console.log(`[${new Date().toLocaleString()}] Email sent:`, info.response);
         res.status(200).send('Email sent successfully');
     });
 });

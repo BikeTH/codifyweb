@@ -177,7 +177,7 @@ const websiteQuestions = [
             <div>
                 <h2>App Development Services</h2>
                 <p>We offer custom app development services tailored to your business needs...</p>
-                <button className="calc-btn" onClick={() => { ScrollToSection('contact'); handleReset(); }}>
+                <button className="calc-btn" onClick={() => { ScrollToSection('contact');}}>
                     Contact Us
                 </button>
             </div>
@@ -652,7 +652,7 @@ const websiteQuestions = [
                     </div>
                 )}
                 <h4>Get your Summary in PDF for FREE</h4>
-                <button className="calc-btn" onClick={() => { ScrollToSection('contact'); handleReset(); }}>
+                <button className="calc-btn" onClick={() => { ScrollToSection('contact');}}>
                     Contact Us
                 </button>
                 </div>

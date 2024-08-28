@@ -5,6 +5,7 @@ import email from '../../../assets/ITConsult/email.jpeg';
 import { FaLinkedin, FaArrowRight, FaArrowLeft, FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { TbMail } from "react-icons/tb";
 import { SiMinutemailer } from "react-icons/si";
+import { MdCancel } from "react-icons/md";
 import EmailStatus from "../../function/emailStatus";
 import qrPage from "../../../assets/ITConsult/QR/qrPage.png";
 import qrWhatapps from "../../../assets/ITConsult/QR/qrWhatapps.png";
@@ -203,7 +204,7 @@ export default function Contact() {
                     <div className="qr-enlarged-content">
                         <img src={enlargedQR} alt="Enlarged QR" />
                         <p>{qrDescription}</p>
-                        <button className="close-btn" onClick={handleCloseQr}>X</button>
+                        <button className="close-btn" onClick={handleCloseQr}><MdCancel /></button>
                     </div>
                 </div>
                 )}
