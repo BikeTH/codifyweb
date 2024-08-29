@@ -7,8 +7,8 @@ import { TbMail } from "react-icons/tb";
 import { SiMinutemailer } from "react-icons/si";
 import { MdCancel } from "react-icons/md";
 import EmailStatus from "../../function/emailStatus";
-import qrPage from "../../../assets/ITConsult/QR/qrPage.png";
-import qrWhatapps from "../../../assets/ITConsult/QR/qrWhatapps.png";
+import qrPage from "../../../assets/ITConsult/QR/qrPage.webp";
+import qrWhatapps from "../../../assets/ITConsult/QR/qrWhatapps.webp";
 
 export default function Contact() {
     const [showForm, setShowForm] = useState(false);
