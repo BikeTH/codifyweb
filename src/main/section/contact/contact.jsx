@@ -153,12 +153,12 @@ export default function Contact() {
                                     </button>
                                 </form>
                             </div>
-                            <img className="contact-img" src={email} alt="email image" />
+                            <img className="contact-img" src={email} alt="email image" loading="lazy"/>
                         </div>
                     </div>
                 ) : (
                     <div className="contact-details">
-                        <img className="contact-img" src={quotation} alt="quotation image" />
+                        <img className="contact-img" src={quotation} alt="quotation image" loading="lazy"/>
                         <div className="ITconsult-contact-detail">
                             <h1>Request For Quotation?</h1>
                             <p>You can directly Contact Us for consultation with no Charges and We are Happy to Help!</p>
