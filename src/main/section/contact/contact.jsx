@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './contact.css';
-import quotation from '../../../assets/ITConsult/quotation.svg';
-import email from '../../../assets/ITConsult/email.svg';
+import quotation from '../../../assets/ITConsult/quotation.jpeg';
+import email from '../../../assets/ITConsult/email.jpeg';
 import { FaLinkedin, FaArrowRight, FaArrowLeft, FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { TbMail } from "react-icons/tb";
 import { SiMinutemailer } from "react-icons/si";
