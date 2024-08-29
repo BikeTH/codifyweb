@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import me from '../../../assets/ITConsult/teamMember/aiMe.png';
-import tan from '../../../assets/ITConsult/teamMember/tan.jpeg';
+import me from '../../../assets/ITConsult/teamMember/aiMe.svg';
+import tan from '../../../assets/ITConsult/teamMember/tan.svg';
 import './team.css';
 import { TbMail } from "react-icons/tb";
 import { FaArrowUpRightDots, FaLinkedin } from "react-icons/fa6";

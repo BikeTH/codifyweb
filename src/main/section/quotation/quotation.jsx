@@ -3,7 +3,6 @@ import ScrollToSection from "../../function/scrollToSection";  // Ensure this fu
 import './quotation.css';
 import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload, FaArrowRight } from "react-icons/fa6";
 import RenderBrochure from "./summaryPDF";
-import ReactDOMServer from 'react-dom/server';
 import { pdf } from '@react-pdf/renderer';
 
 export default function Quotation() {
