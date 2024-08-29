@@ -4,8 +4,6 @@ import './quotation.css';
 import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload, FaArrowRight } from "react-icons/fa6";
 import { pdf } from '@react-pdf/renderer';
 
-const RenderBrochure = lazy(() => import('./summaryPDF'));
-
 export default function Quotation() {
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState({});
@@ -667,71 +665,77 @@ const websiteQuestions = [
     };
 
     const handleDownloadPDF = async () => {
-        const summaryData = Object.entries(answers).map(([question, answer]) => {
-            let optionDetails;
-            if (Array.isArray(answer)) {
-                const details = answer.map((opt) => {
-                    optionDetails = additionalFunctions[opt] || {};
-                    return {
-                        title: optionDetails.title || opt,
-                        description: optionDetails.description,
-                        cost: optionDetails.cost,
-                    };
-                });
-                return { question, details };
-            }
-    
-            if (question === "BackEnd (Dynamic)" || question === "Basic SEO") {
-                if (answer === "Yes") {
-                    optionDetails = question === "BackEnd (Dynamic)" ? backendOptions.backend : basicSEO.seo;
-                    return {
-                        question,
-                        details: [{
-                            title: optionDetails.title,
+        try
+        {
+            const RenderBrochure = (await import('./summaryPDF')).default;
+
+            const summaryData = Object.entries(answers).map(([question, answer]) => {
+                let optionDetails;
+                if (Array.isArray(answer)) {
+                    const details = answer.map((opt) => {
+                        optionDetails = additionalFunctions[opt] || {};
+                        return {
+                            title: optionDetails.title || opt,
                             description: optionDetails.description,
                             cost: optionDetails.cost,
-                        }],
-                    };
-                } else {
-                    return {
-                        question,
-                        details: [{ title: "Not Included" }],
-                    };
+                        };
+                    });
+                    return { question, details };
                 }
-            }
-    
-            optionDetails = websiteSizes[answer] || websiteContents[answer] || domains[answer] || webHosting[answer] || additionalFunctions[answer];
-            return {
-                question,
-                details: [{
-                    title: optionDetails?.title || answer,
-                    description: optionDetails?.description,
-                    cost: optionDetails?.cost,
-                }],
+        
+                if (question === "BackEnd (Dynamic)" || question === "Basic SEO") {
+                    if (answer === "Yes") {
+                        optionDetails = question === "BackEnd (Dynamic)" ? backendOptions.backend : basicSEO.seo;
+                        return {
+                            question,
+                            details: [{
+                                title: optionDetails.title,
+                                description: optionDetails.description,
+                                cost: optionDetails.cost,
+                            }],
+                        };
+                    } else {
+                        return {
+                            question,
+                            details: [{ title: "Not Included" }],
+                        };
+                    }
+                }
+        
+                optionDetails = websiteSizes[answer] || websiteContents[answer] || domains[answer] || webHosting[answer] || additionalFunctions[answer];
+                return {
+                    question,
+                    details: [{
+                        title: optionDetails?.title || answer,
+                        description: optionDetails?.description,
+                        cost: optionDetails?.cost,
+                    }],
+                };
+            });
+        
+            const pdfData = {
+                summaryData,
+                totalPrice: `RM ${totalPrice.toFixed(2)}`,
+                uncertainty: uncertainty.map(item => ({
+                    question: item.question,
+                    title: item.title,
+                    description: item.description,
+                    price: item.price,
+                })),
             };
-        });
-    
-        const pdfData = {
-            summaryData,
-            totalPrice: `RM ${totalPrice.toFixed(2)}`,
-            uncertainty: uncertainty.map(item => ({
-                question: item.question,
-                title: item.title,
-                description: item.description,
-                price: item.price,
-            })),
-        };
-    
-        const blob = await pdf(
-            <Suspense fallback={<div>Loading PDF...</div>}>
-                <RenderBrochure pdfData={pdfData} />
-            </Suspense>
-        ).toBlob();
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'quotation-summary.pdf';
-        link.click();
+        
+            const blob = await pdf(
+                    <RenderBrochure pdfData={pdfData} />
+            ).toBlob();
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'quotation-summary.pdf';
+            link.click();
+        }catch(error){
+            console.error("Error generating PDF:", error);
+            alert("There was an error generating the PDF. Please try again.");
+        }
     };
 
     const isFinalStep = currentStep === (isWebsite ? websiteQuestions.length + 2 : 2);
