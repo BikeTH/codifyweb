@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import ScrollToSection from "../../function/scrollToSection";  // Ensure this function is correctly imported
 import './quotation.css';
-import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload, FaArrowRight } from "react-icons/fa6";
+import RenderBrochure from "./summaryPDF";
+import ReactDOMServer from 'react-dom/server';
+import { pdf } from '@react-pdf/renderer';
 
 export default function Quotation() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -570,7 +573,7 @@ const websiteQuestions = [
                 </div>
             );
         });
-    };    
+    };
 
     const renderSummary = () => {
         return (
@@ -652,12 +655,79 @@ const websiteQuestions = [
                     </div>
                 )}
                 <h4>Get your Summary in PDF for FREE</h4>
+                <button onClick={handleDownloadPDF} className="download-pdf-btn">
+                        <FaDownload /> Download PDF
+                </button>
                 <button className="calc-btn" onClick={() => { ScrollToSection('contact');}}>
                     Contact Us
                 </button>
                 </div>
             </div>
         );
+    };
+
+    const handleDownloadPDF = async () => {
+        const summaryData = Object.entries(answers).map(([question, answer]) => {
+            let optionDetails;
+            if (Array.isArray(answer)) {
+                const details = answer.map((opt) => {
+                    optionDetails = additionalFunctions[opt] || {};
+                    return {
+                        title: optionDetails.title || opt,
+                        description: optionDetails.description,
+                        cost: optionDetails.cost,
+                    };
+                });
+                return { question, details };
+            }
+    
+            if (question === "BackEnd (Dynamic)" || question === "Basic SEO") {
+                if (answer === "Yes") {
+                    optionDetails = question === "BackEnd (Dynamic)" ? backendOptions.backend : basicSEO.seo;
+                    return {
+                        question,
+                        details: [{
+                            title: optionDetails.title,
+                            description: optionDetails.description,
+                            cost: optionDetails.cost,
+                        }],
+                    };
+                } else {
+                    return {
+                        question,
+                        details: [{ title: "Not Included" }],
+                    };
+                }
+            }
+    
+            optionDetails = websiteSizes[answer] || websiteContents[answer] || domains[answer] || webHosting[answer] || additionalFunctions[answer];
+            return {
+                question,
+                details: [{
+                    title: optionDetails?.title || answer,
+                    description: optionDetails?.description,
+                    cost: optionDetails?.cost,
+                }],
+            };
+        });
+    
+        const pdfData = {
+            summaryData,
+            totalPrice: `RM ${totalPrice.toFixed(2)}`,
+            uncertainty: uncertainty.map(item => ({
+                question: item.question,
+                title: item.title,
+                description: item.description,
+                price: item.price,
+            })),
+        };
+    
+        const blob = await pdf(<RenderBrochure pdfData={pdfData} />).toBlob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'quotation-summary.pdf';
+        link.click();
     };
 
     const isFinalStep = currentStep === (isWebsite ? websiteQuestions.length + 2 : 2);
@@ -725,7 +795,7 @@ const websiteQuestions = [
                 <div className="quotation-summary-arrangement">
                     <div className="quotation-summary-back">
                         <button className="quotation-summary-back-btn" onClick={() => { ScrollToSection('quotation'); handleReset(); }}><FaCalculator /></button>
-                        <p className="recalculate-text">Re-Calculate</p>
+                        <p className="recalculate-text">Main Menu</p>
                     </div>
                     {appDescription?.description}
                 </div>
