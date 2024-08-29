@@ -2,7 +2,6 @@ import React, { useState, lazy, Suspense } from "react";
 import ScrollToSection from "../../function/scrollToSection";  // Ensure this function is correctly imported
 import './quotation.css';
 import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload, FaArrowRight } from "react-icons/fa6";
-import { pdf } from '@react-pdf/renderer';
 
 export default function Quotation() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -668,6 +667,7 @@ const websiteQuestions = [
         try
         {
             const RenderBrochure = (await import('./summaryPDF')).default;
+            const { pdf } = await import('@react-pdf/renderer');
 
             const summaryData = Object.entries(answers).map(([question, answer]) => {
                 let optionDetails;
