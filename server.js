@@ -4,7 +4,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import nodemailer from 'nodemailer'; // Import Nodemailer
 import cors from 'cors';
+import { pdf } from '@react-pdf/renderer'; // Import @react-pdf/renderer
 import 'dotenv/config';
+import RenderBrochure from './RenderBrochure.js'; // Import your PDF component
 
 // Initialize Express application
 const app = express();
@@ -20,10 +22,29 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
     origin: "https://uat.wilfredcty.com" //"http://localhost:5173" for dev use
-}))
+}));
 
 // Serve static files from the 'build' directory
 app.use(express.static(path.join(__dirname, 'build')));
+
+// Route to handle PDF generation
+app.post('/generate-pdf', async (req, res) => {
+    try {
+        const pdfData = req.body; // Assume pdfData is sent in the request body
+
+        // Render the PDF
+        const pdfStream = await pdf(<RenderBrochure pdfData={pdfData} />).toStream();
+
+        // Set the response type to application/pdf
+        res.setHeader('Content-Type', 'application/pdf');
+
+        // Pipe the PDF stream to the response
+        pdfStream.pipe(res);
+    } catch (error) {
+        console.error(`[${new Date().toLocaleString()}] Error generating PDF:`, error);
+        res.status(500).send('Error generating PDF');
+    }
+});
 
 // Route to handle the contact form submission
 app.post('/send', (req, res) => {
