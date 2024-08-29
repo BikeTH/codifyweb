@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import me from '../../../assets/ITConsult/teamMember/aiMe.svg';
+import me from '../../../assets/ITConsult/teamMember/me.webp';
 import tan from '../../../assets/ITConsult/teamMember/tan.webp';
 import './team.css';
 import { TbMail } from "react-icons/tb";
