@@ -1,66 +1,44 @@
+// Import ES module syntax
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
-import Banner from './src/main/section/banner/banner'; // Adjust the path as needed
-import fs from 'fs';
-import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer'; // Import Nodemailer
 import cors from 'cors';
 import 'dotenv/config';
 
+// Initialize Express application
 const app = express();
 const port = process.env.PORT || 4444;
 
+// Get the current directory of the module (ES module equivalent of __dirname)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Middleware to parse JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(cors({
-    origin: "https://uat.wilfredcty.com"
-}));
+    origin: "https://uat.wilfredcty.com" //"http://localhost:5173" for dev use
+}))
 
 // Serve static files from the 'build' directory
 app.use(express.static(path.join(__dirname, 'build')));
-
-// SSR route for the banner component
-app.get('/ssr-banner', (req, res) => {
-    // Render the Banner component to a string
-    const bannerHTML = ReactDOMServer.renderToString(
-        <StaticRouter location={req.url}>
-            <Banner />
-        </StaticRouter>
-    );
-
-    // Read the base HTML file
-    const indexFile = path.resolve(__dirname, 'build', 'index.html');
-    fs.readFile(indexFile, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading index.html:', err);
-            return res.status(500).send('An error occurred');
-        }
-
-        // Inject the rendered component into the HTML
-        return res.send(
-            data.replace('<div id="root"></div>', `<div id="root">${bannerHTML}</div>`)
-        );
-    });
-});
 
 // Route to handle the contact form submission
 app.post('/send', (req, res) => {
     const { name, email, phone, subject, message } = req.body;
 
+    // Create Nodemailer transporter
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'gmail', // Use your email service
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
         }
     });
 
+    // Email options
     const mailOptions = {
         from: email,
         to: 'webapp.tc@gmail.com',
@@ -69,6 +47,7 @@ app.post('/send', (req, res) => {
         replyTo: email,
     };
 
+    // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.error(`[${new Date().toLocaleString()}] Error sending email:`, error);
@@ -82,4 +61,5 @@ app.post('/send', (req, res) => {
 // Serve the React app on all routes
 app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'build', 'index.html')));
 
+// Start listening on the specified port
 app.listen(port, () => console.log(`Server listening on port ${port}`));
