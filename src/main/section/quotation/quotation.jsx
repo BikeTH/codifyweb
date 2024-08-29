@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import ScrollToSection from "../../function/scrollToSection";  // Ensure this function is correctly imported
 import './quotation.css';
 import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload, FaArrowRight } from "react-icons/fa6";
-import RenderBrochure from "./summaryPDF";
 import { pdf } from '@react-pdf/renderer';
+
+const RenderBrochure = lazy(() => import('./summaryPDF'));
 
 export default function Quotation() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -721,7 +722,11 @@ const websiteQuestions = [
             })),
         };
     
-        const blob = await pdf(<RenderBrochure pdfData={pdfData} />).toBlob();
+        const blob = await pdf(
+            <Suspense fallback={<div>Loading PDF...</div>}>
+                <RenderBrochure pdfData={pdfData} />
+            </Suspense>
+        ).toBlob();
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
