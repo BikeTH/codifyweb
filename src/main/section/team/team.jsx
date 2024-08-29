@@ -51,7 +51,7 @@ export default function Team() {
                 {teams.map(data => (
                     <div className="ITconsult-teams-member-arrangement" key={data.id}>
                         <div className="member-detail-arrangement">
-                            <img className="member-picture" src={data.picture} onClick={() => handleImageClick(data.id)} />
+                            <img className="member-picture" src={data.picture} onClick={() => handleImageClick(data.id)} loading="lazy"/>
                             <div className={`team-member-info-arrangement ${activeId === data.id ? 'show' : ''}`}>
                                 {data.details}
                             </div>

@@ -26,6 +26,12 @@
     object-fit: cover;
     border-radius: 20%;
     cursor: pointer;
+    filter: brightness(50%); /* Darker by default */
+    transition: filter 0.5s ease; /* Smooth transition for brightness change */
+}
+
+.member-picture:hover {
+    filter: brightness(100%); /* Revert to original brightness on hover */
 }
 
 .team-member-connect-arrangement {

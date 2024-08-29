@@ -183,7 +183,7 @@ export default function Contact() {
                             <h3 style={{ textAlign: "center", fontSize:"3vmin" }}>Scan QR to find Us</h3>
                             <div className="contact-qr-arrangement">
                                 <div className="qr-content" style={{textAlign:"center"}} onClick={() => handleQrClick(qrPage, 'Our Page')}>
-                                    <img className="qr-page" src={qrPage} alt="qrpage" />
+                                    <img className="qr-page" src={qrPage} alt="qrpage" loading="lazy"/>
                                     <p style={{margin:"0"}}>Our Page</p>
                                 </div>
                                 <div className="qr-content" style={{textAlign:"center"}}>
