@@ -60,22 +60,22 @@ li{
     }
     
     h2{
-        font-size: 8vmin;
+        font-size: 5.5vmin;
         font-weight: 800;
     }
     
     h3{
-        font-size: 6vmin;
+        font-size: 5vmin;
         font-weight: 600;
     }
 
     h4{
-        font-size: 5vmin;
+        font-size: 3.5vmin;
     }
     
     p{
         font-family: Georgia, serif;
-        font-size: 4.5vmin;
+        font-size: 4vmin;
         letter-spacing: 3.5px;
     }
     

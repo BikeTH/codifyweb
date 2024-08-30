@@ -7,28 +7,28 @@ const reasonSupport = [
         id: 1,
         icon: <VscVerified />,
         title: "Enhanced Credibility & Trust",
-        description: "A professional website creates a trustworthy image, making visitors more likely to view your business as reliable and credible.",
+        description: "A professional website builds Trust and Reliability.",
         color: "var(--warm-neon-blue)",
     },
     {
         id: 2,
         icon: <VscHeart />,
         title: "Improved User Experience",
-        description: "Professional websites offer smooth navigation and fast loading, keeping visitors engaged and reducing the chance they’ll leave without taking action.",
+        description: "Interactive and Fast loading keep Users Engaged",
         color: "var(--warm-neon-red)",
     },
     {
         id: 3,
         icon: <VscGear />,
         title: "Effective Conversion Optimization",
-        description: "Well-designed websites guide visitors toward making purchases with clear calls-to-action and easy checkout processes.",
+        description: "Well-designed and Informative sites lead to Sales Boost",
         color: "var(--warm-neon-green)",
     },
     {
         id: 4,
         icon: <VscDashboard />,
         title: "Enhanced Visibility & SEO",
-        description: "A professionally built site improves your search engine ranking, attracting more visitors and boosting your chances of making sales.",
+        description: "Boost your site ranking and Attracts more Visitors",
         color: "var(--warm-neon-purple)",
     },
 ]
@@ -39,8 +39,8 @@ export default function ReasonContent(){
         <div id="ITConsult" className="ITconsult-content">
                 <div className="ITconsult-reason-content">
                     <div className="ITconsult-reason-header">
-                        <h1 style={{fontWeight:"600"}}>4 Reasons to Have Your Own Application</h1>
-                        <h3 style={{fontWeight:"300"}}>Having your own website can provide numerous benefits for your business. Here are four key reasons why you should consider investing in a Digital Application:</h3>
+                        <h1 style={{fontWeight:"600"}}>Transform Your Business Today</h1>
+                        <h3 style={{fontWeight:"300"}}>Unlock the Power of a Digital Application to Propel Your Success</h3>
                     </div>
                     <div className="ITconsult-reason-support">
                         {

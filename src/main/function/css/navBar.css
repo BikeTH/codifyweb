@@ -62,7 +62,7 @@
 
 @media screen and (max-width:768px) {
     .ITconsult-nav-bar li.active {
-        background-color: black;
+        background-color: var(--background-color);
         color: var(--warm-neon-blue);
     }
 }

@@ -46,7 +46,7 @@ export default function Team() {
     return (
         <div className="ITconsult-teams" id="team">
             <h1 style={{ textAlign: "center" }}>Meet Our Team</h1>
-            <p className="word-breath" style={{ textAlign: "center", margin: 0 }}>Tap us to Learn More</p>
+            <p className="word-breath" style={{ textAlign: "center", marginTop: 0 }}>Tap us to Learn More</p>
             <div className="ITconsult-teams-arrangement">
                 {teams.map(data => (
                     <div className="ITconsult-teams-member-arrangement" key={data.id}>

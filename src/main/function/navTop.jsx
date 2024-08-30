@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ScrollToSection from "./scrollToSection";
-import { IoChevronUp } from "react-icons/io5";
+import { IoChevronUp, IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import { LuSun, LuMoon } from "react-icons/lu";
 import './css/navTop.css';
 
@@ -55,7 +55,7 @@ export default function NavTop() {
                 </button>
             )}
             <button className="theme-toggle-button" onClick={toggleTheme}>
-                {isDarkMode ? <LuMoon /> : <LuSun />}
+                {isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
             </button>
         </div>
     );

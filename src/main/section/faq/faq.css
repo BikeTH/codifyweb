@@ -25,7 +25,7 @@
     left: 0; 
     width: 25px; /* Adjust this value to control the length of the border */
     height: 1px; /* Border thickness */
-    background-color: white; /* Border color */
+    background-color: var(--nav-bg); /* Border color */
     transform: translate(-35%, -50%);
 }
 
@@ -37,11 +37,11 @@
     left: 0;
     width: 1px; /* Border thickness */
     height: 15px; /* Adjust this value to control the length of the left border */
-    background-color: white; /* Border color */
+    background-color: var(--nav-bg); /* Border color */
     transform: translate(-600%, -25%); /* Adjusts the positioning slightly to center the border */
 }
 
-.ITconsult-faq-question h3 {
+.faq-q-arrangement {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +51,7 @@
 }
 
 .ITconsult-faq-question .icon {
+    font-size: 2.5vmin;
     transition: transform 0.3s ease-out;
 }
 
@@ -70,14 +71,6 @@
 }
 
 @media screen and (max-width: 768px) {
-    .ITconsult-faq-header h2{
-        font-size: 5vmin !important;
-    }
-
-    .ITconsult-faq-question h1{
-        font-size: 4.5vmin !important;
-    }
-
     .ITconsult-faq{
         justify-content: center;
         align-items: center;
@@ -93,14 +86,6 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-    }
-
-    .ITconsult-faq-question-arrangement h1{
-        font-size: 6vmin !important;
-    }
-
-    .ITconsult-faq-question-arrangement p{
-        font-size: 3.5vmin;
     }
 }
 

@@ -72,17 +72,7 @@
         gap: 24px;
     }
 
-    .ITconsult-reason-header h1{
-        font-size: 7vmin;
-        font-weight: 800;
-    }
-    
-    .ITconsult-reason-header p{
-        font-size: 4vmin;
-    }
-
     .ITconsult-reason-support-arrangement h1{
-        font-size: 7vmin;
         height: auto;
     }
 }

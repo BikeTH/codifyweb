@@ -51,12 +51,7 @@
         padding: 12px;
     }
 
-    .ITconsult-why-us-content h1{
-        font-size: 8vmin !important;
-    }    
-
     .ITconsult-why-us h1{
-        font-size: 8vmin;
         margin: 8px;
     }
     
@@ -67,14 +62,6 @@
         align-items: center;
         height: auto;
         gap: 20px;
-    }
-
-    .ITconsult-why-us p{
-        font-size: 4vmin;
-    }
-
-    .ITconsult-why-us-content h2{
-        font-size: 5vmin;
     }
 }
 
