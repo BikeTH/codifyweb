@@ -12,10 +12,6 @@
     max-width: 30%;
 }
 
-.ITconsult-faq-header h2{
-    font-size: 3vmin;
-}
-
 .ITconsult-faq-question-arrangement{
     position: relative;
     cursor: pointer;
@@ -45,7 +41,7 @@
     transform: translate(-600%, -25%); /* Adjusts the positioning slightly to center the border */
 }
 
-.ITconsult-faq-question h1 {
+.ITconsult-faq-question h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,18 +62,11 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+    color: var(--second-color);
 }
 
 .ITconsult-faq-answer.expanded {
     max-height: 500px; /* Adjust this value to accommodate the largest expected answer */
-}
-
-.ITconsult-faq-question-arrangement h1{
-    font-size: 3.5vmin !important;
-}
-
-.ITconsult-faq-question-arrangement p{
-    font-size: 2vmin;
 }
 
 @media screen and (max-width: 768px) {

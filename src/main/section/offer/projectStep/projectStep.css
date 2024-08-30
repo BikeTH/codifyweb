@@ -34,7 +34,7 @@
 .project-steps button,
 .show-details button {
     text-align: center;
-    color: white;
+    color: var(--color);
     background: none;
     border: none;
     cursor: pointer;

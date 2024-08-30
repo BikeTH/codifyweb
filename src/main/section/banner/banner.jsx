@@ -7,14 +7,14 @@ export default function Banner() {
         <div className="Banner" id="home">
             <div className="Banner-Header">
                 <div className="Banner-Header-arrangement">
-                    <h1><span style={{color:"var(--warm-neon-blue)"}}>T</span><span style={{color:"var(--warm-neon-red)"}}>C</span></h1>
+                    <h1>CodifyWeb</h1>
                     <p>
                         // Based in
                         <br></br>
                         Malaysia
                     </p>
                 </div>
-                <h1 style={{color:"var(--warm-neon-yellow)"}}>Solutions</h1>
+                <h1>Solutions</h1>
                 <h2>Website</h2>
                 <div className="Banner-Header-arrangement">
                     <p>
@@ -22,11 +22,11 @@ export default function Banner() {
                         <br></br>
                         // IoS
                     </p>
-                    <h2><span style={{color:"var(--warm-neon-orange)"}}>&</span> Application</h2>
+                    <h2>& Application</h2>
                 </div>
             </div>
             <div className="Banner-description">
-                <h2>Bringing you <span style={{color:"var(--warm-neon-blue)"}}>Modern</span>, <span style={{color:"var(--warm-neon-red)"}}>Snappy</span> Websites <span style={{color:"var(--warm-neon-green)"}}>Quickly</span> and <span style={{color:"var(--warm-neon-green)"}}>Efficiently</span>.</h2>
+                <h2>Bringing you Modern, Snappy Websites Quickly and Efficiently.</h2>
             </div>
             <NavBar />
         </div>

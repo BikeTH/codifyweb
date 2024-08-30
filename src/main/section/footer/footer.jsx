@@ -14,7 +14,7 @@ export default function Footer(){
             content:
             <>
                 <div className="Footer-About">
-                    <p>We build functional websites and applications tailored to your business needs, whether for optimizing operations or increasing visitor engagement. Our solutions enhance efficiency and deliver practical, user-friendly tools.</p>
+                    <h3 style={{color: 'var(--second-color)'}}>We build functional websites and applications tailored to your business needs, whether for optimizing operations or increasing visitor engagement. Our solutions enhance efficiency and deliver practical, user-friendly tools.</h3>
                 </div>
             </>,
             color: "var(--warm-neon-red)",
@@ -63,7 +63,7 @@ export default function Footer(){
                         LOGO
                     </div>
                 </div>
-                <div style={{borderBottom:"0.2px solid white", padding:"8px", margin:"0 auto"}}/>
+                <div style={{borderBottom:`0.2px solid var(--color)`, padding:"8px", margin:"0 auto"}}/>
                 <div>
                     <div className="ITconsult-footer-content">
                         {footer.map(data => (
@@ -74,8 +74,8 @@ export default function Footer(){
                         ))}
                     </div>
                 </div>
-                <div style={{borderBottom:"0.2px solid white", padding:"8px", margin:"0 auto"}}/>
-                <p>TC WebApp Solution &copy; 2024. All rights reserved.</p>
+                <div style={{borderBottom:`0.2px solid var(--color)`, padding:"8px", margin:"0 auto"}}/>
+                <p>Codify Web Solutions &copy; 2024. All rights reserved.</p>
             </div>
             {showMsg && (
                 <div className="pop-msg-overlay">
@@ -85,7 +85,7 @@ export default function Footer(){
                         <div className="msg-body">
                             <p>Last updated: August 2024</p>
                             <h3>Introduction</h3>
-                            <p>TC WebApp Solution &#40;"we", "us", or "our"&#41; operates the uat.wilfredcty.com website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
+                            <p>Codify Web Solution &#40;"we", "us", or "our"&#41; operates the uat.wilfredcty.com website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
                             <h3>Definitions</h3>
                             <ul>
                                 <li>Personal Data: Information about an individual who can be identified from that data or from that data combined with other information in our possession.</li>

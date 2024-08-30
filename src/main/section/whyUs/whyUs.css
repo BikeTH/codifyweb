@@ -32,18 +32,13 @@
     height: 45%;
 }
 
-.ITconsult-why-us-content h1{
-    font-size: 3vmin !important;
-}
-
 .ITconsult-why-us-content h2{
     margin: 0;
     margin-top: 8px;
-    font-size: 3vmin;
 }
 
-.ITconsult-why-us p{
-    font-size: 2vmin;
+.ITconsult-why-us-content p{
+    color: white
 }
 
 @media screen and (max-width: 768px) {

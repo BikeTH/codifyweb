@@ -12,7 +12,7 @@
 
 .ITconsult-nav-bar.fixed {
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.9); /* Slightly opaque white */
+    background-color: var(--background-color); /* Slightly opaque white */
     top: 0;
     left: 0;
     right: 0;
@@ -45,14 +45,14 @@
 .ITconsult-nav-bar li:hover:not(.active),
 .ITconsult-nav-bar li.active {
     border-radius: 48px;
-    background-color: white;
-    color: black;
+    background-color: var(--nav-bg);
+    color: var(--nav-color);
     transform: scale(1.15);
 }
 
 .ITconsult-nav-bar li.active {
-    background-color: white;
-    color: black;
+    background-color: var(--nav-bg);
+    color: var(--nav-color);
 }
 
 .ITconsult-nav-bar li span {

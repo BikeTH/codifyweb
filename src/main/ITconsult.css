@@ -8,6 +8,8 @@
     padding-right: 10%;
     letter-spacing: 0.15em;
     gap: 28px;
+    background-color: var(--background-color);
+    color: var(--color);
 }
 
 @media screen and (max-width: 768px) {

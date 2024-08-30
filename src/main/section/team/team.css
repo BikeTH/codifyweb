@@ -75,15 +75,15 @@
 @keyframes breathing{
     0% {
         opacity: 0;
-        color: black;
+        color: var(--color);
     }
     50% {
         opacity: 1;
-        color: white;
+        color: var(--color);
     }
     100% {
         opacity: 0;
-        color: black;
+        color: var(--color);
     }
 }
 

@@ -37,19 +37,19 @@ export default function Offer() {
     return (
         <div className={`ITconsult-offer ${isPackage ? 'shifted' : ''}`} id="offer">
             <div className="offers-arrangement">
-                <h1>Our <span style={{color:"var(--warm-neon-orange)"}}>Services</span></h1>
+                <h1>Our Services</h1>
                 <div className="ITconsult-offers-arrangement">
                     {offer.map(data => (
                         <div className="ITconsult-offer-content" key={data.id}>
-                            <h2 style={{ fontWeight: "800" }}>{data.icon}</h2>
-                            <h1 style={{ fontWeight: "400", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h1>
+                            <h1 style={{ fontWeight: "800" }}>{data.icon}</h1>
+                            <h2 style={{ fontWeight: "400", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h2>
                         </div>
                     ))}
                 </div>
             </div>
             <div className={`project-arrangement ${isPackage ? 'shifted-project' : ''}`}>
                 <div className="project-header">
-                    <h1>~ How we <span style={{color:"var(--warm-neon-yellow)"}}>Delivered</span> Project ~</h1>
+                    <h1>~ How we Delivered Project ~</h1>
                     {isPackage && (
                         <div
                             className="workflow-btn-cancel"

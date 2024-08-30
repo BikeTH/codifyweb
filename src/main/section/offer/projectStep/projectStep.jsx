@@ -44,11 +44,11 @@ const steps = [
                 <p style={{textAlign:"center"}}><span style={{color:"var(--warm-neon-orange)"}}>Tech stack</span> will use</p>
                 <div className="development-arrangement">
                     <div className="development-content-arrangement">
-                        <h1>Website</h1>
+                        <h3>Website</h3>
                         <h3 style={{textAlign:"center"}}><IoLogoReact/><IoLogoNodejs/><IoLogoCss3/><IoLogoJavascript/><SiMysql/><SiPostgresql/></h3>
                     </div>
                     <div className="development-content-arrangement">
-                        <h1>Mobile App</h1>
+                        <h3>Mobile App</h3>
                         <h3 style={{textAlign:"center"}}><SiExpo/></h3>
                     </div>
                 </div>

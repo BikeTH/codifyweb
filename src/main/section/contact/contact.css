@@ -31,7 +31,12 @@
 /* Styling for the contact details section */
 .ITconsult-contact-detail {
     padding: 12px;
-    border-right: 1px solid white;
+    border-right: 1px solid var(--color);
+    width: 90%;
+}
+
+.ITconsult-contact-detail p{
+    color: var(--second-color);
 }
 
 /* List of contact methods within the contact details */
@@ -68,7 +73,7 @@
 
 /* Tooltip text styling */
 .contact-text {
-    color: white;
+    color: var(--color);
     font-size: 12px;
     display: none;
     position: absolute;
@@ -112,7 +117,7 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    border: 1px solid white;
+    border: 1px solid var(--color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,8 +131,12 @@
 .contact-details-back h1:hover {
     cursor: pointer;
     transform: scale(1.15);
-    color: black;
-    background-color: white;
+    color: var(--nav-color);
+    background-color: var(--nav-bg);
+}
+
+.contact-form-header p{
+    color: var(--second-color);
 }
 
 /* Layout for the contact form section */
@@ -156,7 +165,7 @@
     align-items: center;
     justify-content: space-evenly;
     gap: 24px;
-    border-left: 1px solid white;
+    border-left: 1px solid var(--color);
     padding: 12px;
 }
 
@@ -170,9 +179,9 @@
 
 .contact-fill-form input,
 .contact-fill-form textarea {
-    background-color: #222; /* Dark gray background for inputs */
-    color: #fff; /* White text color */
-    border: 1px solid #444; /* Subtle border */
+    background-color: var(--background-color); /* Dark gray background for inputs */
+    color: var(--color); /* White text color */
+    border: 1px solid var(--color); /* Subtle border */
     border-radius: 4px; /* Rounded corners */
     padding: 12px; /* Padding inside the input */
     font-size: 16px; /* Font size for readability */
@@ -180,12 +189,12 @@
 
 .contact-fill-form input::placeholder,
 .contact-fill-form textarea::placeholder {
-    color: #888; /* Light gray placeholder text */
+    color: var(--color); /* Light gray placeholder text */
 }
 
 .contact-fill-form input:focus,
 .contact-fill-form textarea:focus {
-    border-color: #555; /* Change border color on focus */
+    border-color: var(--color); /* Change border color on focus */
     outline: none; /* Remove default outline */
 }
 
@@ -199,7 +208,7 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: #fff;
+    color: var(--color);
     transition: color 0.3s, transform 0.3s;
 }
 
@@ -215,7 +224,7 @@
     bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
+    color: var(--color);
     font-size: 12px;
     white-space: nowrap;
     opacity: 0;

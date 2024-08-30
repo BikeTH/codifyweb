@@ -63,14 +63,14 @@ export default function Faq(){
         <>
         <div className="ITconsult-faq" id="faq">
             <div className="ITconsult-faq-header" style={{textAlign:"center"}}>
-                <h1 style={{margin:"0px", color:"var(--warm-neon-pink)"}}>FAQ</h1>
-                <h2 style={{margin:"0px"}}>Ask Away! Your questions Matter to Us</h2>
+                <h1 style={{margin:"0px"}}>FAQ</h1>
+                <h3 style={{margin:"0px"}}>Ask Away! Your questions Matter to Us</h3>
             </div>
             <div className="ITconsult-faq-question">
                 {faqs.map((faq,index) => (
                     <div className="ITconsult-faq-question-arrangement" key={faq.id} onClick={() => handleToggle(index)}>
-                        <h1 onClick={() => handleToggle(index)}>{faq.questions} 
-                        <AiOutlinePlus className={`icon ${activeIndex === index ? 'rotate' : ''}`} /></h1>
+                        <h3 onClick={() => handleToggle(index)}>{faq.questions} 
+                        <AiOutlinePlus className={`icon ${activeIndex === index ? 'rotate' : ''}`} /></h3>
                         <div className={`ITconsult-faq-answer ${activeIndex === index ? 'expanded' : ''}`}>
                             {faq.answer}
                         </div>

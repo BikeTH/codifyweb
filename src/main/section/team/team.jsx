@@ -45,7 +45,7 @@ export default function Team() {
 
     return (
         <div className="ITconsult-teams" id="team">
-            <h1 style={{ textAlign: "center" }}>Meet Our <span style={{ color: "var(--warm-neon-purple)" }}>Team</span></h1>
+            <h1 style={{ textAlign: "center" }}>Meet Our Team</h1>
             <p className="word-breath" style={{ textAlign: "center", margin: 0 }}>Tap us to Learn More</p>
             <div className="ITconsult-teams-arrangement">
                 {teams.map(data => (

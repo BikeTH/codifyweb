@@ -1,7 +1,9 @@
 :root {
-    background-color: black;
-    color: white;
-    --second-color: #2B2B2B;
+    --background-color: black;
+    --color: white;
+    --second-color: #eeeeee;
+    --nav-bg: black;
+    --nav-color: white;
     --border: #555;
     --neon-red: #FF073A;
     --neon-blue: #00FFFF;
@@ -19,19 +21,20 @@
     --warm-neon-purple: #D8A6FF;
 }
 
+body{
+    background-color: var(--background-color);
+}
+
 h1{
-    font-size: 4vmin;
-    font-weight: 600;
+    font-size: 5vmin;
 }
 
 h2{
-    font-size: 6vmin;
-    font-weight: 800;
+    font-size: 4vmin;
 }
 
 h3{
     font-size: 3vmin;
-    font-weight: 600;
 }
 
 h4{
@@ -48,8 +51,6 @@ li{
 
 @media screen and (max-width: 768px) {
     :root {
-        background-color: black;
-        color: white;
         line-height: 1.4;
     }
 
@@ -59,7 +60,7 @@ li{
     }
     
     h2{
-        font-size: 12vmin;
+        font-size: 8vmin;
         font-weight: 800;
     }
     

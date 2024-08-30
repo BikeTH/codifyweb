@@ -100,15 +100,15 @@
 @keyframes colorFade{
     0% {
         opacity: 0;
-        color: black;
+        color: var(--color);
     }
     50% {
         opacity: 1;
-        color: white;
+        color: var(--color);
     }
     100% {
         opacity: 0;
-        color: black;
+        color: var(--color);
     }
 }
 
@@ -157,7 +157,4 @@
         font-size: 3.5vmin !important;
     }
 
-    .ITconsult-offer-content h1{
-        font-size: 2.25vmin !important;
-    }
 }

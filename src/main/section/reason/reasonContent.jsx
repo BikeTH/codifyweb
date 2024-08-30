@@ -39,15 +39,15 @@ export default function ReasonContent(){
         <div id="ITConsult" className="ITconsult-content">
                 <div className="ITconsult-reason-content">
                     <div className="ITconsult-reason-header">
-                        <h1 style={{fontWeight:"600"}}>4 <span style={{color:"var(--warm-neon-red)"}}>Reasons</span> to Have Your Own Application</h1>
-                        <p style={{fontWeight:"300"}}>Having your own website can provide numerous benefits for your business. Here are four key reasons why you should consider investing in a Digital Application:</p>
+                        <h1 style={{fontWeight:"600"}}>4 Reasons to Have Your Own Application</h1>
+                        <h3 style={{fontWeight:"300"}}>Having your own website can provide numerous benefits for your business. Here are four key reasons why you should consider investing in a Digital Application:</h3>
                     </div>
                     <div className="ITconsult-reason-support">
                         {
                             reasonSupport.map(data => (
                                 <div className="ITconsult-reason-support-arrangement" key={data.id}>
                                     <h2 style={{color: data.color}}>{data.icon}</h2>
-                                    <h1 style={{fontWeight:"800", color: data.color, marginTop:"0"}}>{data.title}</h1>
+                                    <h3 style={{fontWeight:"800", color: data.color, marginTop:"0"}}>{data.title}</h3>
                                     <p style={{ fontWeight:"400"}}>{data.description}</p>
                                 </div>
                             ))

@@ -16,9 +16,9 @@ export default function ITconsult(){
     return(
         <>
         <div className="ITconsult-main">
-            <Banner />
-            <ReasonContent />
-            <Offer />
+            <Banner/>
+            <ReasonContent/>
+            <Offer/>
             <TechStackSlider />
             <WhyUs />
             <Quotation />

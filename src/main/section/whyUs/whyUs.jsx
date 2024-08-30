@@ -51,14 +51,14 @@ export default function WhyUs(){
     return(
         <>
         <div className="ITconsult-why-us">
-            <h1 style={{textAlign:"center"}}>Why <span style={{color:"var(--warm-neon-green)"}}>Choose</span> Us?</h1>
+            <h1 style={{textAlign:"center"}}>Why Choose Us?</h1>
             <div className="ITconsult-why-us-arrangement">
             {
                 chooseUs.map(data => (
                     <div className="ITconsult-why-us-content" key={data.id}>
                         <div className="ITconsult-why-us-content-header">
                             <h2 style={{color:data.color}}>{data.icon}</h2>
-                            <h1 style={{color:data.color, marginTop:"0"}}>{data.title}</h1>
+                            <h3 style={{color:data.color, marginTop:"0"}}>{data.title}</h3>
                         </div>
                         <p>{data.description}</p>
                     </div>
