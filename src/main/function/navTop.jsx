@@ -46,6 +46,18 @@ export default function NavTop() {
             '--nav-color',
             isDarkMode ? '#F5F5F5' : '#080808'
         );
+        document.documentElement.style.setProperty(
+            '--content-bg',
+            isDarkMode ? '#F5F5F5' : '#1a1a1a'
+        );
+        document.documentElement.style.setProperty(
+            '--content-color',
+            isDarkMode ? '#F5F5F5' : '#1a1a1a'
+        );
+        document.documentElement.style.setProperty(
+            '--seo',
+            isDarkMode ? 'var(--neon-green)' : 'var(--warm-neon-green)'
+        );
     };
 
     return (

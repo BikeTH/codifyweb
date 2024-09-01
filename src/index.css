@@ -4,10 +4,13 @@
     --second-color: #eeeeee;
     --nav-bg: #080808;
     --nav-color: #F5F5F5;
+    --content-bg:#1a1a1a;
+    --content-color:#1a1a1a;
+    --seo:#1ab000;
     --border: #555;
     --neon-red: #FF073A;
     --neon-blue: #00FFFF;
-    --neon-green: #39FF14;
+    --neon-green: #1ab000;
     --neon-pink: #FF6EC7;
     --neon-orange: #FF5F00;
     --neon-yellow: #E3FF00;
@@ -42,6 +45,10 @@ h4{
     font-size: 2.5vmin;
 }
 
+h5{
+    font-size: 2vmin;
+}
+
 p{
     font-size: 2.25vmin;
 }
@@ -73,10 +80,14 @@ li{
     h4{
         font-size: 3.5vmin;
     }
+
+    h5{
+        font-size: 4vmin;
+    }
     
     p{
         font-family: Georgia, serif;
-        font-size: 4vmin;
+        font-size: 3.5vmin;
         letter-spacing: 3.5px;
     }
     
@@ -84,3 +95,4 @@ li{
         font-size: 4vmin;
     }
 }
+

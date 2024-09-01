@@ -26,7 +26,7 @@ export default function Banner() {
                 </div>
             </div>
             <div className="Banner-description">
-                <h2>Bringing you Modern, Snappy Websites Quickly and Efficiently.</h2>
+                <h2>Your One Stop Digital Solutions</h2>
             </div>
             <NavBar />
         </div>
