@@ -201,6 +201,11 @@
         gap: 4px;
     }
 
+    .step-nav-btnmsg:hover .step-nav-show-btmmsg {
+        opacity: 0;
+        visibility: visible;
+    }
+
     /* React Icon */
     .development-content-arrangement h3 svg:nth-child(1) {
         color: #61DAFB; /* React - Cyan */

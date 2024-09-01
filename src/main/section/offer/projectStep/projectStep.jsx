@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import './projectStep.css';
 import ScrollToSection from "../../../function/scrollToSection";
 import { FaRegLightbulb, FaPencilAlt, FaCode, FaBug, FaRocket } from "react-icons/fa";
@@ -101,6 +101,8 @@ const steps = [
 export default function ProjectSteps() {
     const [currentStep, setCurrentStep] = useState(0);
     const [showDetails, setShowDetails] = useState(false);
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
 
     const toggleDetails = () => {
         setShowDetails(prev => !prev);
@@ -114,19 +116,41 @@ export default function ProjectSteps() {
     const handleNext = () => {
         if (currentStep < steps.length - 1) {
             setCurrentStep(currentStep + 1);
-            ScrollToSection('project'); // Scroll after updating the step
+            ScrollToSection('project');
         }
     };
 
     const handlePrev = () => {
         if (currentStep > 0) {
             setCurrentStep(currentStep - 1);
-            ScrollToSection('project'); // Scroll after updating the step
+            ScrollToSection('project');
+        }
+    };
+
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        const deltaX = touchStartX.current - touchEndX.current;
+
+        if (deltaX > 50) {
+            handleNext();
+        } else if (deltaX < -50) {
+            handlePrev();
         }
     };
 
     return (
-        <>
+        <div 
+            onTouchStart={handleTouchStart} 
+            onTouchMove={handleTouchMove} 
+            onTouchEnd={handleTouchEnd}
+        >
             <div className="project-navigation" id="project">
                 <ul>
                     {steps.map((step, index) => (
@@ -141,7 +165,7 @@ export default function ProjectSteps() {
                 </ul>
             </div>
             <div className="project-steps">
-                <h2 style={{color: steps[currentStep].color}}>{steps[currentStep].title}</h2>
+                <h2 style={{ color: steps[currentStep].color }}>{steps[currentStep].title}</h2>
                 <p>{steps[currentStep].content}</p>
                 <div className="show-details">
                     <button onClick={toggleDetails}>
@@ -158,18 +182,18 @@ export default function ProjectSteps() {
                 <div className="step-navigation">
                     {currentStep > 0 && (
                         <button onClick={handlePrev} className="step-nav-btnmsg step-prev-btn">
-                            <MdArrowBackIos style={{fontSize:"24px"}}/>
+                            <MdArrowBackIos style={{ fontSize: "24px" }} />
                             <span className="step-nav-show-btmmsg">Prev</span>
                         </button>
                     )}
                     {currentStep < steps.length - 1 && (
                         <button onClick={handleNext} className="step-nav-btnmsg step-next-btn">
-                            <MdArrowForwardIos style={{fontSize:"24px"}}/>
+                            <MdArrowForwardIos style={{ fontSize: "24px" }} />
                             <span className="step-nav-show-btmmsg">Next</span>
                         </button>
                     )}
                 </div>
             </div>
-        </>
+        </div>
     );
 }

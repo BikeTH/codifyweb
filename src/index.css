@@ -1,9 +1,9 @@
 :root {
-    --background-color: black;
-    --color: white;
+    --background-color: #080808;
+    --color: #F5F5F5;
     --second-color: #eeeeee;
-    --nav-bg: black;
-    --nav-color: white;
+    --nav-bg: #080808;
+    --nav-color: #F5F5F5;
     --border: #555;
     --neon-red: #FF073A;
     --neon-blue: #00FFFF;
@@ -23,6 +23,7 @@
 
 body{
     background-color: var(--background-color);
+    margin: 0;
 }
 
 h1{

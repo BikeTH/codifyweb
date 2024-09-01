@@ -49,8 +49,8 @@ export default function Team() {
             <p className="word-breath" style={{ textAlign: "center", marginTop: 0 }}>Tap us to Learn More</p>
             <div className="ITconsult-teams-arrangement">
                 {teams.map(data => (
-                    <div className="ITconsult-teams-member-arrangement" key={data.id}>
-                        <div className="member-detail-arrangement">
+                    <div className={`ITconsult-teams-member-arrangement ${activeId === data.id ? 'active' : ''}`} key={data.id}>
+                        <div className={`member-detail-arrangement ${activeId === data.id ? 'active' : ''}`}>
                             <img className="member-picture" src={data.picture} onClick={() => handleImageClick(data.id)} loading="lazy"/>
                             <div className={`team-member-info-arrangement ${activeId === data.id ? 'show' : ''}`}>
                                 {data.details}

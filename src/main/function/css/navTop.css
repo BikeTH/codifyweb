@@ -1,14 +1,18 @@
-/* navTop.css */
+
 @keyframes rocketMovement {
     0% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0); }
 }
 
+.navTop-main{
+    margin: 0;
+}
+
 .navTop-button {
     position: fixed;
     bottom: 10%; /* Distance from the bottom of the screen */
-    right: 2.5%;  /* Distance from the right edge of the screen */
+    right: 2%;  /* Distance from the right edge of the screen */
     background: transparent;
     color: var(--color);
     border: none;
@@ -28,7 +32,7 @@
 .theme-toggle-button {
     position: fixed;
     bottom: 3%;
-    right: 2.5%;
+    right: 2%;
     padding: 0;
     background: transparent;
     border: none;
@@ -37,4 +41,18 @@
     font-size: 32px;
     cursor: pointer;
     z-index: 10; /* Ensure it's above other elements */
+    transition: color 0.5s ease;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.theme-toggle-button:hover {
+    animation: spin 0.8s ease-in-out;
 }

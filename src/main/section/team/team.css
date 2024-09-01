@@ -30,6 +30,10 @@
     transition: filter 0.5s ease; /* Smooth transition for brightness change */
 }
 
+.member-detail-arrangement.active .member-picture {
+    filter: brightness(100%); /* Full brightness when active */
+}
+
 .member-picture:hover {
     filter: brightness(100%); /* Revert to original brightness on hover */
 }
@@ -68,11 +72,11 @@
     right: 0;
 }
 
-.word-breath{
+.word-breath {
     animation: breathing 3s ease-in-out infinite;
 }
 
-@keyframes breathing{
+@keyframes breathing {
     0% {
         opacity: 0;
         color: var(--color);
@@ -95,6 +99,10 @@
         gap: 16px; /* Space between the grid items */
         justify-items: center; /* Center items within their grid area */
         align-items: center;
+    }
+
+    .member-picture:hover {
+        filter: brightness(50%); /* Revert to original brightness on hover */
     }
 
     .member-detail-arrangement {
@@ -127,5 +135,3 @@
         margin-top: 10px; /* Space between images and description */
     }
 }
-
-

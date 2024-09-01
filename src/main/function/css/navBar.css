@@ -65,12 +65,16 @@
         background-color: var(--background-color);
         color: var(--warm-neon-blue);
     }
+
+    .ITconsult-nav-bar.fixed {
+        padding: 4px;
+    }    
 }
 
 @media screen and (max-width:768px) {
     .ITconsult-nav-bar li:hover:not(.active){
-        background-color: black;
-        color: white;
+        background-color: var(--nav-color);
+        color: var(--nav-bg);
         transform: none;
     }
 

@@ -47,6 +47,10 @@
         gap: 12px;
     }
 
+    .ITconsult-why-us-content:hover{
+        transform: none;
+    }
+
     .ITconsult-why-us-content{
         padding: 12px;
     }

@@ -42,7 +42,7 @@ export default function Offer() {
                     {offer.map(data => (
                         <div className="ITconsult-offer-content" key={data.id}>
                             <h1 style={{ fontWeight: "800" }}>{data.icon}</h1>
-                            <h2 style={{ fontWeight: "400", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h2>
+                            <h3 style={{ fontWeight: "400", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h3>
                         </div>
                     ))}
                 </div>

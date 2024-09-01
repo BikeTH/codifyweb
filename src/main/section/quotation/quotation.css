@@ -331,7 +331,7 @@
     .quotation-summary-back {
         z-index: 1;
         margin-left: auto;
-        transform: translate(30%);
+        transform: translate(25%);
     }
 
     .quotation-summary-back p{

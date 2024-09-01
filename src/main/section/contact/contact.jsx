@@ -175,7 +175,7 @@ export default function Contact() {
                                     <FaWhatsapp color="#25D366" />
                                     <span className="contact-text">WhatsApp</span>
                                 </a>
-                                <a href="mailto:700024165@student.curtin.edu.my" target="_blank" rel="noreferrer noopener">
+                                <a href="mailto:webapp.tc@gmail.com" target="_blank" rel="noreferrer noopener">
                                     <TbMail color="636363" />
                                     <span className="contact-text">Email</span>
                                 </a>

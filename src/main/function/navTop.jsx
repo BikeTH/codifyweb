@@ -25,13 +25,14 @@ export default function NavTop() {
 
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
+        
         document.documentElement.style.setProperty(
             '--background-color',
-            isDarkMode ? '#ffffff' : '#000000'
+            isDarkMode ? '#F5F5F5' : '#080808'
         );
         document.documentElement.style.setProperty(
             '--color',
-            isDarkMode ? '#000000' : '#ffffff'
+            isDarkMode ? '#080808' : '#F5F5F5'
         );
         document.documentElement.style.setProperty(
             '--second-color',
@@ -39,16 +40,16 @@ export default function NavTop() {
         );
         document.documentElement.style.setProperty(
             '--nav-bg',
-            isDarkMode ? 'black' : 'white'
+            isDarkMode ? '#080808' : '#F5F5F5'
         );
         document.documentElement.style.setProperty(
             '--nav-color',
-            isDarkMode ? 'white' : 'black'
+            isDarkMode ? '#F5F5F5' : '#080808'
         );
     };
 
     return (
-        <div>
+        <div className="navTop-main">
             {isVisible && (
                 <button className="navTop-button" onClick={() => ScrollToSection('home')}>
                     <IoChevronUp />

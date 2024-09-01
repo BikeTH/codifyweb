@@ -30,13 +30,14 @@
 }
 
 @media screen and (max-width: 768px) {
+    
     .slider {
-        width: 100%;
+        width: 90%;
     }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 768px) {
     .slider {
-        width: 100%;
+        width: 90%;
     }
 }
