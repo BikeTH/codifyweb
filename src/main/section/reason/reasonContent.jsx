@@ -4,6 +4,7 @@ import { VscVerified, VscHeart, VscGear, VscDashboard } from "react-icons/vsc";
 import SalesBoostSVG from "./svg/chart";
 import website from "./svg/website.webp"
 import EnhancedVisibilitySEO from "./svg/seo";
+import UserExperienceIllustration from "./svg/performance";
 
 const reasonSupport = [
     {
@@ -36,6 +37,7 @@ const reasonSupport = [
         title: "Improved User Experience",
         description: "Interactive and Fast loading keep Users Engaged",
         color: "var(--warm-neon-red)",
+        image: <UserExperienceIllustration />
     },
 ]
 

@@ -756,7 +756,7 @@ const websiteQuestions = [
                         {renderOptions(initialQuestions?.[0]?.options)}
                     </div>
                     <div className="prev-btn-arrangement">
-                        <button className="prev-btn" onClick={() => handlePrevious()}>
+                        <button className="prev-btn" onClick={() => {ScrollToSection('quotation'),handlePrevious()}}>
                             <FaArrowLeft />
                         </button>
                         <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos Step</p>
@@ -771,7 +771,7 @@ const websiteQuestions = [
                             : renderOptions(questions?.[currentStep - (isWebsite ? 2 : 1)]?.options)}
                     </div>
                     <div className="prev-btn-arrangement">
-                        <button className="prev-btn" onClick={() => handlePrevious()}>
+                        <button className="prev-btn" onClick={() => {ScrollToSection('quotation'),handlePrevious()}}>
                             <FaArrowLeft />
                         </button>
                         <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos Step</p>

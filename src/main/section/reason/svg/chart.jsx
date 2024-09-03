@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function SalesBoostSVG() {
     // Function to generate random noise
@@ -34,31 +34,13 @@ export default function SalesBoostSVG() {
         index === 0 ? `M${point.x} ${point.y}` : `L${point.x} ${point.y}`
     ).join(' ');
 
-    // State for showing tooltip
-    const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, value: 0 });
-
-    // Show tooltip on hover
-    const handleMouseOver = (event, value) => {
-        setTooltip({
-            visible: true,
-            x: event.clientX,
-            y: event.clientY,
-            value,
-        });
-    };
-
-    // Hide tooltip on mouse out
-    const handleMouseOut = () => {
-        setTooltip({ visible: false });
-    };
-
     return (
         <div style={{ textAlign: 'center' }}>
             <svg width="auto" height="auto" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
                 {/* Gradient Definition */}
                 <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style={{ stopColor: '#66C8FF', stopOpacity: 1 }} />
+                        <stop offset="0%" style={{ stopColor: '#006D9B', stopOpacity: 1 }} />
                         <stop offset="100%" style={{ stopColor: 'var(--warm-neon-blue)', stopOpacity: 1 }} />
                     </linearGradient>
                 </defs>
@@ -72,20 +54,24 @@ export default function SalesBoostSVG() {
                 </g>
 
                 {/* Data curve with gradient stroke */}
-                <path d={pathData} fill="none" stroke="url(#gradient)" strokeWidth="1" />
-
-                {/* Data points */}
-                {dataPoints.map((point, index) => (
-                    <circle
-                        key={index}
-                        cx={point.x}
-                        cy={point.y}
-                        r="1.5"
-                        fill="var(--warm-neon-blue)"
-                        onMouseOver={(event) => handleMouseOver(event, point.y)}
-                        onMouseOut={handleMouseOut}
+                <path
+                    d={pathData}
+                    fill="none"
+                    stroke="url(#gradient)"
+                    strokeWidth="2"
+                    strokeDasharray="1000" // Ensure the line length is covered by the animation
+                    strokeDashoffset="0"
+                >
+                    <animate
+                        attributeName="stroke-dashoffset"
+                        from="1000"
+                        to="0"
+                        dur="4s" // Duration of one cycle
+                        repeatCount="indefinite"
+                        keyPoints="0;1"
+                        keyTimes="0;1"
                     />
-                ))}
+                </path>
 
                 {/* Text labels for grid lines */}
                 <text x="5" y="55" fill="var(--color)" fontSize="8" textAnchor="start">4000</text>
