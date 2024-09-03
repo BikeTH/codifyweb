@@ -100,7 +100,7 @@ export default function Contact() {
                             <div className="contact-fill-form-arrangement">
                                 <div className="contact-form-header">
                                     <h1>Contact Us</h1>
-                                    <p>Reach Out to Us by filling the Form</p>
+                                    <p>Reach Out to Us by filling the <span style={{color:"var(--color)", fontWeight:"600"}}>Form</span></p>
                                 </div>
                                 <form className="contact-fill-form" onSubmit={handleSubmit}>
                                     <input
@@ -161,7 +161,7 @@ export default function Contact() {
                         <img className="contact-img" src={quotation} alt="quotation image" loading="lazy"/>
                         <div className="ITconsult-contact-detail">
                             <h1>Request For Quotation?</h1>
-                            <p>You can directly Contact Us for consultation with no Charges and We are Happy to Help!</p>
+                            <p>You can directly <span style={{color:"var(--color)", fontWeight:"600"}}>Contact Us</span> for Consultation with <span style={{color:"var(--color)", fontWeight:"600"}}>No Charges</span> and We are Happy to <span style={{color:"var(--color)", fontWeight:"600"}}>Help</span>!</p>
                             <ul>
                                 <a href="https://www.linkedin.com/in/wilfred-tsen-yik-chong-2a37a724b" target="_blank" rel="noreferrer noopener">
                                     <FaLinkedin color="#0077B5" />
@@ -186,8 +186,8 @@ export default function Contact() {
                                     <img className="qr-page" src={qrPage} alt="qrpage" loading="lazy"/>
                                     <p style={{margin:"0"}}>Our Page</p>
                                 </div>
-                                <div className="qr-content" style={{textAlign:"center"}}>
-                                    <img className="qr-whatapps" src={qrWhatapps} alt="qrwhatapps" onClick={() => handleQrClick(qrWhatapps, 'WhatsApp')} />
+                                <div className="qr-content" style={{textAlign:"center"}} onClick={() => handleQrClick(qrWhatapps, 'WhatsApp')}>
+                                    <img className="qr-whatapps" src={qrWhatapps} alt="qrwhatapps" loading="lazy"/>
                                     <p style={{margin:"0"}}>WhatApps</p>
                                 </div>
                             </div>

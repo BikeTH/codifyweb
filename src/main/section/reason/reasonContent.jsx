@@ -47,15 +47,15 @@ export default function ReasonContent() {
             <div id="ITConsult" className="ITconsult-content">
                 <div className="ITconsult-reason-content">
                     <div className="ITconsult-reason-header">
-                        <h1 style={{ fontWeight: "600" }}>Transform Your Business Today</h1>
-                        <h3 style={{ fontWeight: "300" }}>Unlock the Power of a Digital Application to Propel Your Success</h3>
+                        <h1>Transform Your Business Today</h1>
+                        <h3>Unlock the Power of a Digital Application to Propel Your Success</h3>
                     </div>
                     <div className="ITconsult-reason-support">
                         {
                             reasonSupport.map(data => (
                                 <div className="ITconsult-reason-support-arrangement" key={data.id}>
-                                    <h5 style={{ fontWeight: "800", marginTop: "0" }}>{data.icon} {data.title}</h5>
-                                    <p style={{ fontWeight: "400" }}>{data.description}</p>
+                                    <h4 style={{ marginTop: "0" }}>{data.icon} {data.title}</h4>
+                                    <p>{data.description}</p>
                                     {data.image && (typeof data.image === 'string' ? (
                                     <img 
                                         src={data.image} 

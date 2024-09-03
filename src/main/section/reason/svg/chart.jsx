@@ -35,8 +35,8 @@ export default function SalesBoostSVG() {
     ).join(' ');
 
     return (
-        <div style={{ textAlign: 'center' }}>
-            <svg width="auto" height="auto" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+        <div style={{ textAlign: 'center', width: 'auto', height: 'auto' }}>
+            <svg width="100%" height="100%" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
                 {/* Gradient Definition */}
                 <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">

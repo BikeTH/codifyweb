@@ -9,7 +9,7 @@ const faqs = [
         questions: "What we do ?",
         answer: (
             <>
-                <p>We provide you with a professional Web / App development service for your industry</p>
+                <p>We provide you with a professional <span style={{color:"var(--color)", fontWeight:"600"}}>Web / App</span> development service for your Industry</p>
             </>
         )
     },
@@ -18,8 +18,8 @@ const faqs = [
         questions: "What do we need before we start develop ?",
         answer: (
             <>
-                <p>We will provide you a CHECKLIST for information and content before the project starts.</p>
-                <p>We will be proactive during this phase, and your cooperation is important</p>
+                <p>We will provide you a <span style={{color:"var(--color)", fontWeight:"600"}}>CHECKLIST</span> for Information and Content before the project starts.</p>
+                <p>We will be <span style={{color:"var(--color)", fontWeight:"600"}}>Proactive</span> during this phase, and your Cooperation is <span style={{color:"var(--color)", fontWeight:"600"}}>Important</span></p>
             </>
         )
     },
@@ -28,7 +28,7 @@ const faqs = [
         questions: "How long does it take for us to develop ?",
         answer: (
             <>
-                <p>It takes approximately at least 2 weeks from starts to finish, depending on project complexity</p>
+                <p>It takes approximately <span style={{color:"var(--color)", fontWeight:"600"}}>At Least 2 Weeks</span> from Starts to Finish, depending on Project Complexity</p>
             </>
         )
     },
@@ -37,7 +37,7 @@ const faqs = [
         questions: "Technical Issue? We're on It !",
         answer: (
             <>
-                <p>If your application or website facing any issues, we will take action in fixing it right away!</p>
+                <p>If your Application or Website Facing any <span style={{color:"var(--color)", fontWeight:"600"}}>Issues</span>, we will take Action in Fixing it Right Away!</p>
             </>
         )
     },
@@ -46,8 +46,8 @@ const faqs = [
         questions: "How we develop our Project ?",
         answer: (
             <>
-                <p style={{marginBottom:0}}>Most of our Project will be done in Programming, Not WordPress, Source Code will be given to you</p>
-                <p style={{marginTop:0}}>Everything you see is created mainly by React <FaReact style={{color: "var(--warm-neon-blue)"}}/></p>
+                <p style={{marginBottom:0}}>Most of our Project will be done in <span style={{color:"var(--color)", fontWeight:"600"}}>Programming</span>, <span style={{color:"var(--color)", fontWeight:"600"}}>Not</span> WordPress, Source Code will be given to you</p>
+                <p style={{marginTop:0}}>Everything you see is created mainly by <span style={{color:"var(--color)", fontWeight:"600"}}>React</span> <FaReact style={{color: "var(--warm-neon-blue)"}}/></p>
             </>
         )
     }
@@ -64,7 +64,7 @@ export default function Faq(){
         <div className="ITconsult-faq" id="faq">
             <div className="ITconsult-faq-header" style={{textAlign:"center"}}>
                 <h1 style={{margin:"0px"}}>FAQ</h1>
-                <h3 style={{margin:"0px"}}>Ask Away! Your questions Matter to Us</h3>
+                <h3 style={{fontWeight:"lighter", margin:"0px", color:"var(--second-color)"}}>Ask Away! Your questions Matter to Us</h3>
             </div>
             <div className="ITconsult-faq-question">
                 {faqs.map((faq,index) => (

@@ -14,7 +14,7 @@ export default function Footer(){
             content:
             <>
                 <div className="Footer-About">
-                    <h3 style={{color: 'var(--second-color)'}}>We build functional websites and applications tailored to your business needs, whether for optimizing operations or increasing visitor engagement. Our solutions enhance efficiency and deliver practical, user-friendly tools.</h3>
+                    <h4 style={{color: 'var(--second-color)', fontWeight:"lighter"}}>We Build <span style={{color:"var(--color)", fontWeight:"600"}}>Functional Websites & Applications</span> tailored to your Business Needs, whether for <span style={{color:"var(--color)", fontWeight:"600"}}>Optimizing Operations</span> or <span style={{color:"var(--color)", fontWeight:"600"}}>Increasing visitor engagement</span>. Our solutions <span style={{color:"var(--color)", fontWeight:"600"}}></span> and deliver practical, <span style={{color:"var(--color)", fontWeight:"600"}}>User-Friendly Tools</span>.</h4>
                 </div>
             </>,
             color: "var(--warm-neon-red)",

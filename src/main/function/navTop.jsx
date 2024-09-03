@@ -36,7 +36,7 @@ export default function NavTop() {
         );
         document.documentElement.style.setProperty(
             '--second-color',
-            isDarkMode ? '#333333' : '#eeeeee'
+            isDarkMode ? '#333333' : '#cdcdcd'
         );
         document.documentElement.style.setProperty(
             '--nav-bg',

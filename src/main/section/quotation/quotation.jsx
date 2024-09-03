@@ -455,7 +455,7 @@ const websiteQuestions = [
                             <div key={index} className="option">
                                 <div className="option-header-info">
                                     <h3><strong>{optionDetails.title || optionKey}</strong></h3>
-                                    <p>{optionDetails.description}</p>
+                                    <p style={{color:"var(--second-color)"}}>{optionDetails.description}</p>
                                 </div>
                                 <p>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                                 <button 
@@ -554,7 +554,7 @@ const websiteQuestions = [
                     <div className="option-header">
                         <div className="option-header-info">
                             <h1><strong>{optionDetails.title || optionKey}</strong></h1>
-                            <p>{optionDetails.description}</p>
+                            <p style={{color:"var(--second-color)"}}>{optionDetails.description}</p>
                         </div>
                         <p>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                     </div>
@@ -739,15 +739,16 @@ const websiteQuestions = [
             <h1 style={{ textAlign: "center" }}>
                 Build Website / Application Plan
             </h1>
-            <h3 style={{ textAlign: "center", margin: "0px" }}>
-                How Much to Build a Website / Application?<br />
-                <span style={{ fontStyle: "italic" }}>Price may vary without notice</span>
+            <h3 style={{ color:"var(--second-color)", fontWeight:"lighter", textAlign: "center", margin: "0px" }}>
+                How Much to <span style={{color:"var(--color"}}>Build</span> a <span style={{color:"var(--color"}}>Website / Application</span>?
+                <br />
+                <span style={{ fontStyle: "italic" }}>Price may vary <span style={{color:"var(--color"}}>Without</span> notice</span>
             </h3>
     
             {currentStep === 0 ? (
                 <div className="ITconsult-price-quotation-form">
                     <button className="calc-btn" onClick={() => setCurrentStep(1)}>Let's Find Out</button>
-                    <p>This is just an Estimation of Price</p>
+                    <p style={{color:"var(--second-color)"}}>This is just an <span style={{color:"var(--color"}}>Estimation</span> of <span style={{color:"var(--color"}}>Price</span>.</p>
                 </div>
             ) : currentStep === 1 ? (
                 <div className="ITconsult-price-quotation-question">

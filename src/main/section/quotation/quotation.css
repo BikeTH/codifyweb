@@ -288,6 +288,11 @@
         gap: 30px;
     }
 
+    .platform-icon svg{
+        font-size: 6vmin;
+        transition: color 0.2s ease-in;
+    }
+
     .select-btn:hover {
         background-color: black;
         color: white;

@@ -1,7 +1,7 @@
 :root {
     --background-color: #080808;
     --color: #F5F5F5;
-    --second-color: #eeeeee;
+    --second-color: #cdcdcd;
     --nav-bg: #080808;
     --nav-color: #F5F5F5;
     --content-bg:#1a1a1a;
@@ -60,21 +60,19 @@ li{
 @media screen and (max-width: 768px) {
     :root {
         line-height: 1.4;
+        font-weight: 600;
     }
 
     h1{
         font-size: 8vmin;
-        font-weight: 600;
     }
     
     h2{
         font-size: 5.5vmin;
-        font-weight: 800;
     }
     
     h3{
         font-size: 5vmin;
-        font-weight: 600;
     }
 
     h4{

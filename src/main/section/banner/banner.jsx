@@ -8,7 +8,7 @@ export default function Banner() {
             <div className="Banner-Header">
                 <div className="Banner-Header-arrangement">
                     <h1>CodifyWeb</h1>
-                    <p>
+                    <p style={{color:"var(--second-color)"}}>
                         // Based in
                         <br></br>
                         Malaysia
@@ -17,7 +17,7 @@ export default function Banner() {
                 <h1>Solutions</h1>
                 <h2>Website</h2>
                 <div className="Banner-Header-arrangement">
-                    <p>
+                    <p style={{color:"var(--second-color)"}}>
                         // Android
                         <br></br>
                         // IoS

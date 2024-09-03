@@ -12,8 +12,8 @@ const teams = [
         details: (
             <>
                 <h3>Wilfred</h3>
-                <p>B.sc. Major in Cyber Security</p>
-                <p>INTP - Curious and adventurous, always eager to explore new horizons!</p>
+                <p>B.Sc. Major in Cyber Security</p>
+                <p style={{color:"var(--second-color)"}}><span style={{color:"var(--color)", fontWeight:"600"}}>INTP</span> - Curious and adventurous, always eager to explore new horizons!</p>
                 <p>Web Developer</p>
                 <a className="member-portfolio" href="https://wilfredcty.com" target="_blank" rel="noreferrer noopener">Portfolio <FaArrowUpRightDots /></a>
                 <div className="team-member-connect-arrangement">

@@ -20,14 +20,14 @@
 .Banner-Header h1{
     text-align: center;
     font-size: 12vmin !important;
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
 }
 
 .Banner-Header h2{
     color: var(--warm-red);
     font-size: 10vmin !important;
-    font-weight: 600;
+    font-weight: 200;
     margin: 0;
 }
 
@@ -51,13 +51,14 @@
 
 .Banner-description h2{
     font-size: 2.75vmin !important;
+    color: var(--second-color);
+    font-weight: lighter;
     margin: 0;
 }
 
 @media screen and (max-width: 768px) {
     .Banner-Header h1{
         font-size: 12vmin !important;
-        font-weight: 600;
         margin: 0;
     }
 

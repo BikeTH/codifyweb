@@ -166,7 +166,7 @@ export default function ProjectSteps() {
             </div>
             <div className="project-steps">
                 <h2 style={{ color: steps[currentStep].color }}>{steps[currentStep].title}</h2>
-                <p>{steps[currentStep].content}</p>
+                <p style={{fontWeight:"lighter", color:"var(--second-color)"}}>{steps[currentStep].content}</p>
                 <div className="show-details">
                     <button onClick={toggleDetails}>
                         {showDetails ? 'Show Less' : 'More Details'}

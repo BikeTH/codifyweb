@@ -37,12 +37,12 @@ export default function Offer() {
     return (
         <div className={`ITconsult-offer ${isPackage ? 'shifted' : ''}`} id="offer">
             <div className="offers-arrangement">
-                <h1>Our Services</h1>
+                <h1 style={{fontWeight:"600"}}>Our Services</h1>
                 <div className="ITconsult-offers-arrangement">
                     {offer.map(data => (
                         <div className="ITconsult-offer-content" key={data.id}>
-                            <h1 style={{ fontWeight: "800" }}>{data.icon}</h1>
-                            <h3 style={{ fontWeight: "400", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h3>
+                            <h1>{data.icon}</h1>
+                            <h3 style={{ color:"var(--second-color)", fontWeight:"lighter", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h3>
                         </div>
                     ))}
                 </div>
