@@ -94,6 +94,10 @@
     animation: fadeInContact 0.5s ease-in-out;
 }
 
+.contact-fill-form label{
+    color: var(--color);
+}
+
 /* Fade-in animation for the tooltip text */
 @keyframes fadeInContact {
     from {

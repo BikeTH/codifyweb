@@ -142,6 +142,8 @@ export default function Contact() {
                                         placeholder="Phone"
                                         value={formData.phone}
                                         onChange={handleChange}
+                                        pattern="[0-9+]*" // Allow only numeric input
+                                        inputMode="numeric" // Hint for mobile keyboards to show numeric keypad
                                         required
                                     />
 
