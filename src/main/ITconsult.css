@@ -7,7 +7,7 @@
     padding-left: 10%;
     padding-right: 10%;
     letter-spacing: 0.15em;
-    gap: 28px;
+    gap: 100px;
     background-color: var(--background-color);
     color: var(--color);
 }
@@ -25,6 +25,5 @@
     .ITconsult-main{
         padding-left: 5%;
         padding-right: 5%;
-        gap: 20px;
     }
 }
