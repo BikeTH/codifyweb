@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function UserExperienceIllustration() {
-  const radiusOuter = 48;
-  const radiusInner = 46;
+  const radiusOuter = 46;
+  const radiusInner = 44;
   const strokeWidth = 2;
   const circumference = 2 * Math.PI * radiusOuter;
 

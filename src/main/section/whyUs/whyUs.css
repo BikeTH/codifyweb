@@ -4,20 +4,19 @@
     justify-content: center;
     align-items: center;
     margin: 18px;
-    gap: 12px;
+    gap: 32px;
 }
 
 .ITconsult-why-us-arrangement{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
 }
 
 .ITconsult-why-us-content{
     display: flex;
     flex-direction: column;
-    border-radius: 25px;
-    background-color: var(--content-bg);
+    padding: 12px;
+    background-color: var(--background-color);
     transition: transform 0.3s ease-in, background-color 0.3s ease-in;
 }
 

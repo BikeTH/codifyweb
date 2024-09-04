@@ -49,7 +49,7 @@ export default function Offer() {
             </div>
             <div className={`project-arrangement ${isPackage ? 'shifted-project' : ''}`}>
                 <div className="project-header">
-                    <h1>~ How we Delivered Project ~</h1>
+                    <h4>~ How we Delivered Project ~</h4>
                     {isPackage && (
                         <div
                             className="workflow-btn-cancel"

@@ -10,57 +10,71 @@ import { SiMysql, SiPostgresql, SiExpo, SiZoom, SiGooglemeet } from "react-icons
 const steps = [
     {
         id: 1,
-        title: "Step 1: Planning",
-        content: "We start by planning the project, gathering requirements, and setting up timelines.",
+        title: "01 Planning",
+        content: (
+            <>
+                We start by <span className="highlight">planning the project</span>, gathering <span className="highlight">requirements</span>, and setting up <span className="highlight">timelines</span>.
+            </>
+        ),
         icon: <FaRegLightbulb />,
         details: (
             <div>
-                <p>Our dicussion can done through <SiZoom/> <SiGooglemeet /> <span style={{color:"var(--warm-neon-green)"}}>Online</span> or <IoLocationOutline /> <span style={{color:"var(--warm-neon-orange)"}}>Onsite</span></p>
+                <p>Our discussion can be done through <SiZoom /> <SiGooglemeet /> <span style={{ color: "var(--warm-neon-green)" }}>Online</span> or <IoLocationOutline /> <span style={{ color: "var(--warm-neon-orange)" }}>Onsite</span></p>
             </div>
         ),
         color: "var(--warm-neon-blue)",
     },
     {
         id: 2,
-        title: "Step 2: Design",
-        content: "Our design team creates wireframes and mockups to visualize the project.",
+        title: "02 Design",
+        content: (
+            <>
+                Our design team creates <span className="highlight">wireframes</span> and <span className="highlight">mockups</span> to <span className="highlight">visualize the project</span>.
+            </>
+        ),
         icon: <FaPencilAlt />,
         details: (
-            <>
-                <div>
-                    <p>We will be using <IoLogoFigma/> <span style={{color:"var(--warm-neon-green)"}}>Figma</span> in designing and mockup pages for you to review.</p>
-                </div>
-            </>
+            <div>
+                <p>We will be using <IoLogoFigma /> <span style={{ color: "var(--warm-neon-green)" }}>Figma</span> in designing and mockup pages for you to review.</p>
+            </div>
         ),
         color: "var(--warm-neon-purple)",
     },
     {
         id: 3,
-        title: "Step 3: Development",
-        content: "We bring the design to life through coding and development.",
+        title: "03 Development",
+        content: (
+            <>
+                We bring the design to life through <span className="highlight">coding</span> and <span className="highlight">development</span>.
+            </>
+        ),
         icon: <FaCode />,
         details: (
             <>
-                <p style={{textAlign:"center"}}><span style={{color:"var(--warm-neon-orange)"}}>Tech stack</span> will use</p>
+                <p style={{ textAlign: "center" }}><span style={{ color: "var(--warm-neon-orange)" }}>Tech stack</span> will use</p>
                 <div className="development-arrangement">
                     <div className="development-content-arrangement">
-                        <h3>Website</h3>
-                        <h3 style={{textAlign:"center"}}><IoLogoReact/><IoLogoNodejs/><IoLogoCss3/><IoLogoJavascript/><SiMysql/><SiPostgresql/></h3>
+                        <h4 style={{ textAlign: "center" }}>Website</h4>
+                        <h5 style={{ textAlign: "center" }}><IoLogoReact /><IoLogoNodejs /><IoLogoCss3 /><IoLogoJavascript /><SiMysql /><SiPostgresql /></h5>
                     </div>
                     <div className="development-content-arrangement">
-                        <h3>Mobile App</h3>
-                        <h3 style={{textAlign:"center"}}><SiExpo/></h3>
+                        <h4>Mobile App</h4>
+                        <h5 style={{ textAlign: "center" }}><SiExpo /></h5>
                     </div>
                 </div>
-                <p>We always <span style={{color:"var(--warm-neon-green)"}}>leveling up</span> !</p>
+                <p>We always <span style={{ color: "var(--warm-neon-green)" }}>leveling up</span>!</p>
             </>
         ),
         color: "var(--warm-neon-green)",
     },
     {
         id: 4,
-        title: "Step 4: Testing",
-        content: "We rigorously test the project to ensure everything works as expected.",
+        title: "04 Testing",
+        content: (
+            <>
+                We <span className="highlight">rigorously test</span> the project to ensure everything <span className="highlight">works as expected</span>.
+            </>
+        ),
         icon: <FaBug />,
         details: (
             <>
@@ -84,19 +98,24 @@ const steps = [
     },
     {
         id: 5,
-        title: "Step 5: Deployment",
-        content: "Finally, we deploy the project to the live environment.",
+        title: "05 Deployment",
+        content: (
+            <>
+                Finally, we <span className="highlight">deploy the project</span> to the <span className="highlight">live environment</span>.
+            </>
+        ),
         icon: <FaRocket />,
         details: (
             <>
                 <div>
-                    <p><span style={{color:"var(--warm-neon-blue)"}}>Deploying</span> into <FaDigitalOcean/> <span style={{color:"var(--warm-neon-red)"}}>Server</span> and your Order will be <span style={{color:"var(--warm-neon-green)"}}>Successfully Delivered</span>, public will be able to access your web or app</p>
+                    <p><span style={{ color: "var(--warm-neon-blue)" }}>Deploying</span> into <FaDigitalOcean /> <span style={{ color: "var(--warm-neon-red)" }}>Server</span> and your Order will be <span style={{ color: "var(--warm-neon-green)" }}>Successfully Delivered</span>, public will be able to access your web or app</p>
                 </div>
             </>
         ),
         color: "var(--warm-neon-yellow)",
     }
 ];
+
 
 export default function ProjectSteps() {
     const [currentStep, setCurrentStep] = useState(0);

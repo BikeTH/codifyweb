@@ -15,16 +15,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    gap: 8px;
+    align-items: center;
     transform: translateX(0);
 }
 
 .contact-img {
     max-width: 30%;
+    height: 70%;
     border-radius: 5%;
     border-top-left-radius: 25%;
     border-bottom-right-radius: 25%;
     object-fit: fill;
-    height: auto;
     width: auto;
 }
 
@@ -171,17 +173,75 @@
 
 /* Styling for the input fields and submit button in the form */
 .contact-fill-form {
-    color: white;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns layout */
+    grid-template-rows: auto;
+    grid-template-areas:
+        "label-name label-company"
+        "name company"
+        "label-email label-phone"
+        "email phone"
+        "label-message label-message"
+        "message message"
+        "button button";
     gap: 12px;
+    color: white;
+}
+
+.label-name {
+    grid-area: label-name;
+}
+
+.label-company {
+    grid-area: label-company;
+}
+
+.label-email {
+    grid-area: label-email;
+}
+
+.label-phone {
+    grid-area: label-phone;
+}
+
+.label-message {
+    grid-area: label-message;
+}
+
+.contact-fill-form input#name {
+    grid-area: name;
+}
+
+.contact-fill-form input#company {
+    grid-area: company;
+}
+
+.contact-fill-form input#email {
+    grid-area: email;
+}
+
+.contact-fill-form input#phone {
+    grid-area: phone;
+}
+
+.contact-fill-form input#subject {
+    grid-area: subject;
+}
+
+.contact-fill-form textarea#message {
+    grid-area: message;
+    height: 200px;
+}
+
+.contact-fill-form button.sent-query {
+    grid-area: button;
 }
 
 .contact-fill-form input,
 .contact-fill-form textarea {
     background-color: var(--background-color); /* Dark gray background for inputs */
     color: var(--color); /* White text color */
-    border: 1px solid var(--color); /* Subtle border */
+    border: 1px solid var(--border); /* Subtle border */
     border-radius: 4px; /* Rounded corners */
     padding: 12px; /* Padding inside the input */
     font-size: 16px; /* Font size for readability */
@@ -274,6 +334,27 @@
         text-align: center;
         flex-direction: column;
         gap: 12px;
+    }
+
+    .contact-fill-form {
+        display: grid;
+        grid-template-columns: 1fr; /* Two columns layout */
+        grid-template-rows: auto;
+        grid-template-areas:
+            "label-name"
+            "name"
+            "label-company"
+            "company"
+            "label-email"
+            "email"
+            "label-phone"
+            "phone"
+            "label-message"
+            "message"
+            "button";
+        gap: 12px;
+        color: white;
+        text-align: left;
     }
 
     .sent-query:hover {

@@ -17,16 +17,20 @@ export default function ITconsult(){
         <>
         <div className="ITconsult-main">
             <Banner/>
-            <ReasonContent/>
-            <Offer/>
-            <TechStackSlider />
-            <WhyUs />
-            <Quotation />
-            <Faq />
-            <Team />
-            <Contact />
-            <Footer />
-            <NavTop />
+            <div className="content-main">
+                <ReasonContent/>
+                <Offer/>
+            </div>
+                <TechStackSlider />
+            <div className="content-main">
+                <WhyUs />
+                <Quotation />
+                <Faq />
+                <Team />
+                <Contact />
+                <Footer />
+                <NavTop />
+            </div>
         </div>
         </>
     )

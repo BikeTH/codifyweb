@@ -3,21 +3,28 @@
     flex-direction: column; 
     justify-content: center;
     align-items: center;
-    padding: 32px;
     padding-left: 10%;
     padding-right: 10%;
     letter-spacing: 0.15em;
-    gap: 100px;
     background-color: var(--background-color);
     color: var(--color);
+}
+
+.content-main{
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    gap: 120px;
+}
+
+.tech-main{
+    width: auto;
 }
 
 @media screen and (max-width: 768px) {
     .ITconsult-main{
         padding-left: 4%;
         padding-right: 4%;
-        padding: 12px;
-        gap: 20px;
     }
 }
 

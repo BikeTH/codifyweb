@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import './contact.css';
 import quotation from '../../../assets/ITConsult/quotation.webp';
-import email from '../../../assets/ITConsult/email.webp';
 import { FaLinkedin, FaArrowRight, FaArrowLeft, FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { TbMail } from "react-icons/tb";
 import { SiMinutemailer } from "react-icons/si";
@@ -72,11 +71,11 @@ export default function Contact() {
                 setStatus('error');
                 setStatusMessage('Failed to send email');
             }
-            setFormData({ name: '', email: '', subject: '', message: '', phone: '' }); // Clear form after success
+            setFormData({ name: '', email: '', company: '', message: '', phone: '' }); // Clear form after success
         } catch (error) {
             setStatus('error');
             setStatusMessage('Error occurred while sending email');
-            setFormData({ name: '', email: '', subject: '', message: '', phone: '' });
+            setFormData({ name: '', email: '', company: '', message: '', phone: '' });
         } finally {
             setFadeOut(true);
             setTimeout(() => {
@@ -103,6 +102,7 @@ export default function Contact() {
                                     <p>Reach Out to Us by filling the <span style={{color:"var(--color)", fontWeight:"600"}}>Form</span></p>
                                 </div>
                                 <form className="contact-fill-form" onSubmit={handleSubmit}>
+                                    <label htmlFor="name" className="label-name">Name</label>
                                     <input
                                         type="text"
                                         id="name"
@@ -112,6 +112,18 @@ export default function Contact() {
                                         onChange={handleChange}
                                         required
                                     />
+
+                                    <label htmlFor="company" className="label-company">Company</label>
+                                    <input
+                                        type="text"
+                                        id="company"
+                                        name="company"
+                                        placeholder="Company (Optional)"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                    />
+
+                                    <label htmlFor="email" className="label-email">Email Address</label>
                                     <input
                                         type="email"
                                         id="email"
@@ -121,6 +133,8 @@ export default function Contact() {
                                         onChange={handleChange}
                                         required
                                     />
+
+                                    <label htmlFor="phone" className="label-phone">Phone</label>
                                     <input
                                         type="phone"
                                         id="phone"
@@ -130,30 +144,22 @@ export default function Contact() {
                                         onChange={handleChange}
                                         required
                                     />
-                                    <input
-                                        type="text"
-                                        id="subject"
-                                        name="subject"
-                                        placeholder="Subject"
-                                        value={formData.subject}
-                                        onChange={handleChange}
-                                        required
-                                    />
+
+                                    <label htmlFor="message" className="label-message">Message</label>
                                     <textarea
                                         id="message"
                                         name="message"
-                                        placeholder="Write Us your Query"
+                                        placeholder="Write To Us What is In Your Mind"
                                         value={formData.message}
                                         onChange={handleChange}
-                                        required
                                     ></textarea>
+                                    
                                     <button type="submit" className="sent-query">
                                         <SiMinutemailer />
                                         <span className="form-submit-button">Submit</span>
                                     </button>
                                 </form>
                             </div>
-                            <img className="contact-img" src={email} alt="email image" loading="lazy"/>
                         </div>
                     </div>
                 ) : (

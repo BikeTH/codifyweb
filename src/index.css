@@ -24,6 +24,11 @@
     --warm-neon-purple: #D8A6FF;
 }
 
+.highlight {
+    font-weight: bold;
+    color: var(--color); /* You can define this color in your CSS variables or use any specific color */
+}
+
 body{
     background-color: var(--background-color);
     margin: 0;

@@ -7,39 +7,64 @@ const chooseUs = [
         id: 1,
         icon: <FaCoins />,
         title: "Affordable Packages",
-        description: "High-quality development services at budget-friendly prices.",
+        description: (
+            <>
+                High-quality development services at <span className="highlight">Budget-Friendly Prices</span>.
+            </>
+        ),
     },
     {
         id: 2,
         icon: <FaBolt />,
         title: "Efficient Process",
-        description: "Fast, streamlined development to speed up project delivery.",
+        description: (
+            <>
+                Fast, streamlined development to <span className="highlight">Speed up Project Delivery</span>.
+            </>
+        ),
     },
     {
         id: 3,
         icon: <FaPenNib />,
         title: "Custom Design",
-        description: "Unique designs tailored to your brand's identity.",
+        description: (
+            <>
+                Unique designs tailored to your brand's <span className="highlight">Identity</span>.
+            </>
+        ),
     },
     {
         id: 4,
         icon: <FaMapLocationDot />,
         title: "Targeted SEO",
-        description: "Boost local traffic with geo-specific SEO strategies.",
+        description: (
+            <>
+                Boost local traffic with <span className="highlight">Geo-Specific SEO strategies</span>.
+            </>
+        ),
     },
     {
         id: 5,
         icon: <FaUsersGear />,
         title: "Expert Support",
-        description: "Quick resolution of issues with our dedicated support team.",
+        description: (
+            <>
+                Quick resolution of issues with our <span className="highlight">Dedicated Support Team</span>.
+            </>
+        ),
     },
     {
         id: 6,
         icon: <FaServer />,
         title: "Reliable Servers",
-        description: "Fast, secure performance VPS servers scale your needs",
+        description: (
+            <>
+                Fast, secure performance VPS servers <span className="highlight">Scale your Needs</span>.
+            </>
+        ),
     },
-]
+];
+
 
 export default function WhyUs(){
     return(

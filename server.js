@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Route to handle the contact form submission
 app.post('/send', (req, res) => {
-    const { name, email, phone, subject, message } = req.body;
+    const { name, email, phone, company, message } = req.body;
 
     // Create Nodemailer transporter
     const transporter = nodemailer.createTransport({
@@ -42,7 +42,7 @@ app.post('/send', (req, res) => {
     const mailOptions = {
         from: email,
         to: 'webapp.tc@gmail.com',
-        subject: `Query from ${name}: ${subject}`,
+        subject: `Query from ${name}, ${company}`,
         text: `Message from ${email}:\n\n${message}\n${phone}`,
         replyTo: email,
     };

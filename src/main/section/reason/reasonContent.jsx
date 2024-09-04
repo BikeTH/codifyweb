@@ -11,7 +11,11 @@ const reasonSupport = [
         id: 1,
         icon: <VscVerified />,
         title: "Enhanced Credibility & Trust",
-        description: "A professional website builds Trust and Reliability.",
+        description: (
+            <>
+                A professional website builds <span className="highlight">Trust</span> and <span className="highlight">Reliability</span>.
+            </>
+        ),
         color: "var(--warm-neon-blue)",
         image: website,
     },
@@ -19,7 +23,11 @@ const reasonSupport = [
         id: 2,
         icon: <VscDashboard />,
         title: "Enhanced Visibility & SEO",
-        description: "Boost your site ranking and Attracts more Visitors",
+        description: (
+            <>
+                Boost your site ranking and <span className="highlight">Attracts more Visitors</span>.
+            </>
+        ),
         color: "var(--warm-neon-purple)",
         image: <EnhancedVisibilitySEO />,
     },
@@ -27,7 +35,11 @@ const reasonSupport = [
         id: 3,
         icon: <VscGear />,
         title: "Effective Conversion Optimization",
-        description: "Well-designed and Informative sites lead to Sales Boost",
+        description: (
+            <>
+                Well-designed and Informative sites lead to <span className="highlight">Sales Boost</span>.
+            </>
+        ),
         color: "var(--warm-neon-green)",
         image: <SalesBoostSVG />,
     },
@@ -35,11 +47,15 @@ const reasonSupport = [
         id: 4,
         icon: <VscHeart />,
         title: "Improved User Experience",
-        description: "Interactive and Fast loading keep Users Engaged",
+        description: (
+            <>
+                Interactive and Fast loading keep <span className="highlight">Users Engaged</span>.
+            </>
+        ),
         color: "var(--warm-neon-red)",
         image: <UserExperienceIllustration />
     },
-]
+];
 
 export default function ReasonContent() {
     return (
