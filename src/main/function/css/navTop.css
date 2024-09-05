@@ -56,3 +56,10 @@
 .theme-toggle-button:hover {
     animation: spin 0.8s ease-in-out;
 }
+
+@media (pointer: coarse) {
+    .navTop-button:hover {
+        color: var(--color); /* Keep color unchanged on hover for touch devices */
+        animation: rocketMovement 3s ease-in-out infinite; /* Ensure animation is active if needed */
+    }
+}
