@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="32" height="32" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(28, 0)">
+<!--Adjust this translate value to center-->
+<!--Left polygons-->
+    <polygon points="60, 50, 90, 60, 50,160, 20,150" fill="black"/>
+    <polygon points="62,130, 100,145, 100, 180, 20, 150" fill="black"/>
+<!--Lightning-->
+    <g>
+      <polygon points="108, 50, 108, 112, 78, 125" fill="orange"/>
+      <polygon points="136, 150, 146, 126, 108, 111, 78, 125" fill="orange"/>
+      <polygon points="116, 200, 142, 135, 108, 138" fill="orange"/>
+    </g>
+<!--Right polygons (mirrored)-->
+    <g>
+      <polygon points="160, 200, 130, 190, 170, 90, 200, 100" fill="black"/>
+      <polygon points="158,120, 120,105, 120,70, 200,100" fill="black"/>
+    </g>
+  </g>
+</svg>
