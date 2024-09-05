@@ -6,5 +6,5 @@
   <polygon points="150,50 120,50 150,150 180,150" fill="#4D4D4D"/>
 
   <!-- Yellow lightning bolt shape -->
-  <polygon points="95,30 115,80 100,80 120,130 85,130 105,80 90,80" fill="#F4B242" />
+  <polygon points="96,30 115,80 100,80 120,130 85,130 105,80 90,80" fill="#F4B242" />
 </svg>
