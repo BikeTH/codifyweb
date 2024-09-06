@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './css/navBar.css';
 import ScrollToSection from "./scrollToSection";
 import { TbPackage, TbZoomMoney, TbHome, TbMessage, TbMailHeart } from "react-icons/tb";
+import Codifyweb from "../../assets/codifyweb";
 
 export default function NavBar() {
     const [activeSection, setActiveSection] = useState('home');

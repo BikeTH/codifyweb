@@ -22,6 +22,7 @@ export default function ITconsult(){
                 <Offer/>
             </div>
                 <TechStackSlider />
+                <NavTop />
             <div className="content-main">
                 <WhyUs />
                 <Quotation />
@@ -29,7 +30,6 @@ export default function ITconsult(){
                 <Team />
                 <Contact />
                 <Footer />
-                <NavTop />
             </div>
         </div>
         </>

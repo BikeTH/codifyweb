@@ -14,7 +14,7 @@ export default function Codifyweb() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="300" height="100" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
 
       {/* Oval shadow */}
       <defs>
