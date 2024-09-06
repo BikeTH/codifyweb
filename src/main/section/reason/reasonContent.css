@@ -55,10 +55,9 @@
 
 
 .ITconsult-reason-support-arrangement{
-    border: 1px solid var(--border);
     padding: 24px;
     text-align: left;
-    background-color: var(--content-bg);
+    background-color: var(--background-color);
     transition: transform 0.3s ease-in, background-color 0.3s ease-in;
 }
 

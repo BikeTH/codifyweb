@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ScrollToSection from "./scrollToSection";
 import { IoChevronUp, IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
-import { LuSun, LuMoon } from "react-icons/lu";
 import './css/navTop.css';
 
 export default function NavTop() {

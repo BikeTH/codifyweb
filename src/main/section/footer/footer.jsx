@@ -3,6 +3,7 @@ import './footer.css';
 import ScrollToSection from "../../function/scrollToSection";
 import { BiMapPin } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
+import Codifyweb from "../../../assets/codifyweb";
 
 export default function Footer(){
     const [showMsg, setShowMsg] = useState(false);
@@ -60,7 +61,7 @@ export default function Footer(){
                         </div>
                     </div>
                     <div>
-                        LOGO
+                        <Codifyweb />
                     </div>
                 </div>
                 <div style={{borderBottom:`0.2px solid var(--color)`, padding:"8px", margin:"0 auto"}}/>

@@ -1,0 +1,54 @@
+/* Base styles for the main container */
+.logo-main {
+    width: auto;
+    height: auto; 
+    position: relative; /* Needed for positioning child elements absolutely */
+    overflow: hidden; /* Prevents content from overflowing */
+    transition: transform 0.5s ease; /* Smooth transition for transform */
+    cursor: pointer;
+}
+
+/* Initial translation positions for the elements */
+.logo-left, .logo-right {
+    transition: transform 0.5s ease; /* Smooth transition for transform */
+    transform: translateX(0);
+}
+
+/* Hover effect for the container */
+.logo-main:hover .logo-left {
+    transform: translateX(-75%) scaleY(-1) translateY(-100%); /* Move to original position */
+}
+
+.logo-main:hover .logo-right {
+    transform: translateX(75%) scaleY(-1) translateY(-100%); /* Move to original position */
+}
+
+/* Keyframe animation for fading out */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Keyframe animation for fading in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Define the hidden state for logo-content */
+.logo-hidden .logo-content {
+    animation: fadeOut 1s forwards; /* Fade out over 1 second */
+}
+
+/* Define the visible state for CodifyWeb */
+.logo-hidden .logo-text {
+    animation: fadeIn 1s forwards;
+    opacity: 1;
+}
+
+/* Initially, CodifyWeb is hidden */
+.logo-text {
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease;
+    font-size: 48px;
+}

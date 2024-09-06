@@ -1,19 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="32" height="32" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <g transform="translate(28, 0)">
-<!--Adjust this translate value to center-->
-<!--Left polygons-->
-    <polygon points="60, 50, 90, 60, 50,160, 20,150" fill="black"/>
-    <polygon points="62,130, 100,145, 100, 180, 20, 150" fill="black"/>
-<!--Lightning-->
-    <g>
-      <polygon points="108, 50, 108, 112, 78, 125" fill="orange"/>
-      <polygon points="136, 150, 146, 126, 108, 111, 78, 125" fill="orange"/>
-      <polygon points="116, 200, 142, 135, 108, 138" fill="orange"/>
-    </g>
-<!--Right polygons (mirrored)-->
-    <g>
-      <polygon points="160, 200, 130, 190, 170, 90, 200, 100" fill="black"/>
-      <polygon points="158,120, 120,105, 120,70, 200,100" fill="black"/>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" >
+      <defs>
+          <filter id="blur-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="6"/> 
+            <feOffset dx="0" dy="6" result="offsetblur"/>
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.5"/>
+            </feComponentTransfer>
+            <feMerge> 
+              <feMergeNode/> 
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        <g>
+          <polygon points="72, 50, 102, 60, 62,160, 32,150" fill="#F5F5F5" />
+          <polygon points="74,130, 112,145, 112, 180, 32, 150" fill="white" />
+        </g>
+
+        <g>
+          <polygon points="124, 50, 124, 50, 124, 112, 94, 125" fill="#FF8C42" />
+          <polygon points="152, 150, 162, 126, 124, 111, 94, 125" fill="orange" />
+          <polygon points="132, 200, 132, 200, 158, 135, 124, 138" fill="#FF8C42"/>
+        </g>
+
+        <g>
+          <polygon points="180, 200, 150, 190, 190, 90, 220, 100" fill="#F5F5F5" />
+
+          <polygon points="178,120, 140,105, 140,70, 220,100" fill="white" />
+        </g>
+        
+        <ellipse cx="115" cy="204" rx="52" ry="8" fill="var(--color)" opacity="0.3" filter="url(#blur-shadow)" />
 </svg>
