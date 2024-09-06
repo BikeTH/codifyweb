@@ -1,4 +1,5 @@
 import React from 'react';
+import Codifyweb from '../../../../assets/codifyweb';
 
 export default function UserExperienceIllustration() {
   const radiusOuter = 46;
@@ -94,7 +95,7 @@ export default function UserExperienceIllustration() {
                 <animateTransform
                     attributeName="transform"
                     type="translate"
-                    values="0,0; -5,5; 0,0; 5,-5; 0,0"
+                    values="2,0; 0,5; 2,0; 5,0; 0,0"
                     dur="4s"
                     repeatCount="indefinite"
                 />
@@ -110,7 +111,7 @@ export default function UserExperienceIllustration() {
                 <animateTransform
                     attributeName="transform"
                     type="translate"
-                    values="0,0; -5,5; 0,0; 5,-5; 0,0"
+                    values="2,0; 0,5; 2,0; 5,0; 0,0"
                     dur="4s"
                     repeatCount="indefinite"
                 />
@@ -128,7 +129,7 @@ export default function UserExperienceIllustration() {
                 <animateTransform
                     attributeName="transform"
                     type="translate"
-                    values="0,0; -5,5; 0,0; 5,-5; 0,0"
+                    values="2,0; 0,5; 2,0; 5,0; 0,0"
                     dur="4s"
                     repeatCount="indefinite"
                 />
@@ -375,29 +376,29 @@ export default function UserExperienceIllustration() {
             </text>
             {/* Phone */}
             <rect
-            x="110"
-            y="30"
-            width="40"
-            height="60"
-            rx="6"
-            fill="var(--content-bg)"
-            stroke="var(--border)"
-            strokeWidth="1"
+                x="105"  // Decreased by 5 units to move the phone left
+                y="30"
+                width="40"
+                height="60"
+                rx="6"
+                fill="var(--content-bg)"
+                stroke="var(--border)"
+                strokeWidth="1"
             />
             {/* Screen */}
             <rect
-                x="113"     // Positioned slightly inside the phone body for margins
-                y="32"      // Moved down to leave space for the speaker
-                width="34"  // Slightly narrower to fit within the margins
-                height="56" // Proportionate to the adjusted phone body height
-                rx="4"      // Rounded corners for a modern screen look
+                x="108"  // Adjusted to maintain the margin inside the phone body
+                y="32"   // Same y-value
+                width="34"
+                height="56"
+                rx="4"
                 fill="var(--background-color)"
                 stroke="var(--border)"
                 strokeWidth="0.3"
             />
             {/* SVG Version of the Banner Content */}
             <text
-                x="131"
+                x="126"  // Decreased by 5 units to match the shift
                 y="56"
                 fontSize="6"
                 fontWeight="600"
@@ -408,7 +409,7 @@ export default function UserExperienceIllustration() {
                 Codify
             </text>
             <text
-                x="131"
+                x="126"  // Decreased by 5 units to match the shift
                 y="68"
                 fontSize="6"
                 fontWeight="600"
