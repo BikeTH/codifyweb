@@ -10,6 +10,14 @@
     color: var(--color);
 }
 
+.hidden-on-mobile {
+    display: block; /* Default display for larger screens */
+}
+
+.Banner-Design{
+    display: flex;
+}
+
 .Banner-Header{
     display: flex;
     flex-direction: column;
@@ -77,5 +85,15 @@
 
     .Banner-Header-arrangement{
         gap: 4px;
+    }
+
+    .hidden-on-mobile {
+        display: none; /* Hide on mobile devices */
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1200px) {
+    .hidden-on-mobile {
+        display: none; /* Hide on mobile devices */
     }
 }

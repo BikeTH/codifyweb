@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './css/navBar.css';
 import ScrollToSection from "./scrollToSection";
 import { TbPackage, TbZoomMoney, TbHome, TbMessage, TbMailHeart } from "react-icons/tb";
-import Codifyweb from "../../assets/codifyweb";
+import codifyweb from "../../assets/codifyweb.svg"
 
 export default function NavBar() {
     const [activeSection, setActiveSection] = useState('home');
@@ -77,10 +77,10 @@ export default function NavBar() {
                     <TbZoomMoney /><span>Pricing</span>
                 </li>
                 <li
-                    className={activeSection === 'home' ? 'active' : ''}
+                    className={`home-item ${activeSection === 'home' ? 'active' : ''}`}
                     onClick={() => handleClick('home')}
                 >
-                    <TbHome /><span>Home</span>
+                    <img src={codifyweb} alt="logo"/><span>CodifyWeb</span>
                 </li>
                 <li
                     className={activeSection === 'faq' ? 'active' : ''}

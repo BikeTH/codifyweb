@@ -736,14 +736,12 @@ const websiteQuestions = [
 
     return (
         <div className="ITconsult-price-quotation" id="quotation">
-            <h1 style={{ textAlign: "center" }}>
-                Build Website / Application Plan
+            <h1 style={{ textAlign: "center", marginBottom:"0" }}>
+                CodifyWeb Develop Plan
             </h1>
-            <h3 style={{ color:"var(--second-color)", fontWeight:"lighter", textAlign: "center", margin: "0px" }}>
-                How Much to <span style={{color:"var(--color"}}>Build</span> a <span style={{color:"var(--color"}}>Website / Application</span>?
-                <br />
+            <h5 style={{ color:"var(--second-color)", fontWeight:"lighter", textAlign: "center", margin: "0px" }}>
                 <span style={{ fontStyle: "italic" }}>Price may vary <span style={{color:"var(--color"}}>Without</span> notice</span>
-            </h3>
+            </h5>
     
             {currentStep === 0 ? (
                 <div className="ITconsult-price-quotation-form">

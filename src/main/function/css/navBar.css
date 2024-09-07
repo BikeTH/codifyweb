@@ -42,8 +42,8 @@
     background-color: transparent;
 }
 
-.ITconsult-nav-bar li:hover:not(.active),
-.ITconsult-nav-bar li.active {
+.ITconsult-nav-bar li:not(.home-item):hover:not(.active),
+.ITconsult-nav-bar li:not(.home-item).active {
     border-radius: 48px;
     background-color: var(--nav-bg);
     color: var(--nav-color);
@@ -53,6 +53,20 @@
 .ITconsult-nav-bar li.active {
     background-color: var(--nav-bg);
     color: var(--nav-color);
+}
+
+.ITconsult-nav-bar li.home-item,
+.ITconsult-nav-bar li.home-item.active {
+    background-color: transparent;
+    color: inherit;
+    transform: none;
+    border-radius: 0;
+}
+
+.ITconsult-nav-bar li.home-item:hover {
+    background-color: transparent;
+    color: inherit;
+    transform: none;
 }
 
 .ITconsult-nav-bar li span {
@@ -69,12 +83,32 @@
     .ITconsult-nav-bar.fixed {
         padding: 4px;
     }    
+
+    .ITconsult-nav-bar li:not(.home-item):hover:not(.active) {
+        background-color: var(--background-color);
+        color: var(--color);
+        transform: none;
+    }
+
+    .ITconsult-nav-bar li:hover {
+        background-color: none;
+        transform: none; /* Prevent hover effect from persisting */
+    }
+
+    /* Make sure the home-item has no active or hover effect on mobile as well */
+    .ITconsult-nav-bar li.home-item,
+    .ITconsult-nav-bar li.home-item.active,
+    .ITconsult-nav-bar li.home-item:hover {
+        background-color: transparent;
+        color: inherit;
+        transform: none;
+    }
 }
 
 @media screen and (max-width:768px) {
     .ITconsult-nav-bar li:hover:not(.active){
-        background-color: var(--nav-color);
-        color: var(--nav-bg);
+        background-color: var(--background-color);
+        color: var(--color);
         transform: none;
     }
 

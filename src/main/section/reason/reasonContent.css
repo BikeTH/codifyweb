@@ -83,7 +83,8 @@
     .ITconsult-reason-support{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        padding: 20px;
+        padding: 12px;
+        gap: 32px;
         grid-template-rows: auto;
         grid-template-areas:
         "item1"
@@ -101,6 +102,10 @@
     .ITconsult-reason-content {
         flex-direction: column;
         gap: 8px;
+    }
+
+    .ITconsult-reason-support{
+        gap: 28px;
     }
 
     .ITconsult-reason-support-arrangement{
