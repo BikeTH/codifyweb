@@ -76,7 +76,7 @@ export default function Footer(){
                     </div>
                 </div>
                 <div style={{borderBottom:`0.2px solid var(--color)`, padding:"8px", margin:"0 auto"}}/>
-                <p>Codify Web Solutions &copy; 2024. All rights reserved.</p>
+                <p>Codify Web &copy; 2024. All rights reserved.</p>
             </div>
             {showMsg && (
                 <div className="pop-msg-overlay">

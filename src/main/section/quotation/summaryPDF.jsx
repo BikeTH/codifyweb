@@ -4,6 +4,7 @@ import codifyweb from "./assets/codifyweb.png";
 import qrPage from "./assets/qrPage.png";
 import qrWhatapps from "./assets/qrWhatapps.png";
 import frontImg from "./assets/front.jpeg";
+import speedTest from "./assets/speedtest.png";
 
 export default function RenderBrochure({ pdfData }) {
     return (
@@ -62,32 +63,115 @@ export default function RenderBrochure({ pdfData }) {
 
             {/* Table of Contents */}
             <Page size="A4" style={toc.page}>
+                <View style={front.top}>
+                    <Link src="https://uat.wilfredcty.com">
+                        <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
+                    </Link> 
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>CodifyWeb</Text>  
+                    </Link>
+                </View>
                 <View style={toc.container}>
                     <Text style={toc.title}>Table of Contents</Text>
                     <View style={toc.items}>
-                        <Text style={toc.item}>1. Introduction</Text>
-                        <Text style={toc.item}>2. Quotation Summary</Text>
-                        <Text style={toc.item}>3. Additional Products</Text>
-                        <Text style={toc.item}>4. Conclusion</Text>
-                        <Text style={toc.item}>5. Contact Information</Text>
+                        <Link src="#intro" style={toc.tocItem}>
+                            <Text>1. Introduction</Text>
+                            <Text>1</Text>
+                        </Link>
+                        <Link src="#summary" style={toc.tocItem}>
+                            <Text>2. Quotation Summary</Text>
+                            <Text>2</Text>
+                        </Link>
+                        <Link src="#conclusion" style={toc.tocItem}>
+                            <Text>3. Conclusion</Text>
+                            <Text>3</Text>
+                        </Link>
+                        <Link src="#extras" style={toc.tocItem}>
+                            <Text>4. Extras Products</Text>
+                            <Text>4</Text>
+                        </Link>
                     </View>
+                </View>
+                <View style={toc.bottom}>
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>  
+                    </Link>
                 </View>
             </Page>
 
             {/* Introduction */}
-            <Page size="A4" style={intro.page}>
+            <Page size="A4" style={intro.page} id="intro">
+                <View style={front.top}>
+                    <Link src="https://uat.wilfredcty.com">
+                        <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
+                    </Link> 
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>CodifyWeb</Text>  
+                    </Link>
+                </View>
                 <View style={intro.container}>
-                    <Text style={intro.title}>Introduction</Text>
-                    <Text style={intro.text}>
-                        {/* Introduction text goes here */}
-                        Welcome to your quotation summary. This document provides a comprehensive overview of the quotation details and additional information you might need.
-                    </Text>
+                    <View>
+                        <Text style={intro.title}>Introduction</Text>
+                        <Text style={intro.text}>
+                            {/* Introduction text goes here */}
+                            Welcome to <Text style={intro.highlight}>Codify Web</Text>, where we specialize in delivering <Text style={intro.highlight}>Top-Notch Web Development</Text> and <Text style={intro.highlight}>Digital Solutions</Text>. 
+                            {'\n'}
+                            We are pleased to present this <Text style={intro.highlight}>Quotation Summary</Text>, which provides a detailed outline of our proposed Solutions and Associated Costs tailored to your specific Needs. 
+                            {'\n'}
+                            Our Aim is to give you a Clear and Comprehensive understanding of the project to support your Decision-Making process.
+                        </Text>
+                    </View>
+                    <View style={intro.question}>
+                        <View style={intro.know}>
+                            <Text style={intro.title}>
+                                Did You Know ?
+                            </Text>
+                            <Text style={intro.text}>
+                                Our products are designed to run <Text style={intro.highlight}>Smoothly</Text> and <Text style={intro.highlight}>Efficiently</Text>?
+                                {'\n'}
+                                For example, our Landing Page are Optimized to be <Text style={intro.highlight}>Fast</Text> and <Text style={intro.highlight}>Lightweight</Text>, ensuring a <Text style={intro.highlight}>Seamless User Experience</Text>.
+                            </Text>
+                        </View>
+                        <Image src={speedTest} style={intro.speedTestImage} /> {/* Add the speed test image here */}
+                    </View>
+                    <View>
+                        <Text style={intro.title}>
+                            Our Benefits
+                        </Text>
+                        <Text style={intro.text}>
+                            Unlike many others, We build our products from <Text style={intro.highlight}>Scratch with Clean Code</Text>. Optimization each Action Manually.
+                            {'\n'}
+                            We <Text style={intro.highlight}>DON'T</Text> use WordPress, Drupal, or Any other CMS.
+                            {'\n'}
+                            Which means our projects are less likely to be <Text style={intro.highlight}>Bogged Down</Text> by <Text style={intro.highlight}>Plugins</Text> and <Text style={intro.highlight}>Bloat</Text>.
+                        </Text>
+                        <Text style={intro.choose}>
+                            By <Text style={intro.highlight}>Choosing Us</Text>, you can Explore the Benefits of a tailored solution that prioritizes <Text style={intro.highlight}>Speed</Text> and <Text style={intro.highlight}>Efficiency</Text>.
+                            {'\n'}
+                            We are committed to delivering <Text style={intro.highlight}>High-Quality</Text>, <Text style={intro.highlight}>High-Performance</Text> results for your Needs.
+                        </Text>
+                    </View>
+                </View>
+                <View style={intro.bottom}>
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>
+                    </Link>
+                    <Text style={intro.text}>1</Text>  
                 </View>
             </Page>
 
             {/* Quotation Summary */}
-            <Page size="A4" style={summary.page}>
+            <Page size="A4" style={summary.page} id="summary">
+                <View style={front.top}>
+                    <Link src="https://uat.wilfredcty.com">
+                        <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
+                    </Link> 
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>CodifyWeb</Text>  
+                    </Link>
+                </View>
                 <View style={summary.container}>
+                    <Text style={intro.title}>Quotation Summary</Text>
                     {pdfData.summaryData.map((item, index) => (
                         <View key={index} style={summary.item}>
                             <Text style={summary.question}>{item.question}</Text>
@@ -100,34 +184,74 @@ export default function RenderBrochure({ pdfData }) {
                             ))}
                         </View>
                     ))}
+                    <View>
+                        <Text style={summary.price}>Estimation Total Price: {pdfData.totalPrice}</Text>
+                        <View style={summary.dottedLine} /> {/* Bottom dotted line */}
+                        <Text style={intro.title}>Uncertainty:</Text>
+                        {pdfData.uncertainty.map((item, index) => (
+                            <View key={index} style={summary.uncertainty}>
+                                <Text style={summary.title}>{item.title}: </Text>
+                                <Text style={summary.title}>{item.price}</Text>
+                            </View>
+                        ))}
+                        <Text style={intro.description}>Price May change and we will Notify you</Text>
+                    </View>
+                </View>
+                <View style={intro.bottom}>
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>
+                    </Link>
+                    <Text style={intro.text}>2</Text>  
+                </View>
+            </Page>
+
+            {/* Conclusion */}
+            <Page size="A4" style={conclusion.page} id="conclusion">
+                <View style={front.top}>
+                    <Link src="https://uat.wilfredcty.com">
+                        <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
+                    </Link> 
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>CodifyWeb</Text>  
+                    </Link>
+                </View>
+                <View style={conclusion.container}>
+                    <Text style={conclusion.title}>Summary & Contact</Text>
+                        <Text style={conclusion.text}>
+                            At Codify Web, our mission is to deliver innovative web solutions that drive success and exceed expectations. 
+                            {'\n'}We are dedicated to providing exceptional service and value to our clients.
+                        </Text>
+                        <Text style={conclusion.text}>
+                            Thank you once again for considering our quotation. We are excited about the opportunity to work with you.
+                            {'\n'}
+                            To move forward, please follow these steps:
+                            {'\n'}
+                            1. Review the details and let us know if you have any questions.
+                            {'\n'}
+                            2. Schedule a follow-up meeting to finalize the project scope.
+                            {'\n'}
+                            3. Finalize, and Kick-Start the Project!
+                            {'\n\n'}
+                            Our team is ready to begin work as soon as we receive your confirmation. Please reach out to us to discuss any final details or to get started on your project.
+                        </Text>
+                </View>
+                <View style={conclusion.container}>
+                    <Text style={conclusion.title}>Contact Information</Text>
+                    <Text style={conclusion.text}>For any queries or further assistance, please contact us:</Text>
+                    <Text style={conclusion.p}>Email: webapp-tc@gmail.com</Text>
+                    <Text style={conclusion.p}>Website: https://uat.wilfredcty.com</Text>
+                </View>
+                <View style={intro.bottom}>
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>
+                    </Link>
+                    <Text style={intro.text}>3</Text>  
                 </View>
             </Page>
 
             {/* Additional Products */}
-            <Page size="A4" style={additionalProducts.page}>
+            <Page size="A4" style={additionalProducts.page} id="extras">
 
-            </Page>
-
-            {/* Conclusion */}
-            <Page size="A4" style={conclusion.page}>
-                <View style={conclusion.container}>
-                    <Text style={conclusion.title}>Conclusion</Text>
-                    <Text style={conclusion.text}>
-                        {/* Conclusion text goes here */}
-                        Thank you for considering our quotation. If you have any questions or need further information, please do not hesitate to contact us.
-                    </Text>
-                </View>
-            </Page>
-
-            {/* Contact Information */}
-            <Page size="A4" style={contact.page}>
-                <View style={contact.container}>
-                    <Text style={contact.title}>Contact Information</Text>
-                    <Text style={contact.text}>For any queries or further assistance, please contact us:</Text>
-                    <Text style={contact.p}>Email: contact@codifyweb.com</Text>
-                    <Text style={contact.p}>Phone: +123 456 7890</Text>
-                    <Text style={contact.p}>Website: www.codifyweb.com</Text>
-                </View>
             </Page>
         </Document>
     );
@@ -205,80 +329,180 @@ const front = StyleSheet.create({
 
 const toc = StyleSheet.create({
     page: {
-        padding: 20,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        backgroundColor: '#080808',
+        height: '100%',
+        position: 'relative',
     },
     container: {
         flexDirection: 'column',
+        alignItems: 'flex-start',
+        padding: 20,
+        width: '100%',
+        gap: 28,
     },
     title: {
         fontSize: 18,
         fontWeight: 'bold',
+        color: '#F5F5F5',
         marginBottom: 10,
     },
     items: {
         flexDirection: 'column',
+        justifyContent: 'flex-start',
+        width: '100%',
+        gap: 20,
     },
     item: {
         fontSize: 14,
         marginBottom: 5,
+    },
+    tocItem: {
+        textDecoration: 'none',
+        color: '#F5F5F5',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        marginVertical: 2, // Add vertical margin for spacing
+    },
+    bottom: {
+        position: 'absolute',
+        bottom: 20, // Adjust as needed
+        left: 20,
     },
 });
 
 const intro = StyleSheet.create({
     page: {
         padding: 20,
+        position: 'relative',
+        backgroundColor: '#080808',
     },
     container: {
         flexDirection: 'column',
+        paddingTop: 60,
+        gap: 32,
+    },
+    question:{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems:'center',
+        justifyContent:'center',
+        gap: 12,
+    },
+    know:{
+        width: '60%',
     },
     title: {
         fontSize: 18,
+        color: '#F5F5F5',
         fontWeight: 'bold',
         marginBottom: 10,
     },
     text: {
+        color: '#cdcdcd',
         fontSize: 12,
         lineHeight: 1.5,
+        paddingTop: 6,
+    },
+    highlight: {
+        color: '#F5F5F5',  // Highlight color
+        fontWeight: 'bold', // Optional: to make the highlighted text stand out more
+    },
+    choose: {
+        color: '#cdcdcd',
+        fontSize: 12,
+        lineHeight: 1.5,
+        paddingTop: 12,
+    },
+    speedTestImage: {
+        width: 300,
+        height: 240,
+        marginVertical: 10,
+    },
+    bottom: {
+        position: 'absolute',
+        bottom: 20, // Adjust as needed
+        left: 20,
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between',
     },
 });
 
 const summary = StyleSheet.create({
     page: {
         padding: 20,
+        position: 'relative',
+        backgroundColor: '#080808',
     },
     container: {
         flexDirection: 'column',
+        gap: 14,
     },
     item: {
         marginBottom: 10,
     },
     question: {
-        fontSize: 14,
+        fontSize: 11,
         fontWeight: 'bold',
         marginBottom: 5,
+        color: '#F5F5F5',
     },
     detail: {
-        marginLeft: 10,
+        marginLeft: 11,
+        color: '#F5F5F5',
     },
     title: {
-        fontSize: 12,
+        fontSize: 9,
         fontWeight: 'bold',
+        color: '#F5F5F5',
     },
     description: {
-        fontSize: 12,
+        fontSize: 9,
+        color: '#cdcdcd',
     },
     cost: {
-        fontSize: 12,
+        fontSize: 9,
         fontStyle: 'italic',
+        color: '#F5F5F5',
+        paddingTop: 4,
     },
+    price:{
+        fontSize: 13,
+        color: '#F5F5F5',
+    },
+    dottedLine: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#F5F5F5',
+        borderStyle: 'dotted',
+        marginVertical: 2, // Adjust spacing between lines and text
+    },
+    uncertainty: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems:'center',
+        textAlign:'left',
+        width: '100%',
+    }
 });
 
 const additionalProducts = StyleSheet.create({
     page: {
+        color: '#F5F5F5',
         padding: 20,
+        position: 'relative',
+        backgroundColor: '#080808',
     },
     container: {
         flexDirection: 'column',
+        paddingTop: 60,
+        gap: 20,
     },
     title: {
         fontSize: 18,
@@ -303,10 +527,15 @@ const additionalProducts = StyleSheet.create({
 
 const conclusion = StyleSheet.create({
     page: {
+        color: '#F5F5F5',
         padding: 20,
+        position: 'relative',
+        backgroundColor: '#080808',
     },
     container: {
         flexDirection: 'column',
+        paddingTop: 60,
+        gap: 20,
     },
     title: {
         fontSize: 18,
@@ -316,26 +545,5 @@ const conclusion = StyleSheet.create({
     text: {
         fontSize: 12,
         lineHeight: 1.5,
-    },
-});
-
-const contact = StyleSheet.create({
-    page: {
-        padding: 20,
-    },
-    container: {
-        flexDirection: 'column',
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    text: {
-        fontSize: 12,
-        marginBottom: 10,
-    },
-    p: {
-        fontSize: 12,
     },
 });
