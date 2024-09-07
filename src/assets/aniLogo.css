@@ -91,6 +91,20 @@
 /* Phone-specific adjustments */
 @media only screen and (max-width: 768px) {
     .logo-main svg {
-      width: 100px;
+        transform: translateY(10%);
+        width: 80px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+    .logo-main svg {
+        width: 120px;
+    }
+}
+
+@media only screen and (max-height: 450px){
+    .logo-main svg {
+        transform: translateY(10%);
+        height: 60px;
     }
 }

@@ -5,8 +5,13 @@ import LeftBanner from "./left";
 import RightBanner from "./right";
 
 export default function Banner() {
+
     return(
         <div className="Banner" id="home">
+             <div className="Banner-Background">
+                {/* Your SVG or background animation goes here */}
+                <svg width="100%" height="100%" viewBox="0 0 1000 400"></svg>
+            </div>
             <div className="Banner-Design">
                 <div className="LeftBanner hidden-on-mobile">
                     <LeftBanner />
@@ -36,7 +41,7 @@ export default function Banner() {
                 </div>
             </div>
             <div className="Banner-description">
-                    <h2>Your One Stop Digital Solutions</h2>
+                <h2>Your One Stop Digital Solutions</h2>
             </div>
             <NavBar />
         </div>
