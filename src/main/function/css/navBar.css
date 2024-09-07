@@ -76,8 +76,8 @@
 
 @media screen and (max-width:768px) {
     .ITconsult-nav-bar li.active {
-        background-color: var(--background-color);
-        color: var(--warm-neon-blue);
+        background-color: var(--background-color) !important;
+        color: var(--warm-neon-blue) !important;
     }
 
     .ITconsult-nav-bar.fixed {

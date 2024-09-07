@@ -1,22 +1,61 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image, Link } from '@react-pdf/renderer';
+import codifyweb from "./assets/codifyweb.png";
+import qrPage from "./assets/qrPage.png";
+import qrWhatapps from "./assets/qrWhatapps.png";
+import frontImg from "./assets/front.jpeg";
 
 export default function RenderBrochure({ pdfData }) {
     return (
         <Document>
             {/* Front Page */}
             <Page size="A4" style={front.page}>
+                <View style={front.top}>
+                    <Link src="https://uat.wilfredcty.com">
+                        <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
+                    </Link> 
+                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                        <Text style={front.p}>CodifyWeb</Text>  
+                    </Link>
+                </View>
                 <View style={front.front}>
+                    <View>
+                        <Image src={frontImg} style={{width: '300', height: '300'}} />
+                    </View>
                     {/* Title and Subtitle */}
-                    <Text style={front.h1}>Your Quotation Summary</Text>
-                    <Text style={front.h2}>For Your Referencing</Text>
+                    <View style={front.title}>
+                        <Text style={front.h1}>Website Quotation Summary</Text>
+                        <Text style={front.h2}>Based On Your Needs</Text>
+                    </View>
 
                     {/* Contact Information */}
                     <View style={front.contactInfo}>
-                        <Text style={front.p}>By CodifyWeb</Text>
-                        <Text style={front.p}>Email: contact@codifyweb.com</Text>
-                        <Text style={front.p}>Phone: +123 456 7890</Text>
-                        <Text style={front.p}>Website: www.codifyweb.com</Text>
+                        <View>
+                            <Text style={front.p}>From: </Text>
+                        </View>
+                        <View>
+                            <Text style={front.p}>CodifyWeb</Text>
+                            <Link src="mailto:webapp.tc@gmail.com" style={front.linkText}>
+                                <Text style={front.p}>webapp-tc@gmail.com</Text>
+                            </Link>
+                            <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                                <Text style={front.p}>https://www.codifyweb.com</Text>
+                            </Link>
+                        </View>
+                        <View style={front.qr}>
+                            <View>
+                                <Link src="https://uat.wilfredcty.com">
+                                    <Image src={qrPage} style={{ width: 60, height: 60 }} /> {/* Adjust size as needed */}
+                                </Link>
+                                <Text style={front.p}>CodifyWeb</Text>
+                            </View>
+                            <View>
+                                <Link src="https://wa.me/+601121823390">
+                                    <Image src={qrWhatapps} style={{ width: 60, height: 60 }} /> {/* Adjust size as needed */}
+                                </Link>
+                                <Text style={front.p}>WhatApps</Text>
+                            </View>
+                        </View>
                     </View>
                 </View>
             </Page>
@@ -98,15 +137,32 @@ export default function RenderBrochure({ pdfData }) {
 const front = StyleSheet.create({
     page: {
         flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
+        justifyContent: 'space-evenly',
+        backgroundColor: '#080808',
         height: '100%',
+        position: 'relative', // Ensure the page has relative positioning for absolute children
+    },
+    top: {
+        position: 'absolute', // Use absolute positioning to place it at the top right
+        top: 12, // Adjust as needed
+        right: 12, // Adjust as needed
+        color: '#F5F5F5',
+        flexDirection: 'row', // Align items horizontally
+        alignItems: 'center',
     },
     front: {
         flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
+        color: '#F5F5F5',
+        gap: 20,
+    },
+    title: {
+        width: '100%',
+        backgroundColor: '#1a1a1a',
+        padding: 20,
     },
     h1: {
         fontSize: 24,
@@ -123,8 +179,28 @@ const front = StyleSheet.create({
         textAlign: 'center',
     },
     contactInfo: {
+        display: 'flex',
+        flexDirection: 'row',
         marginTop: 20,
+        padding: 28,
+        width: '100%',
+        gap: 28,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
+    qr: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems:'center',
+        gap: 20,
+        width: '50%',
+        padding: 12,
+    },
+    linkText: {
+        textDecoration: 'none', // Default link styling might be applied by the PDF viewer
+        color: '#F5F5F5', // Ensure the link text color matches
+    }
 });
 
 const toc = StyleSheet.create({
