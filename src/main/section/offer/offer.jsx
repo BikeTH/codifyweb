@@ -6,6 +6,7 @@ import { LuPackageOpen } from "react-icons/lu";
 import { MdClose } from "react-icons/md";
 import ProjectSteps from "./projectStep/projectStep";
 import ScrollToSection from "../../function/scrollToSection";
+import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 const offer = [
     {
@@ -34,22 +35,34 @@ export default function Offer() {
         setIsHovering(false);
     };
 
+    const { ref: serviceRef, inView: serviceInView } = useIntersectionObserver({ threshold: 0.1 }, 300);
+    const { ref: deliverRef, inView: deliverInView } = useIntersectionObserver({ threshold: 0.1 }, 300);
+    const { ref: packageRef, inView: packageInView } = useIntersectionObserver({ threshold: 0.1 }, 400);
+    const { ref: packageOpenRef, inView: packageOpenInView } = useIntersectionObserver({ threshold: 0.1 }, 100);
+
     return (
+
         <div className={`ITconsult-offer ${isPackage ? 'shifted' : ''}`} id="offer">
             <div className="offers-arrangement">
-                <h1 style={{fontWeight:"600"}}>Our Services</h1>
+                <h1 className={`slideIn-animate ${serviceInView ? 'animate' : 'paused'}`} ref={serviceRef} style={{fontWeight:"600"}}>Our Services</h1>
                 <div className="ITconsult-offers-arrangement">
-                    {offer.map(data => (
-                        <div className="ITconsult-offer-content" key={data.id}>
-                            <h1>{data.icon}</h1>
-                            <h3 style={{ color:"var(--second-color)", fontWeight:"lighter", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h3>
-                        </div>
-                    ))}
+                    {
+                        offer.map(data => {
+                            const { ref: iconRef, inView: iconInView } = useIntersectionObserver({ threshold: 0.1 }, 300);
+                            const { ref: iconDetailRef, inView: iconDetailInView } = useIntersectionObserver({ threshold: 0.1 }, 500);
+                            return(
+                            <div className="ITconsult-offer-content" key={data.id}>
+                                <h1 className={`slideUpDown-animate ${iconInView ? 'animate' : 'paused'}`} ref={iconRef}>{data.icon}</h1>
+                                <h3 className={`slideDownUp-animate ${iconDetailInView ? 'animate' : 'paused'}`} ref={iconDetailRef} style={{ color:"var(--second-color)", fontWeight:"lighter", margin: "0", transform: "translateY(-60%)" }}>{data.title}</h3>
+                            </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
             <div className={`project-arrangement ${isPackage ? 'shifted-project' : ''}`}>
                 <div className="project-header">
-                    <h4>~ How we Delivered Project ~</h4>
+                    <h4 className={`slideIn-animate ${deliverInView ? 'animate' : 'paused'}`} ref={deliverRef}>~ How we Delivered Project ~</h4>
                     {isPackage && (
                         <div
                             className="workflow-btn-cancel"
@@ -67,12 +80,12 @@ export default function Offer() {
                 >
                     {isPackage ? null : (
                     isHovering ? (
-                        <div>
+                        <div className={`slideDownUp-animate ${packageOpenInView ? 'animate' : 'paused'}`} ref={packageOpenRef}>
                             <LuPackageOpen size={44} style={{color:"var(--warm-neon-yellow)"}}/>
                             <p className="click-me-text">Click me</p>
                         </div>
                         ) : (
-                        <div>
+                        <div className={`slideUpDown-animate ${packageInView ? 'animate' : 'paused'}`} ref={packageRef}>
                             <GoPackageDependents size={44} style={{color:"var(--warm-neon-yellow)"}}/>
                             <p className="click-me-text">Click me</p>
                         </div>

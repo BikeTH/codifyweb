@@ -55,20 +55,6 @@
     height: 10%;
 }
 
-.h4-reason{
-    opacity: 0; /* Start hidden */
-    transform: translateX(-20%); /* Ensure element starts in its initial state */
-}
-
-.h4-reason.animate{
-    opacity: 1;
-    transform: translate(0%);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.h4-reason.paused{
-    animation-play-state: paused;
-}
 
 .ITconsult-reason-header p{
     color: var(--second-color);

@@ -83,7 +83,7 @@ export default function ReasonContent() {
                                 return(
                                 <div className= {`ITconsult-reason-support-arrangement ${itemInView? 'animate' : 'paused'}`} ref={itemRef} key={data.id}>
                                     <h4
-                                        className={`h4-reason ${supportTitleInView ? 'animate' : 'paused'}`}
+                                        className={`slideIn-animate ${supportTitleInView ? 'animate' : 'paused'}`}
                                         ref={supportTitleRef}
                                         style={{ marginTop: "0" }}
                                     >
