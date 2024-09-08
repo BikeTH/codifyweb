@@ -2,18 +2,17 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function useIntersectionObserver(options, delay = 0) {
   const [inView, setInView] = useState(false);
-  const [isVisible, setIsVisible] = useState(false); // To track visibility
+  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Check if the element is intersecting the viewport
         setIsVisible(entry.isIntersecting);
       },
       {
         ...options,
-        rootMargin: '0px 0px -28% 0px' // Adjust the rootMargin to trigger closer to center
+        rootMargin: '0px 0px -15% 0px', // Reduced margin for smoother detection
       }
     );
 
@@ -35,7 +34,6 @@ export default function useIntersectionObserver(options, delay = 0) {
         setInView(true);
       }, delay);
     } else {
-      // Reset inView if the element is no longer visible
       setInView(false);
     }
 

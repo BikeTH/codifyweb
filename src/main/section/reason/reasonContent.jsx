@@ -5,6 +5,7 @@ import SalesBoostSVG from "./svg/chart";
 import website from "./svg/website.webp"
 import EnhancedVisibilitySEO from "./svg/seo";
 import UserExperienceIllustration from "./svg/performance";
+import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 const reasonSupport = [
     {
@@ -58,19 +59,36 @@ const reasonSupport = [
 ];
 
 export default function ReasonContent() {
+    const { ref: titleRef, inView: titleInView } = useIntersectionObserver({
+        threshold: 0.1
+    }, 100);
+
     return (
         <>
             <div id="ITConsult" className="ITconsult-content">
                 <div className="ITconsult-reason-content">
-                    <div className="ITconsult-reason-header">
+                    <div className= {`ITconsult-reason-header ${titleInView ? 'animate' : 'paused'}`} ref={titleRef}>
                         <h1>Transform Your Business Today</h1>
                         <h3>Unlock the Power of a Digital Application to Propel Your Success</h3>
                     </div>
                     <div className="ITconsult-reason-support">
                         {
-                            reasonSupport.map(data => (
-                                <div className="ITconsult-reason-support-arrangement" key={data.id}>
-                                    <h4 style={{ marginTop: "0" }}>{data.icon} {data.title}</h4>
+                            reasonSupport.map(data => {
+                                const { ref: itemRef, inView: itemInView } = useIntersectionObserver({
+                                    threshold: 0.1
+                                }, 100);
+
+                                const { ref: supportTitleRef, inView: supportTitleInView } = useIntersectionObserver({ threshold: 0.1 }, 300);
+
+                                return(
+                                <div className= {`ITconsult-reason-support-arrangement ${itemInView? 'animate' : 'paused'}`} ref={itemRef} key={data.id}>
+                                    <h4
+                                        className={`h4-reason ${supportTitleInView ? 'animate' : 'paused'}`}
+                                        ref={supportTitleRef}
+                                        style={{ marginTop: "0" }}
+                                    >
+                                        {data.icon} {data.title}
+                                    </h4>
                                     <p>{data.description}</p>
                                     {data.image && (typeof data.image === 'string' ? (
                                     <img 
@@ -82,12 +100,14 @@ export default function ReasonContent() {
                                             width: '100%',
                                             height: 'auto',
                                         }}  // Adjust size as needed
-                                    loading="lazy"/>
+                                    loading="lazy"
+                                    alt={data.title}/>
                                     ) : (
                                         data.image // Render SVG component directly
                                     ))}
                                 </div>
-                            ))
+                                );
+                            })
                         }
                     </div>
                 </div>
