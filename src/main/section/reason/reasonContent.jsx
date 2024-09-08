@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import './reasonContent.css'
 import { VscVerified, VscHeart, VscGear, VscDashboard } from "react-icons/vsc";
 import SalesBoostSVG from "./svg/chart";
@@ -82,7 +82,7 @@ export default function ReasonContent() {
                                             width: '100%',
                                             height: 'auto',
                                         }}  // Adjust size as needed
-                                    />
+                                    loading="lazy"/>
                                     ) : (
                                         data.image // Render SVG component directly
                                     ))}

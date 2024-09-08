@@ -11,6 +11,7 @@ import Team from "./section/team/team";
 import Contact from "./section/contact/contact";
 import Footer from "./section/footer/footer";
 import NavTop from "./function/navTop";
+import Note from "./section/important/note";
 
 export default function ITconsult(){
     return(
@@ -18,6 +19,7 @@ export default function ITconsult(){
         <div className="ITconsult-main">
             <Banner/>
             <div className="content-main">
+                <Note />
                 <ReasonContent/>
                 <Offer/>
             </div>
