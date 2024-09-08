@@ -44,6 +44,7 @@
     opacity: 0;
 }
 
+
 @media screen and (min-width: 768px) and (max-width: 1200px){
     .note{
         padding-left: 2%;
@@ -51,7 +52,7 @@
     }
     
     .note-craft{
-        width: 75%;
+        width: 60%;
         gap: 8px;
         transform: none;
     }
