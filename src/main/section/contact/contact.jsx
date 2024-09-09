@@ -8,6 +8,7 @@ import { MdCancel } from "react-icons/md";
 import EmailStatus from "../../function/emailStatus";
 import qrPage from "../../../assets/ITConsult/QR/qrPage.webp";
 import qrWhatapps from "../../../assets/ITConsult/QR/qrWhatapps.webp";
+import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 export default function Contact() {
     const [showForm, setShowForm] = useState(false);
@@ -86,20 +87,33 @@ export default function Contact() {
         }
     };
 
+    const {ref: quotationRef, inView: quotationInView} = useIntersectionObserver({threshold: 0.1}, 200)
+    const {ref: quotationTitleRef, inView: quotationTitleInView} = useIntersectionObserver({threshold: 0.1}, 400)
+    const {ref: quotationDescriptionRef, inView: quotationDescriptionInView} = useIntersectionObserver({threshold: 0.1}, 400)
+    const {ref: quotationIconRef, inView: quotationIconInView} = useIntersectionObserver({threshold: 0.1}, 500)
+    const {ref: quotationScanRef, inView: quotationScanInView} = useIntersectionObserver({threshold: 0.1}, 200)
+    const {ref: quotationQRRef, inView: quotationQRInView} = useIntersectionObserver({threshold: 0.1}, 500)
+    const {ref: quotationQRPhoneRef, inView: quotationQRPhoneInView} = useIntersectionObserver({threshold: 0.1}, 500)
+    const {ref: quotationContactDetailRef, inView: quotationContactDetailInView} = useIntersectionObserver({threshold: 0.1}, 200)
+    const {ref: quotationContactFormBtnRef, inView: quotationContactFormBtnInView} = useIntersectionObserver({threshold: 0.1}, 100)
+    const {ref: quotationContactBackBtnRef, inView: quotationContactBackBtnInView} = useIntersectionObserver({threshold: 0.1}, 100)
+    const {ref: quotationContactUsRef, inView: quotationContactUsInView} = useIntersectionObserver({threshold: 0.1}, 200)
+    const {ref: quotationContactDescriptionRef, inView: quotationContactDescriptionInView} = useIntersectionObserver({threshold: 0.1}, 200)
+
     return (
         <>
             <div className={`ITconsult-contact ${showForm ? 'slide-out' : 'slide-in'}`} id="contact">
                 {showForm ? (
                     <div className="contact-form-section">
                         <div className="contact-form-arrangement">
-                            <div className="contact-details-back">
+                            <div className={`contact-details-back ${quotationContactBackBtnInView ? 'animate' : 'paused'}`} ref={quotationContactBackBtnRef}>
                                 <h1 onClick={handleBackClick}><FaArrowLeft /></h1>
                                 <p style={{ textAlign: "center" }}>Back</p>
                             </div>
                             <div className="contact-fill-form-arrangement">
                                 <div className="contact-form-header">
-                                    <h1>Contact Us</h1>
-                                    <p>Reach Out to Us by filling the <span style={{color:"var(--color)", fontWeight:"600"}}>Form</span></p>
+                                    <h1 className={`slideDownUp-animate ${quotationContactUsInView ? 'animate' : 'paused'}`} ref={quotationContactUsRef}>Contact Us</h1>
+                                    <p className={`slideUpDown-animate ${quotationContactDescriptionInView ? 'animate' : 'paused'}`} ref={quotationContactDescriptionRef}>Reach Out to Us by filling the <span style={{color:"var(--color)", fontWeight:"600"}}>Form</span></p>
                                 </div>
                                 <form className="contact-fill-form" onSubmit={handleSubmit}>
                                     <label htmlFor="name" className="label-name">Name</label>
@@ -166,11 +180,11 @@ export default function Contact() {
                     </div>
                 ) : (
                     <div className="contact-details">
-                        <img className="contact-img" src={quotation} alt="quotation image" loading="lazy"/>
-                        <div className="ITconsult-contact-detail">
-                            <h1>Request For Quotation?</h1>
-                            <p>You can directly <span style={{color:"var(--color)", fontWeight:"600"}}>Contact Us</span> for Consultation with <span style={{color:"var(--color)", fontWeight:"600"}}>No Charges</span> and We are Happy to <span style={{color:"var(--color)", fontWeight:"600"}}>Help</span>!</p>
-                            <ul>
+                        <img className={`contact-img ${quotationInView ? 'animate' : 'paused'}`} ref={quotationRef} src={quotation} alt="quotation image" loading="lazy"/>
+                        <div className={`ITconsult-contact-detail ${quotationContactDetailInView ? 'animate' : 'paused'}`} ref={quotationContactDetailRef}>
+                            <h1 className={`slideUpDown-animate ${quotationTitleInView ? 'animate' : 'paused'}`} ref={quotationTitleRef}>Request For Quotation?</h1>
+                            <p className={`slideDownUp-animate ${quotationDescriptionInView ? 'animate' : 'paused'}`} ref={quotationDescriptionRef}>You can directly <span style={{color:"var(--color)", fontWeight:"600"}}>Contact Us</span> for Consultation with <span style={{color:"var(--color)", fontWeight:"600"}}>No Charges</span> and We are Happy to <span style={{color:"var(--color)", fontWeight:"600"}}>Help</span>!</p>
+                            <ul className={`slideDownUp-animate ${quotationIconInView ? 'animate' : 'paused'}`} ref={quotationIconRef}>
                                 <a href="https://www.linkedin.com/in/wilfred-tsen-yik-chong-2a37a724b" target="_blank" rel="noreferrer noopener">
                                     <FaLinkedin color="#0077B5" />
                                     <span className="contact-text">LinkedIn</span>
@@ -188,8 +202,8 @@ export default function Contact() {
                                     <span className="contact-text">Email</span>
                                 </a>
                             </ul>
-                            <h3 style={{ textAlign: "center", fontSize:"3vmin" }}>Scan QR to find Us</h3>
-                            <div className="contact-qr-arrangement">
+                            <h3 className={`slideUpDown-animate ${quotationScanInView ? 'animate' : 'paused'}`} ref={quotationScanRef} style={{ textAlign: "center", fontSize:"3vmin" }}>Scan QR to find Us</h3>
+                            <div className={`contact-qr-arrangement ${quotationQRInView ? 'animate' : 'paused'}`} ref={quotationQRRef}>
                                 <div className="qr-content" style={{textAlign:"center"}} onClick={() => handleQrClick(qrPage, 'Our Page')}>
                                     <img className="qr-page" src={qrPage} alt="qrpage" loading="lazy"/>
                                     <p style={{margin:"0"}}>Our Page</p>
@@ -199,9 +213,9 @@ export default function Contact() {
                                     <p style={{margin:"0"}}>WhatApps</p>
                                 </div>
                             </div>
-                            <p className="qr-msg">Tap me</p>
+                            <p className={`qr-msg ${quotationQRPhoneInView ? 'animate' : 'paused'}`} ref={quotationQRPhoneRef}>Tap me</p>
                         </div>
-                        <div className="contact-form">
+                        <div className={`contact-form ${quotationContactFormBtnInView ? 'animate' : 'paused'}`} ref={quotationContactFormBtnRef}>
                             <h1 onClick={handleContactClick}><FaArrowRight /></h1>
                             <p style={{ textAlign: "center" }}>Write us a query</p>
                         </div>

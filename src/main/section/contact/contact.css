@@ -17,7 +17,6 @@
     justify-content: space-evenly;
     gap: 8px;
     align-items: center;
-    transform: translateX(0);
 }
 
 .contact-img {
@@ -28,6 +27,18 @@
     border-bottom-right-radius: 25%;
     object-fit: fill;
     width: auto;
+    opacity: 0; /* Start hidden */
+    transform: translateX(-20%); /* Ensure element starts in its initial state */
+}
+
+.contact-img.animate{
+    opacity: 1;
+    transform: translate(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.contact-img.paused{
+    animation-play-state: paused;
 }
 
 /* Styling for the contact details section */
@@ -35,6 +46,18 @@
     padding: 12px;
     border-right: 1px solid var(--color);
     width: 90%;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20%); /* Ensure element starts in its initial state */
+}
+
+.ITconsult-contact-detail.animate {
+    opacity: 1;
+    transform: translate(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.ITconsult-contact-detail.paused {
+    animation-play-state: paused;
 }
 
 .ITconsult-contact-detail p{
@@ -115,7 +138,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0; /* Start hidden */
+    transform: translateY(-20%); /* Ensure element starts in its initial state */
 }
+
+.contact-form.animate,
+.contact-details-back.animate {
+    opacity: 1;
+    transform: translate(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.contact-form.paused,
+.contact-details-back.paused {
+    animation-play-state: paused;
+}
+
 
 /* Back and forward button styles */
 .contact-form h1, 
@@ -305,6 +343,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20%); /* Ensure element starts in its initial state */
+}
+
+.contact-qr-arrangement.animate{
+    opacity: 1;
+    transform: translate(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.contact-qr-arrangement.paused{
+    animation-play-state: paused;
 }
 
 .qr-page{
@@ -433,6 +483,18 @@
         text-align: center;
         margin: 0;
         font-size: 2.5vmin;
+        opacity: 0; /* Start hidden */
+        transform: translateY(20%); /* Ensure element starts in its initial state */
+    }
+
+    .qr-msg.animate{
+        opacity: 1;
+        transform: translate(0%);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .qr-msg.pause{
+        animation-play-state: paused;
     }
 }
 

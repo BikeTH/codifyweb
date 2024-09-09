@@ -4,6 +4,7 @@ import tan from '../../../assets/ITConsult/teamMember/tan.webp';
 import './team.css';
 import { TbMail } from "react-icons/tb";
 import { FaArrowUpRightDots, FaLinkedin } from "react-icons/fa6";
+import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 const teams = [
     {
@@ -43,8 +44,10 @@ export default function Team() {
         setActiveId(activeId === id ? null : id);
     };
 
+    const { ref: meetTeamRef, inView: meetTeamInView} = useIntersectionObserver({threshold: 0.1}, 300);
+
     return (
-        <div className="ITconsult-teams" id="team">
+        <div className={`ITconsult-teams ${meetTeamInView ? 'animate' : 'paused'}`} ref={meetTeamRef} id="team">
             <h1 style={{ textAlign: "center" }}>Meet Our Team</h1>
             <p className="word-breath" style={{ textAlign: "center", marginTop: 0 }}>Tap us to Learn More</p>
             <div className="ITconsult-teams-arrangement">

@@ -3,6 +3,19 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20%); /* Ensure element starts in its initial state */
+    transition: opacity 1s ease, transform 1s ease; /* For smooth reset when leaving view */
+}
+
+.ITconsult-teams.animate{
+    opacity: 1;
+    transform: translate(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.ITconsult-teams.paused{
+    animation-play-state: paused;
 }
 
 .ITconsult-teams-arrangement {

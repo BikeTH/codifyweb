@@ -11,8 +11,7 @@
 .ITconsult-reason-header {
     opacity: 0; /* Start hidden */
     transform: translateY(20%); /* Ensure element starts in its initial state */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* For smooth reset when leaving view */
-    animation: fadeIn 1s ease-in-out;
+    transition: opacity 1s ease, transform 1s ease; /* For smooth reset when leaving view */
 }  
 
 .ITconsult-reason-header.paused{
@@ -28,6 +27,7 @@
 .ITconsult-reason-support-arrangement{
     opacity: 0; /* Start hidden */
     transform: translateY(20%); /* Ensure element starts in its initial state */
+    transition: opacity 1s ease, transform 1s ease; /* For smooth reset when leaving view */
 }
 
 .ITconsult-reason-support-arrangement.animate{
