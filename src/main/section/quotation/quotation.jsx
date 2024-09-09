@@ -1,7 +1,7 @@
 import React, { useState, lazy, Suspense } from "react";
 import ScrollToSection from "../../function/scrollToSection";  // Ensure this function is correctly imported
 import './quotation.css';
-import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload, FaArrowRight } from "react-icons/fa6";
+import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload } from "react-icons/fa6";
 import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 export default function Quotation() {
@@ -792,7 +792,7 @@ const websiteQuestions = [
                             onClick={() => { ScrollToSection('quotation'); handleReset(); }}>
                             <FaCalculator />
                         </button>
-                        <p className="recalculate-text">Re-Calculate</p>
+                        <p className="recalculate-text">Back</p>
                     </div>
                     {renderSummary()}
                 </div>

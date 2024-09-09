@@ -31,7 +31,7 @@
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    transform: translate(40%, -30%);
+    transform: translate(40%, -40%);
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
@@ -54,7 +54,7 @@
 
 .note-benefit.animate {
     opacity: 1;
-    transform: translate(20%, -50%);
+    transform: translate(20%, -40%);
 }
 
 .note-why-support.animate{
@@ -76,6 +76,37 @@
     opacity: 0;
 }
 
+.carbonbadge{
+    color: var(--color) !important;
+    background-color: var(--background-color) !important;
+    border-color: var(--border) !important;
+    transform: translate(-20%, -20%);
+    padding: 12px !important;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.carbonbadge.animate {
+    opacity: 1;
+    transform: translate(0);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.carbonbadge #wcb_a{
+    color: var(--color) !important;
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.carbonbadge #wcb_g {
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.carbonbadge span{
+    color: var(--color) !important;
+}
 
 @media screen and (min-width: 768px) and (max-width: 1200px){
     .note{
@@ -157,5 +188,10 @@
     .note-benefit.animate {
         opacity: 1;
         transform: translate(15%, 0);
+    }
+
+    .carbonbadge{
+        transform: translateY(0%);
+        z-index: 2;
     }
 }

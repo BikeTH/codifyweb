@@ -68,20 +68,17 @@ export default function ReasonContent() {
             <div id="ITConsult" className="ITconsult-content">
                 <div className="ITconsult-reason-content">
                     <div className= {`ITconsult-reason-header ${titleInView ? 'animate' : 'paused'}`} ref={titleRef}>
-                        <h1>Transform Your Business Today</h1>
-                        <h3>Unlock the Power of a Digital Application to Propel Your Success</h3>
+                        <h1>Elevate Your Business to New Heights</h1>
                     </div>
                     <div className="ITconsult-reason-support">
                         {
                             reasonSupport.map(data => {
-                                const { ref: itemRef, inView: itemInView } = useIntersectionObserver({
-                                    threshold: 0.1
-                                }, 100);
-
+                                const { ref: itemDescriptionRef, inView: itemDescriptionInView } = useIntersectionObserver({threshold: 0.1}, 100);
                                 const { ref: supportTitleRef, inView: supportTitleInView } = useIntersectionObserver({ threshold: 0.1 }, 300);
+                                const { ref: itemImgRef, inView: itemImgInView } = useIntersectionObserver({threshold: 0.1}, 100);
 
                                 return(
-                                <div className= {`ITconsult-reason-support-arrangement ${itemInView? 'animate' : 'paused'}`} ref={itemRef} key={data.id}>
+                                <div className= "ITconsult-reason-support-arrangement" key={data.id}>
                                     <h4
                                         className={`slideIn-animate ${supportTitleInView ? 'animate' : 'paused'}`}
                                         ref={supportTitleRef}
@@ -89,9 +86,11 @@ export default function ReasonContent() {
                                     >
                                         {data.icon} {data.title}
                                     </h4>
-                                    <p>{data.description}</p>
+                                    <p className={`slideDownUp-animate ${itemDescriptionInView ? 'animate' : 'paused'}`} ref={itemDescriptionRef}>{data.description}</p>
                                     {data.image && (typeof data.image === 'string' ? (
-                                    <img 
+                                    <img
+                                        className={`slideDownUp-animate ${itemImgInView ? 'animate' : 'paused'}`}
+                                        ref={itemImgRef}
                                         src={data.image} 
                                         loading="lazy"
                                         style={{
@@ -103,7 +102,9 @@ export default function ReasonContent() {
                                         }}  // Adjust size as needed
                                     alt={data.title}/>
                                     ) : (
-                                        data.image // Render SVG component directly
+                                        <div className={`slideDownUp-animate ${itemImgInView ? 'animate' : 'paused'}`} ref={itemImgRef}>
+                                            {data.image}
+                                        </div>
                                     ))}
                                 </div>
                                 );
