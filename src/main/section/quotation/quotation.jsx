@@ -2,6 +2,7 @@ import React, { useState, lazy, Suspense } from "react";
 import ScrollToSection from "../../function/scrollToSection";  // Ensure this function is correctly imported
 import './quotation.css';
 import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload, FaArrowRight } from "react-icons/fa6";
+import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 export default function Quotation() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -171,7 +172,7 @@ const websiteQuestions = [
             <div>
                 <h2>App Development Services</h2>
                 <p>We offer custom app development services tailored to your business needs...</p>
-                <button className="calc-btn" onClick={() => { ScrollToSection('contact');}}>
+                <button className="contact-btn" onClick={() => { ScrollToSection('contact');}}>
                     Contact Us
                 </button>
             </div>
@@ -583,7 +584,7 @@ const websiteQuestions = [
                                         return (
                                             <div key={i}>
                                                 <h4 style={{marginBottom: 0}}><strong>{optionDetails.title || opt}</strong></h4>
-                                                <p style={{marginTop: 0}}>{optionDetails.description}</p>
+                                                <p style={{marginTop: 0, color:'var(--second-color)'}}>{optionDetails.description}</p>
                                                 <p style={{margin: 0}}>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                                             </div>
                                         );
@@ -601,7 +602,7 @@ const websiteQuestions = [
                                     <div key={index}>
                                         <h4 style={{marginBottom: 0}}><strong>{optionDetails.title}</strong></h4>
                                         <h4 style={{marginTop: 0}}><strong>{question}:</strong></h4>
-                                        <p style={{marginTop: 0}}>{optionDetails.description}</p>
+                                        <p style={{marginTop: 0, color:'var(--second-color)'}}>{optionDetails.description}</p>
                                         <p style={{margin: 0}}>{optionDetails.cost && `Price: ${optionDetails.cost}`}</p>
                                     </div>
                                 );
@@ -621,7 +622,7 @@ const websiteQuestions = [
                             <div key={index}>
                                 <h4 style={{marginBottom: 0}}><strong>{question}:</strong></h4>
                                 <h4 style={{marginTop: 0}}><strong>{optionDetails?.title || answer}</strong></h4>
-                                <p style={{marginTop: 0}}>{optionDetails?.description}</p>
+                                <p style={{marginTop: 0, color:'var(--second-color)'}}>{optionDetails?.description}</p>
                                 <p style={{margin: 0}}>{optionDetails?.cost && `Price: ${optionDetails.cost}`}</p>
                             </div>
                         );
@@ -630,16 +631,16 @@ const websiteQuestions = [
             <div className="ITconsult-price-quotation-summary-cost">
                 <div className="total-price">
                     <h4 style={{marginBottom: 0}}>Total Price: {`RM ${totalPrice.toFixed(2)}`}</h4>
-                    <p style={{margin:0, fontStyle:"italic"}}>Estimation of cost</p>
+                    <p style={{margin:0, fontStyle:"italic", color:'var(--second-color)'}}>Estimation of cost</p>
                 </div>
                 {uncertainty.length > 0 && (
                     <div className="uncertainty">
                         <h1 style={{textAlign:"center", marginBottom:0}}>Uncertainty:</h1>
-                        <p style={{textAlign:"center", fontStyle:"italic", marginTop:0}}>Price might change with Notice</p>
+                        <p style={{textAlign:"center", fontStyle:"italic", marginTop:0, color:'var(--second-color)'}}>Price might change with Notice</p>
                         {uncertainty.map((item, index) => (
                             <div key={index}>
                                 <h4 style={{marginBottom:0}}><strong>{item.question}:</strong> {item.title}</h4>
-                                <p>{item.description}</p>
+                                <p style={{color:'var(--second-color)'}}>{item.description}</p>
                                 <p>Price: {item.price}</p>
                             </div>
                         ))}
@@ -649,7 +650,7 @@ const websiteQuestions = [
                 <button onClick={handleDownloadPDF} className="download-pdf-btn">
                         <FaDownload /> Download PDF
                 </button>
-                <button className="calc-btn" onClick={() => { ScrollToSection('contact');}}>
+                <button className="contact-btn" onClick={() => { ScrollToSection('contact');}}>
                     Contact Us
                 </button>
                 </div>
@@ -734,19 +735,24 @@ const websiteQuestions = [
 
     const isFinalStep = currentStep === (isWebsite ? websiteQuestions.length + 2 : 2);
 
+    const {ref: codifyWebRef, inView: codifyWebInView} = useIntersectionObserver({threshold: 0.5}, 300)
+    const {ref: codifyWebVaryRef, inView: codifyWebVaryInView} = useIntersectionObserver({threshold: 0.5}, 500)
+    const {ref: codifyWebPriceRef, inView: codifyWebPriceInView} = useIntersectionObserver({threshold: 0.5}, 500)
+    const {ref: codifyWebBtnRef, inView: codifyWebBtnInView} = useIntersectionObserver({threshold: 0.5}, 500)
+
     return (
         <div className="ITconsult-price-quotation" id="quotation">
-            <h1 style={{ textAlign: "center", marginBottom:"0" }}>
+            <h1 className={`slideIn-animate ${codifyWebInView ? 'animate' : 'paused'}`} ref={codifyWebRef} style={{ textAlign: "center", marginBottom:"0" }}>
                 CodifyWeb Develop Plan
             </h1>
-            <h5 style={{ color:"var(--second-color)", fontWeight:"lighter", textAlign: "center", margin: "0px" }}>
+            <h5 className={`slideUpDown-animate ${codifyWebVaryInView ? 'animate' : 'paused'}`} ref={codifyWebVaryRef} style={{ color:"var(--second-color)", fontWeight:"lighter", textAlign: "center", margin: "0px" }}>
                 <span style={{ fontStyle: "italic" }}>Price may vary <span style={{color:"var(--color"}}>Without</span> notice</span>
             </h5>
     
             {currentStep === 0 ? (
                 <div className="ITconsult-price-quotation-form">
-                    <button className="calc-btn" onClick={() => setCurrentStep(1)}>Let's Find Out</button>
-                    <p style={{color:"var(--second-color)"}}>This is just an <span style={{color:"var(--color"}}>Estimation</span> of <span style={{color:"var(--color"}}>Price</span>.</p>
+                    <button className={`calc-btn ${codifyWebBtnInView ? 'animate' : 'paused'}`} ref={codifyWebBtnRef} onClick={() => setCurrentStep(1)}>Let's Find Out</button>
+                    <p className={`slideDownUp-animate ${codifyWebPriceInView ? 'animate' : 'paused'}`} ref={codifyWebPriceRef} style={{color:"var(--second-color)"}}>This is just an <span style={{color:"var(--color"}}>Estimation</span> of <span style={{color:"var(--color"}}>Price</span>.</p>
                 </div>
             ) : currentStep === 1 ? (
                 <div className="ITconsult-price-quotation-question">
