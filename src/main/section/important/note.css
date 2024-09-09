@@ -31,7 +31,7 @@
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    transform: translate(40%, -40%);
+    transform: translate(40%, -20%);
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
@@ -45,21 +45,39 @@
 .note-craft.animate{
     opacity: 1;
     transform: translateX(-25%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .note-why.animate{
     opacity: 1;
     transform: translate(-50%, -20%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .note-benefit.animate {
     opacity: 1;
-    transform: translate(20%, -40%);
+    transform: translate(20%, -20%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .note-why-support.animate{
     opacity: 1;
     transform: translateY(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.carbonBadge.animate{
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.carbonBadge.paused,
+.note-benefit.paused,
+.note-why-support.paused,
+.note-craft.paused,
+.note-why.paused {
+    animation-play-state: paused;
 }
 
 .benefit-text {
@@ -76,36 +94,17 @@
     opacity: 0;
 }
 
-.carbonbadge{
-    color: var(--color) !important;
-    background-color: var(--background-color) !important;
-    border-color: var(--border) !important;
-    transform: translate(-20%, -20%);
-    padding: 12px !important;
-    z-index: 2;
+.carbonBadge{
+    transform: translateY(-50%);
     opacity: 0;
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    text-align: center;
+    align-items: center;
 }
 
-.carbonbadge.animate {
-    opacity: 1;
-    transform: translate(0);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.carbonbadge #wcb_a{
-    color: var(--color) !important;
-    background-color: var(--background-color) !important;
-    border: 1px solid var(--border) !important;
-}
-
-.carbonbadge #wcb_g {
-    background-color: var(--background-color) !important;
-    border: 1px solid var(--border) !important;
-}
-
-.carbonbadge span{
-    color: var(--color) !important;
+.carbonBadge-arrangement{
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px){
