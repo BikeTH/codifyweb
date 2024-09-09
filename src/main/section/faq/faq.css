@@ -18,27 +18,48 @@
     margin: 8px;
 }
 
-.ITconsult-faq-question-arrangement::before{
-    content: '';
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 25px; /* Adjust this value to control the length of the border */
-    height: 1px; /* Border thickness */
-    background-color: var(--nav-bg); /* Border color */
-    transform: translate(-35%, -50%);
+.ITconsult-faq-question-arrangement::before,
+.ITconsult-faq-question-arrangement::after {
+  content: '';
+  position: absolute;
+  background-color: var(--nav-bg); /* Adjust to match your current border color */
+  transition: width 0.4s ease, height 0.4s ease;
+  animation-play-state: running; /* Default to running */
 }
 
-/* Partial left border */
+/* Partial top border (horizontal) */
+.ITconsult-faq-question-arrangement::before {
+  top: 0%; /* Center vertically */
+  left: 0; /* Align with left side */
+  width: 25px; /* Set to make sure it's visible initially */
+  height: 1px;
+  transform: translate(-20%, 50%); /* Keep the border centered vertically */
+}
+
+/* Partial left border (vertical) */
 .ITconsult-faq-question-arrangement::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px; /* Border thickness */
-    height: 15px; /* Adjust this value to control the length of the left border */
-    background-color: var(--nav-bg); /* Border color */
-    transform: translate(-600%, -25%); /* Adjusts the positioning slightly to center the border */
+  top: 0%; /* Center vertically */
+  left: 0; /* Align with left side */
+  width: 1px;
+  height: 15px; /* Set initial height */
+  transform: translate(-150%, -20%); /* Center the small left border */
+}
+
+/* Animate class for showing the full borders */
+.ITconsult-faq-question-arrangement.animate::before {
+  width: 25px; /* Animate horizontal border */
+}
+
+.ITconsult-faq-question-arrangement.animate::after {
+  height: 15px; /* Animate vertical border */
+}
+
+/* Reset dimensions when not in view */
+.ITconsult-faq-question-arrangement.paused::before,
+.ITconsult-faq-question-arrangement.paused::after {
+  width: 0;
+  height: 0;
+  animation-play-state: paused;
 }
 
 .faq-q-arrangement {
@@ -50,12 +71,12 @@
     transition: all 0.3s ease-out;
 }
 
-.ITconsult-faq-question .icon {
+.faq-icon {
     font-size: 2.5vmin;
     transition: transform 0.3s ease-out;
 }
 
-.ITconsult-faq-question .icon.rotate {
+.faq-icon.rotate {
     transform: rotate(45deg);
 }
 
@@ -71,6 +92,15 @@
 }
 
 @media screen and (max-width: 768px) {
+    .ITconsult-faq-question-arrangement::before{
+        transform: translate(-35%, -20%);
+    }
+    
+    /* Partial left border */
+    .ITconsult-faq-question-arrangement::after {
+        transform: translate(-50%, -30%); /* Adjusts the positioning slightly to center the border */
+    }
+    
     .ITconsult-faq{
         justify-content: center;
         align-items: center;
@@ -86,6 +116,7 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+        overflow-x: hidden;
     }
 }
 

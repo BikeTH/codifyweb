@@ -73,8 +73,15 @@ li{
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.slideIn-animate.paused{
-    animation-play-state: paused;
+.slideRightIn-animate{
+    opacity: 0; /* Start hidden */
+    transform: translateX(20%); /* Ensure element starts in its initial state */
+}
+
+.slideRightIn-animate.animate{
+    opacity: 1;
+    transform: translate(0%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .slideUpDown-animate{
@@ -88,10 +95,6 @@ li{
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.slideUpDown-animate.paused{
-    animation-play-state: paused;
-}
-
 .slideDownUp-animate{
     opacity: 0; /* Start hidden */
     transform: translateY(20%); /* Ensure element starts in its initial state */
@@ -103,7 +106,9 @@ li{
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.slideDownUp-animate.paused{
+.slideDownUp-animate.paused,
+.slideUpDown-animate.paused,
+.slideIn-animate.paused{
     animation-play-state: paused;
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import './whyUs.css';
 import { FaCoins, FaBolt, FaPenNib, FaMapLocationDot, FaUsersGear, FaServer } from "react-icons/fa6";
+import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 const chooseUs = [
     {
@@ -67,18 +68,25 @@ const chooseUs = [
 
 
 export default function WhyUs(){
+    const { ref: difTitleRef, inView: difTitleInView } = useIntersectionObserver({ threshold: 0.3 }, 300);
     return(
         <>
         <div className="ITconsult-why-us">
-            <h1 style={{textAlign:"center"}}>What Sets Us Apart</h1>
+            <h1 className={`slideIn-animate ${difTitleInView ? 'animate' : 'paused'}`} ref={difTitleRef} style={{textAlign:"center"}}>What Sets Us Apart</h1>
             <div className="ITconsult-why-us-arrangement">
             {
-                chooseUs.map(data => (
+                chooseUs.map(data => {
+                    const { ref: differenceRef, inView: differenceInView } = useIntersectionObserver({ threshold: 0.5 }, 300);
+                    const { ref: difDescriptionRef, inView: difDescriptionInView } = useIntersectionObserver({ threshold: 0.5 }, 500);
+                    
+                    return(
                     <div className="ITconsult-why-us-content" key={data.id}>
-                        <h5 style={{marginTop:"0"}}>{data.icon}{data.title}</h5>
-                        <p>{data.description}</p>
+                        <h5 className={`slideRightIn-animate ${differenceInView ? 'animate' : 'paused'}`} ref={differenceRef} style={{marginTop:"0"}}>{data.icon}{data.title}</h5>
+                        <p className={`slideDownUp-animate ${difDescriptionInView ? 'animate' : 'paused'}`} ref={difDescriptionRef}>{data.description}</p>
                     </div>
-                ))}
+                    );
+                })
+            }
             </div>
         </div>
         </>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './faq.css';
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaReact } from "react-icons/fa";
+import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 const faqs = [
     {
@@ -59,25 +60,39 @@ export default function Faq(){
     const handleToggle = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
+
+    const { ref: faqRef, inView: faqInView } = useIntersectionObserver({ threshold: 0.1 }, 300);
+    const { ref: faqSupportRef, inView: faqSupportInView } = useIntersectionObserver({ threshold: 0.2 }, 300);
     return(
         <>
         <div className="ITconsult-faq" id="faq">
             <div className="ITconsult-faq-header" style={{textAlign:"center"}}>
-                <h1 style={{margin:"0px"}}>FAQ</h1>
-                <h3 style={{fontWeight:"lighter", margin:"0px", color:"var(--second-color)"}}>Ask Away! Your questions Matter to Us</h3>
+                <h1 className={`slideIn-animate ${faqInView ? 'animate' : 'paused'} `} ref={faqRef} style={{margin:"0px"}}>FAQ</h1>
+                <h3 className={`slideDownUp-animate ${faqSupportInView ? 'animate' : 'paused'}`} ref={faqSupportRef} style={{fontWeight:"lighter", margin:"0px", color:"var(--second-color)"}}>Ask Away! Your questions Matter to Us</h3>
             </div>
             <div className="ITconsult-faq-question">
-                {faqs.map((faq,index) => (
-                    <div className="ITconsult-faq-question-arrangement" key={faq.id} onClick={() => handleToggle(index)}>
+                {faqs.map((faq,index) => {
+                    const { ref: faqQuestionRef, inView: faqQuestionInView } = useIntersectionObserver({ threshold: 0.5 }, 300);
+                    const { ref: faqButtonRef, inView: faqButtonInView } = useIntersectionObserver({ threshold: 0.5 }, 300);
+                    const { ref: faqBorderRef, inView: faqBorderInView } = useIntersectionObserver({ threshold: 0.5 }, 300);
+                    return(
+                    <div 
+                        className={`ITconsult-faq-question-arrangement ${faqBorderInView ? 'animate' : 'paused'}`} 
+                        key={faq.id} 
+                        onClick={() => handleToggle(index)} 
+                        ref={faqBorderRef}  // Attach the ref here to track the border's visibility
+                    >
                         <div className="faq-q-arrangement"onClick={() => handleToggle(index)}>
-                        <h3>{faq.questions}</h3>
-                        <AiOutlinePlus className={`icon ${activeIndex === index ? 'rotate' : ''}`} />
+                            <h3 className={`slideRightIn-animate ${faqQuestionInView ? 'animate' : 'paused'}`} ref={faqQuestionRef}>{faq.questions}</h3>
+                            <h5 className={`slideUpDown-animate ${faqButtonInView ? 'animate' : 'paused'}`} ref={faqButtonRef}><AiOutlinePlus className={`faq-icon ${activeIndex === index ? 'rotate' : ''}`} /></h5>
                         </div>
                         <div className={`ITconsult-faq-answer ${activeIndex === index ? 'expanded' : ''}`}>
                             {faq.answer}
                         </div>
                     </div>
-                ))}
+                    );
+                })
+                }
             </div>
         </div>
         </>

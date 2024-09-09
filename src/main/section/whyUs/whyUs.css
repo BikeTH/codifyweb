@@ -10,7 +10,7 @@
 .ITconsult-why-us-arrangement{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 40px;
 }
 
 .ITconsult-why-us-content{
@@ -36,6 +36,7 @@
     .ITconsult-why-us-arrangement{
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
+        overflow-x: hidden;
     }
 
     .ITconsult-why-us-content:hover{
