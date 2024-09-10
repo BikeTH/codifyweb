@@ -11,7 +11,7 @@
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    transform: translate(-50%, -30%);
+    transform: translate(-50%, 20%);
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
@@ -21,7 +21,7 @@
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    transform: translate(-70%, -40%);
+    transform: translate(-70%, 0%);
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
@@ -95,7 +95,7 @@
 }
 
 .carbonBadge{
-    transform: translateY(-50%);
+    transform: translateY(20%);
     opacity: 0;
     text-align: center;
     align-items: center;

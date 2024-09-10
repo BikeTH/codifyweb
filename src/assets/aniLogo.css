@@ -54,7 +54,7 @@
 /* Initially, CodifyWeb is hidden */
 .logo-text {
     opacity: 0; /* Hidden by default */
-    transition: opacity 1s ease;
+    transition: opacity 0.3s ease;
     font-size: 48px;
 }
 
