@@ -8,7 +8,7 @@ import 'dotenv/config';
 
 // Initialize Express application
 const app = express();
-const port = process.env.PORT || 4444;
+const port = process.env.PORT || 4440;
 
 // Get the current directory of the module (ES module equivalent of __dirname)
 const __filename = fileURLToPath(import.meta.url);
