@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-    origin: '*' //"http://localhost:5173" for dev use
+    origin: "https://codifyweb.dev" //"http://localhost:5173" for dev use
 }));
 
 // Serve static files from the 'build' directory
