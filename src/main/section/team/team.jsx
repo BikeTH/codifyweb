@@ -54,7 +54,10 @@ export default function Team() {
                 {teams.map(data => (
                     <div className={`ITconsult-teams-member-arrangement ${activeId === data.id ? 'active' : ''}`} key={data.id}>
                         <div className={`member-detail-arrangement ${activeId === data.id ? 'active' : ''}`}>
-                            <img className="member-picture" src={data.picture} onClick={() => handleImageClick(data.id)} loading="lazy"/>
+                            <img className="member-picture" 
+                                src={data.picture} onClick={() => handleImageClick(data.id)} 
+                                alt={`CodifyWeb Member ${data.details.props.children[0].props.children}`} // Alt attribute added 
+                                loading="lazy"/>
                             <div className={`team-member-info-arrangement ${activeId === data.id ? 'show' : ''}`}>
                                 {data.details}
                             </div>
