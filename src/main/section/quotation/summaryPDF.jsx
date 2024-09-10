@@ -12,10 +12,10 @@ export default function RenderBrochure({ pdfData }) {
             {/* Front Page */}
             <Page size="A4" style={front.page}>
                 <View style={front.top}>
-                    <Link src="https://uat.wilfredcty.com">
+                    <Link src="https://codifyweb.dev">
                         <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
                     </Link> 
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>CodifyWeb</Text>  
                     </Link>
                 </View>
@@ -39,13 +39,13 @@ export default function RenderBrochure({ pdfData }) {
                             <Link src="mailto:webapp.tc@gmail.com" style={front.linkText}>
                                 <Text style={front.p}>webapp-tc@gmail.com</Text>
                             </Link>
-                            <Link src="https://uat.wilfredcty.com" style={front.linkText}>
-                                <Text style={front.p}>https://www.codifyweb.com</Text>
+                            <Link src="https://codifyweb.dev" style={front.linkText}>
+                                <Text style={front.p}>https://codifyweb.dev</Text>
                             </Link>
                         </View>
                         <View style={front.qr}>
                             <View>
-                                <Link src="https://uat.wilfredcty.com">
+                                <Link src="https://codifyweb.dev">
                                     <Image src={qrPage} style={{ width: 60, height: 60 }} /> {/* Adjust size as needed */}
                                 </Link>
                                 <Text style={front.p}>CodifyWeb</Text>
@@ -64,10 +64,10 @@ export default function RenderBrochure({ pdfData }) {
             {/* Table of Contents */}
             <Page size="A4" style={toc.page}>
                 <View style={front.top}>
-                    <Link src="https://uat.wilfredcty.com">
+                    <Link src="https://codifyweb.dev">
                         <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
                     </Link> 
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>CodifyWeb</Text>  
                     </Link>
                 </View>
@@ -93,7 +93,7 @@ export default function RenderBrochure({ pdfData }) {
                     </View>
                 </View>
                 <View style={toc.bottom}>
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>  
                     </Link>
                 </View>
@@ -102,10 +102,10 @@ export default function RenderBrochure({ pdfData }) {
             {/* Introduction */}
             <Page size="A4" style={intro.page} id="intro">
                 <View style={front.top}>
-                    <Link src="https://uat.wilfredcty.com">
+                    <Link src="https://codifyweb.dev">
                         <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
                     </Link> 
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>CodifyWeb</Text>  
                     </Link>
                 </View>
@@ -153,7 +153,7 @@ export default function RenderBrochure({ pdfData }) {
                     </View>
                 </View>
                 <View style={intro.bottom}>
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>
                     </Link>
                     <Text style={intro.text}>1</Text>  
@@ -163,10 +163,10 @@ export default function RenderBrochure({ pdfData }) {
             {/* Quotation Summary */}
             <Page size="A4" style={summary.page} id="summary">
                 <View style={front.top}>
-                    <Link src="https://uat.wilfredcty.com">
+                    <Link src="https://codifyweb.dev">
                         <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
                     </Link> 
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>CodifyWeb</Text>  
                     </Link>
                 </View>
@@ -198,7 +198,7 @@ export default function RenderBrochure({ pdfData }) {
                     </View>
                 </View>
                 <View style={intro.bottom}>
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>
                     </Link>
                     <Text style={intro.text}>2</Text>  
@@ -208,10 +208,10 @@ export default function RenderBrochure({ pdfData }) {
             {/* Conclusion */}
             <Page size="A4" style={conclusion.page} id="conclusion">
                 <View style={front.top}>
-                    <Link src="https://uat.wilfredcty.com">
+                    <Link src="https://codifyweb.dev">
                         <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
                     </Link> 
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>CodifyWeb</Text>  
                     </Link>
                 </View>
@@ -241,13 +241,13 @@ export default function RenderBrochure({ pdfData }) {
                     <Link src="mailto:webapp.tc@gmail.com" style={front.linkText}>
                         <Text style={conclusion.text}>Email: webapp-tc@gmail.com</Text>
                     </Link>
-                    <Link src="https://wa.me/+601121823390" style={front.linkText}>  
-                        <Text style={conclusion.text}>Website: https://uat.wilfredcty.com</Text>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>  
+                        <Text style={conclusion.text}>Website: https://codifyweb.dev</Text>
                     </Link>  
                 </View>
                 <View style={conclusion.qr}>
                     <View>
-                        <Link src="https://uat.wilfredcty.com">
+                        <Link src="https://codifyweb.dev">
                             <Image src={qrPage} style={{ width: 60, height: 60 }} /> {/* Adjust size as needed */}
                         </Link>
                         <Text style={front.p}>CodifyWeb</Text>
@@ -260,7 +260,7 @@ export default function RenderBrochure({ pdfData }) {
                     </View>
                 </View>
                 <View style={intro.bottom}>
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>
                     </Link>
                     <Text style={intro.text}>3</Text>  
@@ -270,10 +270,10 @@ export default function RenderBrochure({ pdfData }) {
             {/* Additional Products */}
             <Page size="A4" style={extras.page} id="extras">
                 <View style={front.top}>
-                    <Link src="https://uat.wilfredcty.com">
+                    <Link src="https://codifyweb.dev">
                         <Image src={codifyweb} style={{ width: '44', height: '44' }} /> {/* Adjust size as needed */}
                     </Link> 
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>CodifyWeb</Text>  
                     </Link>
                 </View>
@@ -284,7 +284,7 @@ export default function RenderBrochure({ pdfData }) {
                     <Text style={extras.text}>Still under Developing, Stay Tuned !</Text>
                 </View>
                 <View style={intro.bottom}>
-                    <Link src="https://uat.wilfredcty.com" style={front.linkText}>
+                    <Link src="https://codifyweb.dev" style={front.linkText}>
                         <Text style={front.p}>Codify Web 2024. All rights reserved.</Text>
                     </Link>
                     <Text style={intro.text}>4</Text>  

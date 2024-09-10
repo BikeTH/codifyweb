@@ -76,7 +76,7 @@ export default function Footer(){
                     </div>
                 </div>
                 <div style={{borderBottom:`0.2px solid var(--color)`, padding:"8px", margin:"0 auto"}}/>
-                <p>Codify Web &copy; 2024. All rights reserved.</p>
+                <p>CodifyWeb &copy; 2024. All rights reserved.</p>
             </div>
             {showMsg && (
                 <div className="pop-msg-overlay">
@@ -86,7 +86,7 @@ export default function Footer(){
                         <div className="msg-body">
                             <p>Last updated: August 2024</p>
                             <h3>Introduction</h3>
-                            <p>Codify Web &#40;"we", "us", or "our"&#41; operates the uat.wilfredcty.com website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
+                            <p>CodifyWeb &#40;"we", "us", or "our"&#41; operates the codifyweb.dev website (the "Service"). This Privacy Policy explains how we collect, use, and disclose personal data when you use our Service and outlines your choices regarding that data.</p>
                             <h3>Definitions</h3>
                             <ul>
                                 <li>Personal Data: Information about an individual who can be identified from that data or from that data combined with other information in our possession.</li>

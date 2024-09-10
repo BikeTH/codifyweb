@@ -4,7 +4,7 @@ import "./aniLogo.css";
 export default function Codifyweb() {
   const [isHovered, setIsHovered] = useState(false);
   const handleClick = () => {
-    window.location.href = "https://uat.wilfredcty.com"; // Redirects to the new page in the same tab
+    window.location.href = "https://codifyweb.dev"; // Redirects to the new page in the same tab
   };
 
   return (
