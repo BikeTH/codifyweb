@@ -11,12 +11,12 @@ import useIntersectionObserver from "../../function/useIntersectionObserver";
 const offer = [
     {
         id: 1,
-        icon: <CgSmartphone style={{color:"var(--warm-neon-blue)"}}/>,
+        icon: <CgSmartphone style={{color:"var(--warm-neon-orange)"}}/>,
         title: "Mobile Application",
     },
     {
         id: 2,
-        icon: <CgWebsite style={{color:"var(--warm-neon-blue)"}}/>,
+        icon: <CgWebsite style={{color:"var(--warm-neon-orange)"}}/>,
         title: "Website",
     }
 ];
@@ -62,7 +62,7 @@ export default function Offer() {
             </div>
             <div className={`project-arrangement ${isPackage ? 'shifted-project' : ''}`}>
                 <div className="project-header">
-                    <h4 className={`slideIn-animate ${deliverInView ? 'animate' : 'paused'}`} ref={deliverRef}>~ How we Delivered Project ~</h4>
+                    <h4 className={`slideIn-animate ${deliverInView ? 'animate' : 'paused'}`} ref={deliverRef}>How we Delivered Project</h4>
                     {isPackage && (
                         <div
                             className="workflow-btn-cancel"
@@ -81,12 +81,12 @@ export default function Offer() {
                     {isPackage ? null : (
                     isHovering ? (
                         <div className={`slideDownUp-animate ${packageOpenInView ? 'animate' : 'paused'}`} ref={packageOpenRef}>
-                            <LuPackageOpen size={44} style={{color:"var(--warm-neon-yellow)"}}/>
+                            <LuPackageOpen size={44} style={{color:"var(--warm-neon-orange)"}}/>
                             <p className="click-me-text">Click me</p>
                         </div>
                         ) : (
                         <div className={`slideUpDown-animate ${packageInView ? 'animate' : 'paused'}`} ref={packageRef}>
-                            <GoPackageDependents size={44} style={{color:"var(--warm-neon-yellow)"}}/>
+                            <GoPackageDependents size={44} style={{color:"var(--warm-neon-orange)"}}/>
                             <p className="click-me-text">Click me</p>
                         </div>
                         )

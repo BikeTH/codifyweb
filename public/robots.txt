@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /private/
+Disallow:
 
 Sitemap: https://codifyweb.dev/sitemap.xml

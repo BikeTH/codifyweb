@@ -296,11 +296,14 @@
 
 .ITconsult-price-quotation-summary-cost{
     position: sticky;
-    top: 7.5%;
+    top: 30%;
     display: flex;
     flex-direction: column;
+    padding: 32px;
     align-items: center;
     height: min-content;
+    width: 100%;
+    gap: 12px;
 }
 
 .total-price{
@@ -324,6 +327,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .ITconsult-price-quotation-summary-cost{
+        top: 0;
+        padding: 0px;
+    }
+    
     .options-container {
         display: flex;
         flex-direction: column;
@@ -394,6 +402,11 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
+    .ITconsult-price-quotation-summary-cost{
+        top: 0;
+        padding: 0px;
+    }
+    
     .options-container {
         display: flex;
         flex-direction: row;

@@ -10,7 +10,7 @@ const faqs = [
         questions: "What we do ?",
         answer: (
             <>
-                <p>We provide you with a professional <span style={{color:"var(--color)", fontWeight:"600"}}>Web / App</span> development service for your Industry</p>
+                <p>We provide you with a professional <span style={{color:"var(--color)", fontWeight:"600"}}>Web / App</span> development service for your industry</p>
             </>
         )
     },
@@ -19,8 +19,8 @@ const faqs = [
         questions: "What do we need before we start develop ?",
         answer: (
             <>
-                <p>We will provide you a <span style={{color:"var(--color)", fontWeight:"600"}}>CHECKLIST</span> for Information and Content before the project starts.</p>
-                <p>We will be <span style={{color:"var(--color)", fontWeight:"600"}}>Proactive</span> during this phase, and your Cooperation is <span style={{color:"var(--color)", fontWeight:"600"}}>Important</span></p>
+                <p>We will provide you a <span style={{color:"var(--color)", fontWeight:"600"}}>CHECKLIST</span> for information and content before the project starts.</p>
+                <p>We will be <span style={{color:"var(--color)", fontWeight:"600"}}>proactive</span> during this phase, and your cooperation is <span style={{color:"var(--color)", fontWeight:"600"}}>important</span></p>
             </>
         )
     },
@@ -29,7 +29,7 @@ const faqs = [
         questions: "How long does it take for us to develop ?",
         answer: (
             <>
-                <p>It takes approximately <span style={{color:"var(--color)", fontWeight:"600"}}>At Least 2 Weeks</span> from Starts to Finish, depending on Project Complexity</p>
+                <p>It takes approximately <span style={{color:"var(--color)", fontWeight:"600"}}>at least 2 weeks</span> from starts to finish, depending on project complexity</p>
             </>
         )
     },
@@ -38,7 +38,7 @@ const faqs = [
         questions: "Technical Issue? We're on It !",
         answer: (
             <>
-                <p>If your Application or Website Facing any <span style={{color:"var(--color)", fontWeight:"600"}}>Issues</span>, we will take Action in Fixing it Right Away!</p>
+                <p>If your Application or Website Facing any <span style={{color:"var(--color)", fontWeight:"600"}}>issues</span>, we will take Action in Fixing it Right Away!</p>
             </>
         )
     },
@@ -47,7 +47,7 @@ const faqs = [
         questions: "How we develop our Project ?",
         answer: (
             <>
-                <p style={{marginBottom:0}}>Most of our Project will be done in <span style={{color:"var(--color)", fontWeight:"600"}}>Programming</span>, <span style={{color:"var(--color)", fontWeight:"600"}}>Not</span> WordPress, Source Code will be given to you</p>
+                <p style={{marginBottom:0}}>We done our project in <span style={{color:"var(--color)", fontWeight:"600"}}>Programming</span>, <span style={{color:"var(--color)", fontWeight:"600"}}>Not</span> WordPress, Source Code will be given to you</p>
                 <p style={{marginTop:0}}>Everything you see is created mainly by <span style={{color:"var(--color)", fontWeight:"600"}}>React</span> <FaReact style={{color: "var(--warm-neon-blue)"}}/></p>
             </>
         )

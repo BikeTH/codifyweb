@@ -14,13 +14,13 @@ export default function EnhancedVisibilitySEO() {
                     <FaPlus style={{ color: '#aaa', transform: 'rotate(45deg)' }} />
                 </foreignObject>
                 <foreignObject x="220" y="25" width="20" height="20">
-                    <FaMicrophone style={{ color: 'var(--warm-neon-blue)' }} />
+                    <FaMicrophone style={{ color: 'var(--warm-neon-orange)' }} />
                 </foreignObject>
                 <foreignObject x="240" y="25" width="20" height="20">
-                    <FaCameraRetro style={{ color: 'var(--warm-neon-blue)' }} />
+                    <FaCameraRetro style={{ color: 'var(--warm-neon-orange)' }} />
                 </foreignObject>
                 <foreignObject x="260" y="25" width="20" height="20">
-                    <FaMagnifyingGlass style={{ color: 'var(--warm-neon-blue)' }} />
+                    <FaMagnifyingGlass style={{ color: 'var(--warm-neon-orange)' }} />
                 </foreignObject>
 
                 {/* Speedometer */}

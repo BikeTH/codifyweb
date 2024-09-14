@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './css/navBar.css';
 import ScrollToSection from "./scrollToSection";
-import { TbPackage, TbZoomMoney, TbMessage, TbMailHeart } from "react-icons/tb";
+import { TbPackage, TbZoomMoney, TbMessage, TbMail } from "react-icons/tb";
 import codifyweb from "../../assets/codifyweb.svg"
 
 export default function NavBar() {
@@ -92,7 +92,7 @@ export default function NavBar() {
                     className={activeSection === 'contact' ? 'active' : ''}
                     onClick={() => handleClick('contact')}
                 >
-                    <TbMailHeart /><span>Contact Us</span>
+                    <TbMail /><span>Contact Us</span>
                 </li>
             </ul>
         </div>

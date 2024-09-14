@@ -185,16 +185,16 @@ export default function RenderBrochure({ pdfData }) {
                         </View>
                     ))}
                     <View>
-                        <Text style={summary.price}>Estimation Total Price: {pdfData.totalPrice}</Text>
+                        <Text style={summary.price}>Estimation Total Price: {pdfData.totalPrice}++</Text>
                         <View style={summary.dottedLine} /> {/* Bottom dotted line */}
-                        <Text style={intro.title}>Uncertainty:</Text>
+                        {/*<Text style={intro.title}>Uncertainty:</Text>
                         {pdfData.uncertainty.map((item, index) => (
                             <View key={index} style={summary.uncertainty}>
                                 <Text style={summary.title}>{item.title}: </Text>
                                 <Text style={summary.title}>{item.price}</Text>
                             </View>
-                        ))}
-                        <Text style={intro.description}>Price May change and we will Notify you</Text>
+                        ))}*/}
+                        <Text style={intro.description}>Price May change without notice</Text>
                     </View>
                 </View>
                 <View style={intro.bottom}>

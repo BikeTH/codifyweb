@@ -36,13 +36,6 @@ export default function UserExperienceIllustration() {
                 stroke="var(--border)"
                 strokeWidth="0.5"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0,0; 5,-5; 0,0; -5,5; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
             </rect>
             <text
                 x="24"
@@ -52,13 +45,6 @@ export default function UserExperienceIllustration() {
                 fontWeight="normal"
                 stroke="none"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0,0; 5,-5; 0,0; -5,5; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
                 FIRST CONTENTFUL PAINT
             </text>
             <text
@@ -70,13 +56,6 @@ export default function UserExperienceIllustration() {
                 textAnchor="middle"
                 stroke="none"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0,0; 5,-5; 0,0; -5,5; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
                 295 ms
             </text>
         </g>
@@ -92,13 +71,6 @@ export default function UserExperienceIllustration() {
                 stroke="var(--border)"
                 strokeWidth="0.5"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="2,0; 0,5; 2,0; 5,0; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
             </rect>
             <text
                 x="4"
@@ -108,13 +80,6 @@ export default function UserExperienceIllustration() {
                 fontWeight="normal"
                 stroke="none"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="2,0; 0,5; 2,0; 5,0; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
                 LARGEST CONTENTFUL PAINT
             </text>
             <text
@@ -126,13 +91,6 @@ export default function UserExperienceIllustration() {
                 textAnchor="middle"
                 stroke="none"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="2,0; 0,5; 2,0; 5,0; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
                 295 ms
             </text>
         </g>
@@ -148,13 +106,6 @@ export default function UserExperienceIllustration() {
                 stroke="var(--border)"
                 strokeWidth="0.5"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0,0; 5,5; 0,0; -5,-5; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
             </rect>
             <text
                 x="32"
@@ -164,13 +115,6 @@ export default function UserExperienceIllustration() {
                 fontWeight="normal"
                 stroke="none"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0,0; 5,5; 0,0; -5,-5; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
                 TIME TO INTERACTIVE
             </text>
             <text
@@ -182,13 +126,6 @@ export default function UserExperienceIllustration() {
                 textAnchor="middle"
                 stroke="none"
             >
-                <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0,0; 5,5; 0,0; -5,-5; 0,0"
-                    dur="4s"
-                    repeatCount="indefinite"
-                />
                 325 ms
             </text>
         </g>

@@ -20,7 +20,7 @@ export default function Banner() {
                     <div className="Banner-Header-arrangement">
                         <h1>CodifyWeb</h1>
                         <p style={{color:"var(--second-color)"}}>
-                            // Based in
+                            Based in
                             <br></br>
                             Malaysia
                         </p>
@@ -29,9 +29,9 @@ export default function Banner() {
                     <h2>Website</h2>
                     <div className="Banner-Header-arrangement">
                         <p style={{color:"var(--second-color)"}}>
-                            // Android
+                            Android
                             <br></br>
-                            // IoS
+                            IoS
                         </p>
                         <h2>& Application</h2>
                     </div>

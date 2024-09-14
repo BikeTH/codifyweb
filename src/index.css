@@ -1,4 +1,5 @@
 :root {
+    font-family: 'Roboto', sans-serif;
     --background-color: #080808;
     --color: #F5F5F5;
     --second-color: #cdcdcd;
@@ -25,7 +26,6 @@
 }
 
 .highlight {
-    font-weight: bold;
     color: var(--color); /* You can define this color in your CSS variables or use any specific color */
 }
 
@@ -144,7 +144,6 @@ li{
     }
     
     p{
-        font-family: Georgia, serif;
         font-size: 3.5vmin;
         letter-spacing: 3.5px;
     }

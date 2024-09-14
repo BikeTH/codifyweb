@@ -1,7 +1,7 @@
 import React, { useState, lazy, Suspense } from "react";
 import ScrollToSection from "../../function/scrollToSection";  // Ensure this function is correctly imported
 import './quotation.css';
-import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft, FaDownload } from "react-icons/fa6";
+import { FaCalculator, FaAndroid, FaAppStoreIos, FaDesktop, FaArrowLeft} from "react-icons/fa6";
 import useIntersectionObserver from "../../function/useIntersectionObserver";
 
 export default function Quotation() {
@@ -23,16 +23,16 @@ const websiteSizes = {
     },
     Standard: {
         pages: "5 - 10 Pages",
-        description: "Standard size websites which include all the Essential Pages",
+        description: "Suitable for standard size websites which include all the essential pages",
         draftDesignIncluded: true,
         cost: "RM 2499",
         price: 2499,
     },
     Custom: {
         pages: "11+ Pages",
-        description: "Suitable for businesses with a Large Range of Comprehensive Services & Portfolios to showcase",
+        description: "Suitable for large range of comprehensive services & portfolios to showcase",
         draftDesignIncluded: true,
-        cost: "RM 3499",
+        cost: "RM 3499+",
         price: 3499
     }
 };
@@ -628,27 +628,27 @@ const websiteQuestions = [
                         );
                     })}
                 </div>
-            <div className="ITconsult-price-quotation-summary-cost">
+            <div className="ITconsult-price-quotation-summary-cost" style={{paddingTop: "8px"}}>
                 <div className="total-price">
-                    <h4 style={{marginBottom: 0}}>Total Price: {`RM ${totalPrice.toFixed(2)}`}</h4>
+                    <h4 style={{marginBottom: 0}}>Total Price: {`RM ${totalPrice.toFixed(2)}`}++</h4>
                     <p style={{margin:0, fontStyle:"italic", color:'var(--second-color)'}}>Estimation of cost</p>
                 </div>
-                {uncertainty.length > 0 && (
+                {/*{uncertainty.length > 0 && (
                     <div className="uncertainty">
-                        <h1 style={{textAlign:"center", marginBottom:0}}>Uncertainty:</h1>
-                        <p style={{textAlign:"center", fontStyle:"italic", marginTop:0, color:'var(--second-color)'}}>Price might change with Notice</p>
+                        <p style={{textAlign:"center", fontStyle:"italic", color:'var(--second-color)'}}>Price may change without Notice</p>
                         {uncertainty.map((item, index) => (
                             <div key={index}>
-                                <h4 style={{marginBottom:0}}><strong>{item.question}:</strong> {item.title}</h4>
+                                <h4 style={{marginBottom:0}}><strong>{item.question}:</strong></h4>
+                                <h4 style={{marginTop: 0, paddingTop: "8px"}}>{item.title}</h4>
                                 <p style={{color:'var(--second-color)'}}>{item.description}</p>
                                 <p>Price: {item.price}</p>
                             </div>
                         ))}
                     </div>
-                )}
+                )}*/}
                 <h4>Get your Summary in PDF for FREE</h4>
                 <button onClick={handleDownloadPDF} className="download-pdf-btn">
-                        <FaDownload /> Download PDF
+                    Download PDF
                 </button>
                 <button className="contact-btn" onClick={() => { ScrollToSection('contact');}}>
                     Contact Us
@@ -736,18 +736,14 @@ const websiteQuestions = [
     const isFinalStep = currentStep === (isWebsite ? websiteQuestions.length + 2 : 2);
 
     const {ref: codifyWebRef, inView: codifyWebInView} = useIntersectionObserver({threshold: 0.5}, 300)
-    const {ref: codifyWebVaryRef, inView: codifyWebVaryInView} = useIntersectionObserver({threshold: 0.5}, 500)
     const {ref: codifyWebPriceRef, inView: codifyWebPriceInView} = useIntersectionObserver({threshold: 0.5}, 500)
     const {ref: codifyWebBtnRef, inView: codifyWebBtnInView} = useIntersectionObserver({threshold: 0.5}, 500)
 
     return (
         <div className="ITconsult-price-quotation" id="quotation">
             <h1 className={`slideIn-animate ${codifyWebInView ? 'animate' : 'paused'}`} ref={codifyWebRef} style={{ textAlign: "center", marginBottom:"0" }}>
-                CodifyWeb Develop Plan
+                CodifyWeb Plan
             </h1>
-            <h5 className={`slideUpDown-animate ${codifyWebVaryInView ? 'animate' : 'paused'}`} ref={codifyWebVaryRef} style={{ color:"var(--second-color)", fontWeight:"lighter", textAlign: "center", margin: "0px" }}>
-                <span style={{ fontStyle: "italic" }}>Price may vary <span style={{color:"var(--color"}}>Without</span> notice</span>
-            </h5>
     
             {currentStep === 0 ? (
                 <div className="ITconsult-price-quotation-form">
@@ -764,7 +760,7 @@ const websiteQuestions = [
                         <button className="prev-btn" onClick={() => {ScrollToSection('quotation'),handlePrevious()}}>
                             <FaArrowLeft />
                         </button>
-                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos Step</p>
+                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos</p>
                     </div>
                 </div>
             ) : currentStep - (isWebsite ? 2 : 1) >= 0 && !isFinalStep ? (
@@ -779,7 +775,7 @@ const websiteQuestions = [
                         <button className="prev-btn" onClick={() => {ScrollToSection('quotation'),handlePrevious()}}>
                             <FaArrowLeft />
                         </button>
-                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos Step</p>
+                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos</p>
                     </div>
                 </div>
             ) : null}

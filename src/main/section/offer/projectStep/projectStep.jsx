@@ -19,10 +19,10 @@ const steps = [
         icon: <FaRegLightbulb />,
         details: (
             <div>
-                <p>Our discussion can be done through <SiZoom /> <SiGooglemeet /> <span style={{ color: "var(--warm-neon-green)" }}>Online</span> or <IoLocationOutline /> <span style={{ color: "var(--warm-neon-orange)" }}>Onsite</span></p>
+                <p>Our discussion can be done through <SiZoom /> <SiGooglemeet /> <span style={{ color: "var(--warm-neon-orange)" }}>Online</span> or <IoLocationOutline /> <span style={{ color: "var(--warm-neon-orange)" }}>Onsite</span></p>
             </div>
         ),
-        color: "var(--warm-neon-blue)",
+        color: "var(--warm-neon-orange)",
     },
     {
         id: 2,
@@ -35,10 +35,10 @@ const steps = [
         icon: <FaPencilAlt />,
         details: (
             <div>
-                <p>We will be using <IoLogoFigma /> <span style={{ color: "var(--warm-neon-green)" }}>Figma</span> in designing and mockup pages for you to review.</p>
+                <p>We will be using <span style={{ color: "var(--warm-neon-orange)" }}><IoLogoFigma /> Figma</span> in designing and mockup pages for you to review.</p>
             </div>
         ),
-        color: "var(--warm-neon-purple)",
+        color: "var(--warm-neon-orange)",
     },
     {
         id: 3,
@@ -62,10 +62,10 @@ const steps = [
                         <h5 style={{ textAlign: "center" }}><SiExpo /></h5>
                     </div>
                 </div>
-                <p>We always <span style={{ color: "var(--warm-neon-green)" }}>leveling up</span>!</p>
+                <p>We always <span style={{ color: "var(--warm-neon-orange)" }}>leveling up</span>!</p>
             </>
         ),
-        color: "var(--warm-neon-green)",
+        color: "var(--warm-neon-orange)",
     },
     {
         id: 4,
@@ -108,11 +108,11 @@ const steps = [
         details: (
             <>
                 <div>
-                    <p><span style={{ color: "var(--warm-neon-blue)" }}>Deploying</span> into <FaDigitalOcean /> <span style={{ color: "var(--warm-neon-red)" }}>Server</span> and your Order will be <span style={{ color: "var(--warm-neon-green)" }}>Successfully Delivered</span>, public will be able to access your web or app</p>
+                    <p><span style={{ color: "var(--warm-neon-orange)" }}>Deploying</span> into <FaDigitalOcean /> <span style={{ color: "var(--warm-neon-orange)" }}>Server</span> and your Order will be <span style={{ color: "var(--warm-neon-orange)" }}>Successfully Delivered</span>, public will be able to access your web or app</p>
                 </div>
             </>
         ),
-        color: "var(--warm-neon-yellow)",
+        color: "var(--warm-neon-orange)",
     }
 ];
 

@@ -33,14 +33,14 @@ export default function Note() {
             <div className={`note-craft ${craftInView ? 'animate' : 'paused'}`} ref={craftRef}>
                 <h1>Our Products Crafted with</h1>
                 <div>
-                    <p style={{color:"var(--second-color)"}}>// Pure Code</p>
+                    <p style={{color:"var(--second-color)"}}>Pure Code</p>
                 </div>
             </div>    
             <div className={`note-why ${whyInView ? 'animate' : 'paused'}`} ref={whyRef}>
                 <h2>Less</h2>
                 <div className={`note-why-support ${whyInView ? 'animate' : 'paused'}`} ref={whyRef}>
-                    <p style={{margin: 0, color:"var(--second-color)"}}>// Plugin</p>
-                    <p style={{margin: 0, color:"var(--second-color)"}}>// Libraries</p>
+                    <p style={{margin: 0, color:"var(--second-color)"}}>Plugin</p>
+                    <p style={{margin: 0, color:"var(--second-color)"}}>Libraries</p>
                 </div>
             </div>
             <div className={`carbonBadge ${carbonInView ? 'animate' : 'paused'}`} ref={carbonRef}>
@@ -62,7 +62,7 @@ export default function Note() {
                 <p style={{margin: 0, fontSize:"1.75vmin", color:"var(--second-color)"}}>Cleaner than 96% of pages tested</p>
             </div>
             <div className={`note-benefit ${benefitInView ? 'animate' : 'paused'}`} ref={benefitRef}>
-                <h5 style={{color:"var(--second-color)"}}>Making it</h5>
+                <h5 style={{color:"var(--second-color)"}}>Make</h5>
                 <p className={`benefit-text ${showBenefit ? 'fade-in' : 'fade-out'}`}>{currentBenefit}</p>
             </div>
         </div>
