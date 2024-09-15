@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
     transform: translate(-50%, 20%);
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 24px;
     transform: translate(-70%, 0%);
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
@@ -117,7 +117,7 @@
     
     .note-craft{
         width: 60%;
-        gap: 8px;
+        gap: 60px;
         transform: translate(10%, 10%);
     }
 
@@ -126,12 +126,12 @@
     }
     
     .note-why{
-        gap: 12px;
+        gap: 32px;
         transform: translate(30%, 10%);
     }
     
     .note-benefit{
-        gap: 8px;
+        gap: 12px;
         transform: translate(55%, 10%);
     }
 

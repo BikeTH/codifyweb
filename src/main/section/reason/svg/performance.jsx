@@ -1,15 +1,47 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Codifyweb from '../../../../assets/codifyweb';
 
 export default function UserExperienceIllustration() {
-  const radiusOuter = 46;
-  const radiusInner = 44;
   const strokeWidth = 2;
-  const circumference = 2 * Math.PI * radiusOuter;
 
-  // Example values; adjust strokeDashoffset to control how much of the ring is visible
-  const strokeDasharray = circumference;
-  const strokeDashoffset = circumference * 0.1; // Adjust for how much of the ring to be "off"
+  useEffect(() => {
+    let animationFrameId; // Store the animation frame ID
+    let startTime;
+
+    function animatedTextPWA(elementId, startValue, endValue, duration) {
+      const element = document.getElementById(elementId);
+
+      function exponentialGrowth(t) {
+        return startValue + (endValue - startValue) * (1 - Math.exp(-t * 5));
+      }
+
+      function update(time) {
+        if (!startTime) startTime = time;
+        const elapsed = (time - startTime) / duration;
+        if (elapsed < 1) {
+          element.textContent = Math.min(Math.round(exponentialGrowth(elapsed)), endValue);
+          animationFrameId = requestAnimationFrame(update);
+        } else {
+          // Ensure the final value is exactly endValue
+          element.textContent = endValue;
+          startTime = time; // Restart animation
+          animationFrameId = requestAnimationFrame(update);
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(update);
+    }
+
+    // Start the animation when the component mounts
+    animatedTextPWA('animatedTextPWA', 0, 100, 3000);
+
+    // Cleanup function to cancel animation frames on component unmount
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
 
   return (
     <div style={{width:"auto", height:"auto"}}>
@@ -18,8 +50,6 @@ export default function UserExperienceIllustration() {
         viewBox="0 0 500 160"
         fill="none"
         stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
         strokeWidth={strokeWidth}
         style={{ display: 'block', margin: '0 auto' }} // Center horizontally
         >
@@ -131,36 +161,37 @@ export default function UserExperienceIllustration() {
         </g>
         {/* Speedometer 1 (Lighthouse Performance) */}
         <g transform="translate(120, 0)">
-            {/* Green Ring Fill */}
+            <circle cx="75" cy="75" r="46" stroke="none" fill="var(--background-color)" />
+            {/* Green Circle */}
             <circle
-            cx="75"
-            cy="75"
-            r={radiusOuter}
-            fill="none" // No fill for the outer circle
-            stroke="var(--warm-neon-orange"
-            strokeWidth={strokeWidth}
-            />
-            {/* Red Dashed Circle */}
-            <circle
-            cx="75"
-            cy="75"
-            r={radiusOuter}
-            fill="none"
-            stroke="var(--seo)"
-            strokeWidth={strokeWidth}
-            strokeDasharray={strokeDasharray}
-            strokeDashoffset={strokeDashoffset}
-            />
-            {/* Inner Circle to hide part of the ring */}
-            <circle
-            cx="75"
-            cy="75"
-            r={radiusInner}
-            fill="var(--content-bg)" // Background color to hide inner circle
-            stroke="none"
-            />
+                cx="200"
+                cy="50"
+                r="46"
+                stroke="var(--seo)"
+                strokeWidth="2" 
+                fill="none" 
+                strokeDasharray="314"
+                strokeDashoffset="157"
+                strokeLinecap="round"
+                transform="rotate(-90 150 125)"
+            >
+                <animate
+                    attributeName="stroke-dashoffset"
+                    from="314"
+                    to="55"
+                    dur="3s"
+                    repeatCount="indefinite"
+                />
+                <animate
+                    attributeName="r"
+                    values="46;48;46"
+                    keyTimes="0;0.5;1"
+                    dur="3s"
+                    repeatCount="indefinite"
+                />
+            </circle>
             {/* Text */}
-            <text x="75" y="85" fill="var(--seo)" fontSize="24" fontWeight="bold" textAnchor="middle" stroke="none">
+            <text x="75" y="83" fill="var(--seo)" fontSize="20" fontWeight="bold" textAnchor="middle" stroke="none">
             90+
             </text>
             <text x="75" y="140" fill="var(--color)" fontSize="12" fontWeight="bold" textAnchor="middle" stroke="none">
@@ -170,31 +201,32 @@ export default function UserExperienceIllustration() {
 
         {/* Speedometer 2 (PWA Icon) */}
         <g transform="translate(230, 0)">
-            {/* Green Ring Fill */}
-            <circle
-            cx="75"
-            cy="75"
-            r={radiusOuter}
-            fill="var(--seo)"
-            />
-            {/* Outer Ring */}
-            <circle
-            cx="75"
-            cy="75"
-            r={radiusOuter}
-            fill="none"
-            stroke="var(--seo)"
-            strokeWidth={strokeWidth}
-            />
-            <circle
-            cx="75"
-            cy="75"
-            r={radiusInner}
-            fill="var(--content-bg)" // Background color to hide inner circle
-            stroke="none"
-            />
+            <circle cx="75" cy="75" r="46" stroke="none" fill="var(--background-color)" />
+            <circle cx="200" cy="50" r="46" 
+                        stroke="var(--seo)" 
+                        strokeWidth="2" 
+                        fill="none" 
+                        strokeDasharray="314"
+                        strokeDashoffset="157"
+                        strokeLinecap="round"
+                        transform="rotate(-90 150 125)">
+                    <animate
+                        attributeName="stroke-dashoffset"
+                        from="314"
+                        to="0"
+                        dur="3s"
+                        repeatCount="indefinite"
+                    />
+                    <animate
+                        attributeName="r"
+                        values="46;48;46"
+                        keyTimes="0;0.5;1"
+                        dur="3s"
+                        repeatCount="indefinite"
+                    />
+                </circle>
             {/* Text */}
-            <text x="75" y="85" fill="var(--seo)" fontSize="24" fontWeight="bold" textAnchor="middle" stroke="none">
+            <text id="animatedTextPWA" x="75" y="83" fill="var(--seo)" fontSize="20" fontWeight="bold" textAnchor="middle" stroke="none">
             100
             </text>
             <text x="75" y="140" fill="var(--color)" fontSize="12" fontWeight="bold" textAnchor="middle" stroke="none">

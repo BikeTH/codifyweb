@@ -16,7 +16,7 @@ const teams = [
                 <p>B.Sc. Major in Cyber Security</p>
                 <p style={{color:"var(--second-color)"}}><span style={{color:"var(--color)", fontWeight:"600"}}>INTP</span> - Curious and adventurous, always eager to explore new horizons!</p>
                 <p>Web Developer</p>
-                <a className="member-portfolio" href="https://wilfredcty.com" target="_blank" rel="noreferrer noopener">Portfolio <FaArrowUpRightDots /></a>
+                {/*<a className="member-portfolio" href="https://wilfredcty.com" target="_blank" rel="noreferrer noopener">Portfolio <FaArrowUpRightDots /></a>*/}
                 <div className="team-member-connect-arrangement">
                     <a href="https://www.linkedin.com/in/wilfred-tsen-yik-chong-2a37a724b" target="_blank" rel="noreferrer noopener"><FaLinkedin color="#0077B5" /></a>
                     <a href="mailto:700024165@student.curtin.edu.my" target="_blank" rel="noreferrer noopener"><TbMail color="636363" /></a>

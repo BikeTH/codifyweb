@@ -83,6 +83,15 @@
     color: var(--second-color);
 }
 
+.seo-icon{
+    transition: transform 0.3s ease; /* Smooth transition for movement */
+    cursor: pointer;
+}
+
+.seo-icon:hover {
+    transform: translateY(-5px); /* Move up by 10px on hover */
+}
+
 @media screen and (max-width: 768px) {
     .ITconsult-reason-content {
         display: flex;
