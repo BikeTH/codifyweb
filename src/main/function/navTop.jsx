@@ -62,11 +62,11 @@ export default function NavTop() {
     return (
         <div className="navTop-main">
             {isVisible && (
-                <button className="navTop-button" onClick={() => ScrollToSection('home')}>
+                <button className="navTop-button" onClick={() => ScrollToSection('home')} aria-label="Scroll to top">
                     <IoChevronUp />
                 </button>
             )}
-            <button className="theme-toggle-button" onClick={toggleTheme}>
+            <button className="theme-toggle-button" onClick={toggleTheme} aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}>
                 {isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
             </button>
         </div>

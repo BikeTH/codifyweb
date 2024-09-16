@@ -185,22 +185,50 @@ export default function Contact() {
                             <h1 className={`slideUpDown-animate ${quotationTitleInView ? 'animate' : 'paused'}`} ref={quotationTitleRef}>Request For Quotation?</h1>
                             <p className={`slideDownUp-animate ${quotationDescriptionInView ? 'animate' : 'paused'}`} ref={quotationDescriptionRef}>You can directly <span style={{color:"var(--color)", fontWeight:"600"}}>Contact Us</span> for Consultation with <span style={{color:"var(--color)", fontWeight:"600"}}>No Charges</span> and We are Happy to <span style={{color:"var(--color)", fontWeight:"600"}}>Help</span>!</p>
                             <ul className={`slideDownUp-animate ${quotationIconInView ? 'animate' : 'paused'}`} ref={quotationIconRef}>
-                                <a href="https://www.linkedin.com/in/wilfred-tsen-yik-chong-2a37a724b" target="_blank" rel="noreferrer noopener">
-                                    <FaLinkedin color="#0077B5" />
-                                    <span className="contact-text">LinkedIn</span>
-                                </a>
-                                <a href="https://www.instagram.com/wilc_43?igsh=MWtteTUyOXVxbjlvdg==" target="_blank" rel="noreferrer noopener">
-                                    <FaInstagram color="#bc2a8d" />
-                                    <span className="contact-text">Instagram</span>
-                                </a>
-                                <a href="https://wa.me/+601121823390" target="_blank" rel="noreferrer noopener">
-                                    <FaWhatsapp color="#25D366" />
-                                    <span className="contact-text">WhatsApp</span>
-                                </a>
-                                <a href="mailto:webapp.tc@gmail.com" target="_blank" rel="noreferrer noopener">
-                                    <TbMail color="636363" />
-                                    <span className="contact-text">Email</span>
-                                </a>
+                                <li>
+                                    <a
+                                        href="https://www.linkedin.com/in/wilfred-tsen-yik-chong-2a37a724b"
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        aria-label="Wilfred Tsen-Yik Chong's LinkedIn Profile"
+                                    >
+                                        <FaLinkedin color="#0077B5" />
+                                        <span className="contact-text">LinkedIn</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.instagram.com/wilc_43?igsh=MWtteTUyOXVxbjlvdg=="
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        aria-label="Wilfred Tsen-Yik Chong's Instagram Profile"
+                                    >
+                                        <FaInstagram color="#bc2a8d" />
+                                        <span className="contact-text">Instagram</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://wa.me/+601121823390"
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        aria-label="Contact CodifyWeb via WhatsApp"
+                                    >
+                                        <FaWhatsapp color="#25D366" />
+                                        <span className="contact-text">WhatsApp</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="mailto:webapp.tc@gmail.com"
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        aria-label="Send an email to CodifyWeb"
+                                    >
+                                        <TbMail color="636363" />
+                                        <span className="contact-text">Email</span>
+                                    </a>
+                                </li>
                             </ul>
                             <h3 className={`slideUpDown-animate ${quotationScanInView ? 'animate' : 'paused'}`} ref={quotationScanRef} style={{ textAlign: "center", fontSize:"3vmin" }}>Scan QR to find Us</h3>
                             <div className={`contact-qr-arrangement ${quotationQRInView ? 'animate' : 'paused'}`} ref={quotationQRRef}>

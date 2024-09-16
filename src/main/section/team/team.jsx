@@ -18,8 +18,8 @@ const teams = [
                 <p>Web Developer</p>
                 {/*<a className="member-portfolio" href="https://wilfredcty.com" target="_blank" rel="noreferrer noopener">Portfolio <FaArrowUpRightDots /></a>*/}
                 <div className="team-member-connect-arrangement">
-                    <a href="https://www.linkedin.com/in/wilfred-tsen-yik-chong-2a37a724b" target="_blank" rel="noreferrer noopener"><FaLinkedin color="#0077B5" /></a>
-                    <a href="mailto:700024165@student.curtin.edu.my" target="_blank" rel="noreferrer noopener"><TbMail color="636363" /></a>
+                    <a href="https://www.linkedin.com/in/wilfred-tsen-yik-chong-2a37a724b" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn CodifyWeb Wilfred Chong"><FaLinkedin color="#0077B5" /></a>
+                    <a href="mailto:700024165@student.curtin.edu.my" target="_blank" rel="noreferrer noopener" aria-label="Send an email to Wilfred Tsen-Yik Chong"><TbMail color="636363" /></a>
                 </div>
             </>
         )
