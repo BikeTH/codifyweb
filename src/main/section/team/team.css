@@ -105,6 +105,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .ITconsult-teams {
+        transform: translateY(0%); /* Ensure element starts in its initial state */
+    }
+
     .ITconsult-teams-arrangement {
         display: grid;
         grid-template-columns: auto; /* Two equal columns for the images */

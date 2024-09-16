@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 32px;
+    gap: 48px;
     margin: 18px;
 }
 
@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    gap: 28px;
 }
 
 .calc-btn{

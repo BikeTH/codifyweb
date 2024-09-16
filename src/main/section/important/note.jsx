@@ -33,7 +33,7 @@ export default function Note() {
             <div className={`note-craft ${craftInView ? 'animate' : 'paused'}`} ref={craftRef}>
                 <h1>Our Products Crafted with</h1>
                 <div>
-                    <p style={{color:"var(--second-color)"}}>Pure Code</p>
+                    <p style={{color:"var(--second-color)"}}>Code</p>
                 </div>
             </div>    
             <div className={`note-why ${whyInView ? 'animate' : 'paused'}`} ref={whyRef}>

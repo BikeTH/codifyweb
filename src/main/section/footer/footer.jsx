@@ -18,7 +18,7 @@ export default function Footer(){
                     <h4 style={{color: 'var(--second-color)', fontWeight:"lighter"}}>We Build <span style={{color:"var(--color)", fontWeight:"600"}}>Functional Websites & Applications</span> tailored to your Business Needs, whether for <span style={{color:"var(--color)", fontWeight:"600"}}>Optimizing Operations</span> or <span style={{color:"var(--color)", fontWeight:"600"}}>Increasing visitor engagement</span>. Our solutions <span style={{color:"var(--color)", fontWeight:"600"}}></span> and deliver practical, <span style={{color:"var(--color)", fontWeight:"600"}}>User-Friendly Tools</span>.</h4>
                 </div>
             </>,
-            color: "var(--warm-neon-red)",
+            color: "var(--warm-neon-orange)",
         },
         {
             id: 2,
@@ -45,7 +45,7 @@ export default function Footer(){
                     <button onClick={() => setShowMsg(true)}>Privacy Policy</button>
                 </div>
             </>,
-            color: "var(--warm-neon-blue)",
+            color: "var(--warm-neon-orange)",
         },
     ]
 
