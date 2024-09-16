@@ -92,6 +92,60 @@
     transform: translateY(-5px); /* Move up by 10px on hover */
 }
 
+@keyframes strokeDashOffsetPartial {
+    from {
+      stroke-dashoffset: 314;
+    }
+    to {
+      stroke-dashoffset: 50;
+    }
+  }
+
+@keyframes strokeDashOffset {
+    from {
+      stroke-dashoffset: 314;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes circleRadius {
+    0% {
+      r: 50;
+    }
+    50% {
+      r: 52;
+    }
+    100% {
+      r: 50;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.circle-animation-partial{
+    animation: strokeDashOffsetPartial 3.5s forwards, circleRadius 3.5s forwards, fadeIn 1s forwards;
+}
+  
+  .circle-animation,
+  .text-animation {
+    animation: strokeDashOffset 3.5s forwards, circleRadius 3.5s forwards, fadeIn 1s forwards;
+  }
+
+.circle-hidden,
+.text-hidden {
+    opacity: 0;
+}
+
+  
 @media screen and (max-width: 768px) {
     .ITconsult-reason-content {
         display: flex;
