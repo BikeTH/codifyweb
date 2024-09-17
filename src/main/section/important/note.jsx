@@ -46,7 +46,7 @@ export default function Note() {
             <div className={`carbonBadge ${carbonInView ? 'animate' : 'paused'}`} ref={carbonRef}>
                 <div className="carbonBadge-arrangement">
                     <div style={{border: "1px solid var(--border)", paddingLeft:"8px", paddingRight:"8px", borderTopLeftRadius:"20px", borderBottomLeftRadius:"20px"}}>
-                        <p style={{fontSize:"1.75vmin"}}>0.04g of CO2/view</p>
+                        <p style={{fontSize:"2vmin"}}>0.04g of CO2/view</p>
                     </div>
                     <div style={{border: "1px solid var(--border)", paddingLeft:"8px", paddingRight:"8px", borderTopRightRadius:"20px", borderBottomRightRadius:"20px"}}>
                     <a 
@@ -55,11 +55,11 @@ export default function Note() {
                         rel="noopener noreferrer"
                         style={{ textDecoration: 'none' }} // This removes the default underline for links
                     >
-                        <p style={{fontSize:"1.75vmin", color:"var(--seo)"}}>Website Carbon</p>
+                        <p style={{fontSize:"2vmin", color:"var(--seo)"}}>Website Carbon</p>
                     </a>
                     </div>
                 </div>
-                <p style={{margin: 0, fontSize:"1.75vmin", color:"var(--second-color)"}}>Cleaner than 96% of pages tested</p>
+                <p style={{margin: 0, fontSize:"2vmin", color:"var(--second-color)"}}>Cleaner than 96% of pages tested</p>
             </div>
             <div className={`note-benefit ${benefitInView ? 'animate' : 'paused'}`} ref={benefitRef}>
                 <h5 style={{color:"var(--second-color)"}}>Make</h5>

@@ -123,7 +123,7 @@ const additionalFunctions = {
     },
     managing: {
         title: "Web Management",
-        description: "Assist in managing your server, content editing, technical issues, etc. Adding new pages, features, etc is NOT included.",
+        description: "Assist in content editing. Adding new pages, features, etc is NOT included.",
         cost: "RM 200 per Month",
         price: 200,
     },

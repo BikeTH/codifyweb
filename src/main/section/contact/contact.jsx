@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './contact.css';
 import quotation from '../../../assets/ITConsult/quotation.webp';
 import { FaLinkedin, FaArrowRight, FaArrowLeft, FaWhatsapp, FaInstagram } from "react-icons/fa6";
@@ -24,6 +24,24 @@ export default function Contact() {
     const [fadeOut, setFadeOut] = useState(false); // New state to handle fade-out
     const [enlargedQR, setEnlargedQR] = useState(null); // State for enlarged QR
     const [qrDescription, setQrDescription] = useState(''); // State for QR description
+    const qrRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (qrRef.current && !qrRef.current.contains(event.target)) {
+                setEnlargedQR(null);
+                setQrDescription('');
+            }
+        };
+
+        if (enlargedQR) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [enlargedQR]);
 
     const handleQrClick = (qrSrc, description) => {
         if (window.matchMedia("(max-width: 768px)").matches) {
@@ -251,7 +269,7 @@ export default function Contact() {
                 )}
                 {enlargedQR && (
                 <div className="qr-enlarged-overlay">
-                    <div className="qr-enlarged-content">
+                    <div className="qr-enlarged-content" ref={qrRef}>
                         <img src={enlargedQR} alt="Enlarged QR" />
                         <p>{qrDescription}</p>
                         <button className="close-btn" onClick={handleCloseQr}><MdCancel /></button>
