@@ -131,7 +131,7 @@ export default function Contact() {
                             <div className="contact-fill-form-arrangement">
                                 <div className="contact-form-header">
                                     <h1 className={`slideDownUp-animate ${quotationContactUsInView ? 'animate' : 'paused'}`} ref={quotationContactUsRef}>Contact Us</h1>
-                                    <p className={`slideUpDown-animate ${quotationContactDescriptionInView ? 'animate' : 'paused'}`} ref={quotationContactDescriptionRef}>Reach Out to Us by filling the <span style={{color:"var(--color)", fontWeight:"600"}}>Form</span></p>
+                                    <p className={`slideUpDown-animate ${quotationContactDescriptionInView ? 'animate' : 'paused'}`} ref={quotationContactDescriptionRef}>Reach Out to Us by filling the Form.</p>
                                 </div>
                                 <form className="contact-fill-form" onSubmit={handleSubmit}>
                                     <label htmlFor="name" className="label-name">Name</label>

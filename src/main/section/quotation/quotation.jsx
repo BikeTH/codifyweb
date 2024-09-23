@@ -760,7 +760,7 @@ const websiteQuestions = [
                         <button className="prev-btn" onClick={() => {ScrollToSection('quotation'),handlePrevious()}}>
                             <FaArrowLeft />
                         </button>
-                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos</p>
+                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previous</p>
                     </div>
                 </div>
             ) : currentStep - (isWebsite ? 2 : 1) >= 0 && !isFinalStep ? (
@@ -775,7 +775,7 @@ const websiteQuestions = [
                         <button className="prev-btn" onClick={() => {ScrollToSection('quotation'),handlePrevious()}}>
                             <FaArrowLeft />
                         </button>
-                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previos</p>
+                        <p style={{fontSize:"1.75vmin", margin:"0"}}>Previous</p>
                     </div>
                 </div>
             ) : null}

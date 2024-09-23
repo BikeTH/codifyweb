@@ -13,13 +13,13 @@ const steps = [
         title: "01 Planning",
         content: (
             <>
-                We start by <span className="highlight">planning the project</span>, gathering <span className="highlight">requirements</span>, and setting up <span className="highlight">timelines</span>.
+                Plan the project, gather requirements and set up a timeline.
             </>
         ),
         icon: <FaRegLightbulb />,
         details: (
             <div>
-                <p>Our discussion can be done through <SiZoom /> <SiGooglemeet /> <span style={{ color: "var(--warm-neon-orange)" }}>Online</span> or <IoLocationOutline /> <span style={{ color: "var(--warm-neon-orange)" }}>Onsite</span></p>
+                <p>Discussion can be conducted through <span style={{ color: "var(--warm-neon-orange)" }}>Online</span> or <span style={{ color: "var(--warm-neon-orange)" }}>Onsite</span></p>
             </div>
         ),
         color: "var(--warm-neon-orange)",
@@ -29,13 +29,13 @@ const steps = [
         title: "02 Design",
         content: (
             <>
-                Our design team creates <span className="highlight">wireframes</span> and <span className="highlight">mockups</span> to <span className="highlight">visualize the project</span>.
+                Create <span className="highlight">wireframes</span> and produce <span className="highlight">mockups</span> to <span className="highlight">visualize the project</span>.
             </>
         ),
         icon: <FaPencilAlt />,
         details: (
             <div>
-                <p>We will be using <span style={{ color: "var(--warm-neon-orange)" }}><IoLogoFigma /> Figma</span> in designing and mockup pages for you to review.</p>
+                <p>Figma will be used in designing and mockup pages for you to review.</p>
             </div>
         ),
         color: "var(--warm-neon-orange)",
@@ -45,13 +45,13 @@ const steps = [
         title: "03 Development",
         content: (
             <>
-                We bring the design to life through <span className="highlight">coding</span> and <span className="highlight">development</span>.
+                Implement design to life via <span className="highlight">coding</span> and <span className="highlight">development</span>.
             </>
         ),
         icon: <FaCode />,
         details: (
             <>
-                <p style={{ textAlign: "center" }}><span style={{ color: "var(--warm-neon-orange)" }}>Tech stack</span> will use</p>
+                <p style={{ textAlign: "center" }}><span style={{ color: "var(--warm-neon-orange)" }}>Tech stack</span> will be applied</p>
                 <div className="development-arrangement">
                     <div className="development-content-arrangement">
                         <h4 style={{ textAlign: "center" }}>Website</h4>
@@ -72,7 +72,7 @@ const steps = [
         title: "04 Testing",
         content: (
             <>
-                We <span className="highlight">rigorously test</span> the project to ensure everything <span className="highlight">works as expected</span>.
+                Evaluate the project to <span className="highlight">guarantee</span> the project runs smoothly <span className="highlight">as expected</span>.
             </>
         ),
         icon: <FaBug />,
@@ -101,14 +101,14 @@ const steps = [
         title: "05 Deployment",
         content: (
             <>
-                Finally, we <span className="highlight">deploy the project</span> to the <span className="highlight">live environment</span>.
+                Launch the project in the <span className="highlight">live environment</span>.
             </>
         ),
         icon: <FaRocket />,
         details: (
             <>
                 <div>
-                    <p><span style={{ color: "var(--warm-neon-orange)" }}>Deploying</span> into <FaDigitalOcean /> <span style={{ color: "var(--warm-neon-orange)" }}>Server</span> and your Order will be <span style={{ color: "var(--warm-neon-orange)" }}>Successfully Delivered</span>, public will be able to access your web or app</p>
+                    <p>Deploy into server and your order will be <span style={{ color: "var(--warm-neon-orange)" }}>Successfully Delivered</span>, public will be able to access your web or app</p>
                 </div>
             </>
         ),

@@ -15,19 +15,19 @@ export default function Footer(){
             content:
             <>
                 <div className="Footer-About">
-                    <h4 style={{color: 'var(--second-color)', fontWeight:"lighter"}}>We Build <span style={{color:"var(--color)", fontWeight:"600"}}>Functional Websites & Applications</span> tailored to your Business Needs, whether for <span style={{color:"var(--color)", fontWeight:"600"}}>Optimizing Operations</span> or <span style={{color:"var(--color)", fontWeight:"600"}}>Increasing visitor engagement</span>. Our solutions <span style={{color:"var(--color)", fontWeight:"600"}}></span> and deliver practical, <span style={{color:"var(--color)", fontWeight:"600"}}>User-Friendly Tools</span>.</h4>
+                    <h4 style={{color: 'var(--second-color)', fontWeight:"lighter"}}>We build <span className="highlight">Functional Websites & Applications</span> tailored to your business beeds, whether for <span className="highlight">Optimizing Operations</span> or <span className="highlight">Increasing visitor engagement</span>. Our solutions <span style={{color:"var(--color)", fontWeight:"600"}}></span> are practical, <span className="highlight">User-Friendly</span> and <span className="highlight">Tailored</span> to meet your needs.</h4>
                 </div>
             </>,
             color: "var(--warm-neon-orange)",
         },
         {
             id: 2,
-            title: "Quick Link",
+            title: "Link",
             content: 
             <>
                 <div className="Footer-Quick-Link-btn">
                     <button onClick={() => ScrollToSection('home')}>Home</button>
-                    <button onClick={() => ScrollToSection('offer')}>Our Products</button>
+                    <button onClick={() => ScrollToSection('offer')}>Our Services</button>
                     <button onClick={() => ScrollToSection('quotation')}>Pricing Plan</button>
                     <button onClick={() => ScrollToSection('faq')}>FaQ</button>
                     <button onClick={() => ScrollToSection('team')}>Our Team</button>
@@ -56,7 +56,7 @@ export default function Footer(){
                     <div className="our-location-arrangement">
                         <h1><BiMapPin /></h1>
                         <div>
-                            <h3>We are located at:</h3>
+                            <h3>Located at:</h3>
                             <p>Malaysia</p>
                         </div>
                     </div>

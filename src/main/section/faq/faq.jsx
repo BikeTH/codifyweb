@@ -47,7 +47,7 @@ const faqs = [
         questions: "How we develop our Project ?",
         answer: (
             <>
-                <p style={{marginBottom:0}}>We done our project in <span style={{color:"var(--color)", fontWeight:"600"}}>Programming</span>, <span style={{color:"var(--color)", fontWeight:"600"}}>Not</span> WordPress, Source Code will be given to you</p>
+                <p style={{marginBottom:0}}>We done our project in <span style={{color:"var(--color)", fontWeight:"600"}}>Programming</span>, not WordPress, Source Code will be given to you</p>
                 <p style={{marginTop:0}}>Everything you see is created mainly by <span style={{color:"var(--color)", fontWeight:"600"}}>React</span> <FaReact style={{color: "var(--warm-neon-blue)"}}/></p>
             </>
         )

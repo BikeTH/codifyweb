@@ -68,7 +68,7 @@ export default function ReasonContent() {
             <div id="ITConsult" className="ITconsult-content">
                 <div className="ITconsult-reason-content">
                     <div className= {`ITconsult-reason-header ${titleInView ? 'animate' : 'paused'}`} ref={titleRef}>
-                        <h1>Elevate Your Business to New Heights</h1>
+                        <h1>Let the World Discover your Business</h1>
                     </div>
                     <div className="ITconsult-reason-support">
                         {
