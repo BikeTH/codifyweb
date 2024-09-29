@@ -19,7 +19,7 @@ const steps = [
         icon: <FaRegLightbulb />,
         details: (
             <div>
-                <p>Discussion can be conducted through <span style={{ color: "var(--warm-neon-orange)" }}>Online</span> or <span style={{ color: "var(--warm-neon-orange)" }}>Onsite</span></p>
+                <p>Discussion can be conducted through <span className="highlight">Online</span> or <span className="highlight">Onsite</span></p>
             </div>
         ),
         color: "var(--warm-neon-orange)",
@@ -51,7 +51,7 @@ const steps = [
         icon: <FaCode />,
         details: (
             <>
-                <p style={{ textAlign: "center" }}><span style={{ color: "var(--warm-neon-orange)" }}>Tech stack</span> will be applied</p>
+                <p style={{ textAlign: "center" }}><span className="highlight">Tech stack</span> will be applied</p>
                 <div className="development-arrangement">
                     <div className="development-content-arrangement">
                         <h4 style={{ textAlign: "center" }}>Website</h4>
@@ -62,7 +62,7 @@ const steps = [
                         <h5 style={{ textAlign: "center" }}><SiExpo /></h5>
                     </div>
                 </div>
-                <p>We always <span style={{ color: "var(--warm-neon-orange)" }}>leveling up</span>!</p>
+                <p>We always <span className="highlight">leveling up</span>!</p>
             </>
         ),
         color: "var(--warm-neon-orange)",
@@ -108,7 +108,7 @@ const steps = [
         details: (
             <>
                 <div>
-                    <p>Deploy into server and your order will be <span style={{ color: "var(--warm-neon-orange)" }}>Successfully Delivered</span>, public will be able to access your web or app</p>
+                    <p>Deploy into server and your order will be <span className="highlight">Successfully Delivered</span>, public will be able to access your web or app</p>
                 </div>
             </>
         ),
